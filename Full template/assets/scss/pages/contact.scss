@@ -1,0 +1,88 @@
+.contact-box {
+    display: $__inline__table;
+    height: $__full__height;
+    position: $__relative;
+    width: $__full__width;
+    @include margin-padding(null, 30px 15px);
+}
+.contact-list {
+    list-style: $__none;
+    width: 96%;
+    @include margin-padding(0, 0);
+    >  li {
+        background-color: $__white;
+        border-bottom: 1px solid $__mild___gray;
+        border-radius: $__inherit;
+        padding: 10px;
+        .contact-cont {
+            position: $__relative;
+            .user-img {
+                display: $__inline__block;
+                position: $__relative;
+                .status {
+                    background-color: $__default__blues;
+                    display: $__inline__block;
+                    border: 2px solid $__white;
+                    height: 10px;
+                    margin: 0;
+                    width: 10px; 
+                    @include rounded(50%);
+                    @include position($__absolute,null,0,0,null);
+                }               
+            }
+            .contact-info {
+                @include margin-padding(null, 0 30px 0 50px);
+                .text-ellipsis {
+                    display: $__block;
+                    max-width: $__full__width;
+                    overflow: $__hidden;
+                    text-overflow: $__ellipsis;
+                    white-space: $__nowrap;
+                }
+                .contact-date {
+                    color: $__dark__gray;
+                    font-size: $__font__size__12;
+                }
+            }
+            .contact-action {
+                height: 30px;
+                list-style: $__none;
+                padding-left: 0;
+                text-align: $__right;
+                width: 30px;
+                @include position($__absolute,10px,0,null,null);
+                .action-icon {
+                    color: $__dark__battle__gary;
+                    font-size: $__font__size__18;
+                    display: $__inline__block;
+                }
+            }
+        }
+    }
+}
+.contact-alphapets {
+    background-color: $__white;
+    border-left: 1px solid $__light__goose;
+    height:$__full__height;
+    overflow: $__hidden;
+    padding-bottom: 114px;
+    width: 50px;
+    @include position($__fixed,114px,0,0,null);
+    .alphapets-inner {
+        height: $__full__height;
+        overflow: $__auto;
+        a {
+            display: $__block;
+            text-align: $__center;
+            @include margin-padding(null, 2px);
+            color: $__gray;
+        }
+    }
+}
+@include respond-below(custom991) {
+    .top-action-left{
+        .btn-group {
+            margin-bottom: 15px;
+        }
+    }
+}
