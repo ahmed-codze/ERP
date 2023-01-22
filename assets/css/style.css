@@ -1651,7 +1651,7 @@ input[type=file].form-control {
   position: relative;
   width: 100%;
 }
-.cal-icon:after {
+/* .cal-icon:after {
   color: #979797;
   content: "\f073";
   display: block;
@@ -1661,7 +1661,7 @@ input[type=file].form-control {
   position: absolute;
   top: 10px;
   left: 15px;
-}
+} */
 
 .material-icons {
   font-family: "Material Icons";
