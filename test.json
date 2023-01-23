@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "management": "اداره الحاسبات و المعلومات",
+        "Department": "web"
+    },
+    {
+        "id": 2,
+        "management": "اداره الحاسبات و المعلومات",
+        "Department": "mobile app"
+    },
+    {
+        "id": 3,
+        "management": "اداره الحاسبات و المعلومات",
+        "Department": "help desk"
+    },
+    {
+        "id": 4,
+        "management": "اداره ماليه",
+        "Department": "الحسابات"
+    },
+    {
+        "id": 5,
+        "management": "اداره البيع",
+        "Department": "خدمه العملاء"
+    },
+    {
+        "id": 6,
+        "management": "اداره الانتاج و التشغيل",
+        "Department": "المخازن"
+    }
+]
