@@ -328,14 +328,14 @@
 					<div class="page-header">
 						<div class="row align-items-center">
 							<div class="col">
-								<h3 class="page-title">Employee</h3>
+								<h3 class="page-title"> الموظفين</h3>
 								<ul class="breadcrumb">
-									<li class="breadcrumb-item"><a href="admin-dashboard.html">Dashboard</a></li>
-									<li class="breadcrumb-item active">Employee</li>
+									<li class="breadcrumb-item"><a href="admin-dashboard.html">لوحة التحكم </a></li>
+									<li class="breadcrumb-item active">الموظفين</li>
 								</ul>
 							</div>
 							<div class="col-auto float-end ms-auto">
-								<a href="#" class="btn add-btn" data-bs-toggle="modal" data-bs-target="#add_employee"><i class="fa fa-plus"></i> Add Employee</a>
+								<a href="#" class="btn add-btn" data-bs-toggle="modal" data-bs-target="#add_employee"><i class="fa fa-plus"></i> اضافة موظف</a>
 								<div class="view-icons">
 									<a href="employees.html" class="grid-view btn btn-link"><i class="fa fa-th"></i></a>
 									<a href="employees-list.html" class="list-view btn btn-link active"><i class="fa fa-bars"></i></a>
@@ -350,29 +350,30 @@
 						<div class="col-sm-6 col-md-3">  
 							<div class="form-group form-focus">
 								<input type="text" class="form-control floating">
-								<label class="focus-label">Employee ID</label>
+								<label class="focus-label"> ID</label>
 							</div>
 						</div>
 						<div class="col-sm-6 col-md-3">  
 							<div class="form-group form-focus">
 								<input type="text" class="form-control floating">
-								<label class="focus-label">Employee Name</label>
+								<label class="focus-label">اسم الموظف</label>
 							</div>
 						</div>
 						<div class="col-sm-6 col-md-3"> 
 							<div class="form-group form-focus select-focus">
 								<select class="select floating"> 
-									<option>Select Designation</option>
-									<option>Web Developer</option>
-									<option>Web Designer</option>
-									<option>Android Developer</option>
-									<option>Ios Developer</option>
+									<option>اختر الادارة</option>
+									<option >موارد بشرية </option>
+									<option value="مبيعات">مبيعات</option>
+									<option value="انتاج وتطوير">انتاج وتطوير</option>
+									<option value="الادارة المالية">الادارة المالية</option>
+									<option value="ادارة التسويق">ادارة التسويق</option>
 								</select>
-								<label class="focus-label">Designation</label>
+								<label class="focus-label">الادارة </label>
 							</div>
 						</div>
 						<div class="col-sm-6 col-md-3">  
-							<a href="#" class="btn btn-success w-100"> Search </a>  
+							<a href="#" class="btn btn-success w-100"> بحث </a>  
 						</div>     
                     </div>
 					<!-- /Search Filter -->
@@ -383,13 +384,13 @@
 								<table class="table table-striped custom-table datatable">
 									<thead>
 										<tr>
-											<th>Name</th>
-											<th>Employee ID</th>
-											<th>Email</th>
-											<th>Mobile</th>
-											<th class="text-nowrap">Join Date</th>
-											<th>Role</th>
-											<th class="text-end no-sort">Action</th>
+											<th>الاسم</th>
+											<th> ID</th>
+											<th>ايميل</th>
+											<th>جوال</th>
+											<th class="text-nowrap">تاريخ الانضمام</th>
+											<th>الوظيقة</th>
+											<th class="text-end no-sort">عمليات</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -397,7 +398,7 @@
 											<td>
 												<h2 class="table-avatar">
 													<a href="profile.html" class="avatar"><img alt="" src="assets/img/profiles/avatar-02.jpg"></a>
-													<a href="profile.html">John Doe <span>Web Designer</span></a>
+													<a href="profile.html">محمد السيد <span>Web Designer</span></a>
 												</h2>
 											</td>
 											<td>FT-0001</td>
@@ -451,7 +452,7 @@
 												<div class="dropdown dropdown-action">
 													<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 													<div class="dropdown-menu dropdown-menu-right">
-														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> حذف</a>
 														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
 													</div>
 												</div>
@@ -483,8 +484,8 @@
 												<div class="dropdown dropdown-action">
 													<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 													<div class="dropdown-menu dropdown-menu-right">
-														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
+														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 													</div>
 												</div>
 											</td>
@@ -502,7 +503,7 @@
 											<td>1 Apr 2014</td>
 											<td>
 												<div class="dropdown">
-													<a href="" class="btn btn-white btn-sm btn-rounded dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Web Developer </a>
+													<a href="" class="btn btn-white btn-sm btn-rounded dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">web developer </a>
 													<div class="dropdown-menu">
 														<a class="dropdown-item" href="#">Software Engineer</a>
 														<a class="dropdown-item" href="#">Software Tester</a>
@@ -515,8 +516,8 @@
 												<div class="dropdown dropdown-action">
 													<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 													<div class="dropdown-menu dropdown-menu-right">
-														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
+														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 													</div>
 												</div>
 											</td>
@@ -547,8 +548,8 @@
 												<div class="dropdown dropdown-action">
 													<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 													<div class="dropdown-menu dropdown-menu-right">
-														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
+														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 													</div>
 												</div>
 											</td>
@@ -579,8 +580,8 @@
 												<div class="dropdown dropdown-action">
 													<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 													<div class="dropdown-menu dropdown-menu-right">
-														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
+														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 													</div>
 												</div>
 											</td>
@@ -611,8 +612,8 @@
 												<div class="dropdown dropdown-action">
 													<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 													<div class="dropdown-menu dropdown-menu-right">
-														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
+														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 													</div>
 												</div>
 											</td>
@@ -630,7 +631,7 @@
 					<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title">Add Employee</h5>
+								<h5 class="modal-title">اضافة موظف</h5>
 								<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
@@ -640,61 +641,61 @@
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label class="col-form-label">First Name <span class="text-danger">*</span></label>
+												<label class="col-form-label">الاسم الأول <span class="text-danger">*</span></label>
 												<input class="form-control" type="text">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label class="col-form-label">Last Name</label>
+												<label class="col-form-label">الاسم الاخير</label>
 												<input class="form-control" type="text">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label class="col-form-label">Username <span class="text-danger">*</span></label>
+												<label class="col-form-label">اسم المستخدم <span class="text-danger">*</span></label>
 												<input class="form-control" type="text">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label class="col-form-label">Email <span class="text-danger">*</span></label>
+												<label class="col-form-label">البريد الالكتروني <span class="text-danger">*</span></label>
 												<input class="form-control" type="email">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label class="col-form-label">Password</label>
+												<label class="col-form-label">كلمة المرور</label>
 												<input class="form-control" type="password">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label class="col-form-label">Confirm Password</label>
+												<label class="col-form-label">تأكيد كلمة المرور</label>
 												<input class="form-control" type="password">
 											</div>
 										</div>
 										<div class="col-sm-6">  
 											<div class="form-group">
-												<label class="col-form-label">Employee ID <span class="text-danger">*</span></label>
+												<label class="col-form-label"> ID <span class="text-danger">*</span></label>
 												<input type="text" class="form-control">
 											</div>
 										</div>
 										<div class="col-sm-6">  
 											<div class="form-group">
-												<label class="col-form-label">Joining Date <span class="text-danger">*</span></label>
+												<label class="col-form-label">تاريخ الانضمام <span class="text-danger">*</span></label>
 												<div class="cal-icon"><input class="form-control datetimepicker" type="text"></div>
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label class="col-form-label">Phone </label>
+												<label class="col-form-label">جوال </label>
 												<input class="form-control" type="text">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label class="col-form-label">Company</label>
+												<label class="col-form-label">شركة</label>
 												<select class="select">
 													<option value="">Global Technologies</option>
 													<option value="1">Delta Infotech</option>
@@ -703,9 +704,9 @@
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
-												<label>Department <span class="text-danger">*</span></label>
+												<label>القسم <span class="text-danger">*</span></label>
 												<select class="select">
-													<option>Select Department</option>
+													<option>اختر القسم</option>
 													<option>Web Development</option>
 													<option>IT Management</option>
 													<option>Marketing</option>
@@ -714,12 +715,14 @@
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
-												<label>Designation <span class="text-danger">*</span></label>
+												<label>الادارة<span class="text-danger">*</span></label>
 												<select class="select">
-													<option>Select Designation</option>
-													<option>Web Designer</option>
-													<option>Web Developer</option>
-													<option>Android Developer</option>
+													<option>اختر الادارة</option>
+													<option >موارد بشرية </option>
+													<option value="مبيعات">مبيعات</option>
+													<option value="انتاج وتطوير">انتاج وتطوير</option>
+													<option value="الادارة المالية">الادارة المالية</option>
+													<option value="ادارة التسويق">ادارة التسويق</option>
 												</select>
 											</div>
 										</div>
@@ -728,18 +731,18 @@
 										<table class="table table-striped custom-table">
 											<thead>
 												<tr>
-													<th>Module Permission</th>
-													<th class="text-center">Read</th>
-													<th class="text-center">Write</th>
-													<th class="text-center">Create</th>
-													<th class="text-center">Delete</th>
-													<th class="text-center">Import</th>
-													<th class="text-center">Export</th>
+													<th>الاذونات</th>
+													<th class="text-center">قراءة</th>
+													<th class="text-center">كتابة</th>
+													<th class="text-center">اضافة</th>
+													<th class="text-center">تعديل</th>
+													<th class="text-center">تصدير</th>
+													<th class="text-center">استيراد</th>
 												</tr>
 											</thead>
 											<tbody>
 												<tr>
-													<td>Holidays</td>
+													<td>الاجازات</td>
 													<td class="text-center">
 														<input checked="" type="checkbox">
 													</td>
@@ -760,7 +763,7 @@
 													</td>
 												</tr>
 												<tr>
-													<td>Leaves</td>
+													<td>الاوراق</td>
 													<td class="text-center">
 														<input checked="" type="checkbox">
 													</td>
@@ -781,7 +784,7 @@
 													</td>
 												</tr>
 												<tr>
-													<td>Clients</td>
+													<td>العميل</td>
 													<td class="text-center">
 														<input checked="" type="checkbox">
 													</td>
@@ -802,7 +805,7 @@
 													</td>
 												</tr>
 												<tr>
-													<td>Projects</td>
+													<td>المشاريع</td>
 													<td class="text-center">
 														<input checked="" type="checkbox">
 													</td>
@@ -823,7 +826,7 @@
 													</td>
 												</tr>
 												<tr>
-													<td>Tasks</td>
+													<td>مهام</td>
 													<td class="text-center">
 														<input checked="" type="checkbox">
 													</td>
@@ -844,7 +847,7 @@
 													</td>
 												</tr>
 												<tr>
-													<td>Chats</td>
+													<td>دردشات</td>
 													<td class="text-center">
 														<input checked="" type="checkbox">
 													</td>
@@ -886,7 +889,7 @@
 													</td>
 												</tr>
 												<tr>
-													<td>Timing Sheets</td>
+													<td>اوراق التوقيت</td>
 													<td class="text-center">
 														<input checked="" type="checkbox">
 													</td>
@@ -910,7 +913,7 @@
 										</table>
 									</div>
 									<div class="submit-section">
-										<button class="btn btn-primary submit-btn">Submit</button>
+										<button class="btn btn-primary submit-btn">تأكيد</button>
 									</div>
 								</form>
 							</div>
@@ -924,7 +927,7 @@
 					<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title">Edit Employee</h5>
+								<h5 class="modal-title">تعديل الموظف </h5>
 								<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
@@ -934,61 +937,61 @@
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label class="col-form-label">First Name <span class="text-danger">*</span></label>
+												<label class="col-form-label">الاسم الاول <span class="text-danger">*</span></label>
 												<input class="form-control" value="John" type="text">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label class="col-form-label">Last Name</label>
+												<label class="col-form-label">الاسم الاخير</label>
 												<input class="form-control" value="Doe" type="text">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label class="col-form-label">Username <span class="text-danger">*</span></label>
+												<label class="col-form-label">اسم المستخدم <span class="text-danger">*</span></label>
 												<input class="form-control" value="johndoe" type="text">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label class="col-form-label">Email <span class="text-danger">*</span></label>
+												<label class="col-form-label">البريد الالكتروني<span class="text-danger">*</span></label>
 												<input class="form-control" value="johndoe@example.com" type="email">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label class="col-form-label">Password</label>
+												<label class="col-form-label">كلمة المرور</label>
 												<input class="form-control" value="johndoe" type="password">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label class="col-form-label">Confirm Password</label>
+												<label class="col-form-label">تأكيد كلمة المرور </label>
 												<input class="form-control" value="johndoe" type="password">
 											</div>
 										</div>
 										<div class="col-sm-6">  
 											<div class="form-group">
-												<label class="col-form-label">Employee ID <span class="text-danger">*</span></label>
+												<label class="col-form-label"> ID <span class="text-danger">*</span></label>
 												<input type="text" value="FT-0001" readonly class="form-control floating">
 											</div>
 										</div>
 										<div class="col-sm-6">  
 											<div class="form-group">
-												<label class="col-form-label">Joining Date <span class="text-danger">*</span></label>
+												<label class="col-form-label">تاريخ الانضمام <span class="text-danger">*</span></label>
 												<div class="cal-icon"><input class="form-control datetimepicker" type="text"></div>
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label class="col-form-label">Phone </label>
+												<label class="col-form-label">جوال </label>
 												<input class="form-control" value="9876543210" type="text">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label class="col-form-label">Company</label>
+												<label class="col-form-label">شركة</label>
 												<select class="select">
 													<option>Global Technologies</option>
 													<option>Delta Infotech</option>
@@ -998,9 +1001,9 @@
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
-												<label>Department <span class="text-danger">*</span></label>
+												<label>قسم <span class="text-danger">*</span></label>
 												<select class="select">
-													<option>Select Department</option>
+													<option>اختر قسم</option>
 													<option>Web Development</option>
 													<option>IT Management</option>
 													<option>Marketing</option>
@@ -1009,12 +1012,14 @@
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
-												<label>Designation <span class="text-danger">*</span></label>
+												<label>الادارة<span class="text-danger">*</span></label>
 												<select class="select">
-													<option>Select Designation</option>
-													<option>Web Designer</option>
-													<option>Web Developer</option>
-													<option>Android Developer</option>
+													<option   >اختر الادارة </option>
+													<option >موارد بشرية </option>
+													<option value="مبيعات">مبيعات</option>
+													<option value="انتاج وتطوير">انتاج وتطوير</option>
+													<option value="الادارة المالية">الادارة المالية</option>
+													<option value="ادارة التسويق">ادارة التسويق</option>
 												</select>
 											</div>
 										</div>
@@ -1023,18 +1028,18 @@
 										<table class="table table-striped custom-table">
 											<thead>
 												<tr>
-													<th>Module Permission</th>
-													<th class="text-center">Read</th>
-													<th class="text-center">Write</th>
-													<th class="text-center">Create</th>
-													<th class="text-center">Delete</th>
-													<th class="text-center">Import</th>
-													<th class="text-center">Export</th>
+													<th>الاذونات</th>
+													<th class="text-center">قراءة</th>
+													<th class="text-center">كتابة</th>
+													<th class="text-center">اضافة</th>
+													<th class="text-center">تعديل</th>
+													<th class="text-center">تصدير</th>
+													<th class="text-center">استيراد</th>
 												</tr>
 											</thead>
 											<tbody>
 												<tr>
-													<td>Holidays</td>
+													<td>الاجازات</td>
 													<td class="text-center">
 														<input checked="" type="checkbox">
 													</td>
@@ -1055,7 +1060,7 @@
 													</td>
 												</tr>
 												<tr>
-													<td>Leaves</td>
+													<td>اوراق</td>
 													<td class="text-center">
 														<input checked="" type="checkbox">
 													</td>
@@ -1076,7 +1081,7 @@
 													</td>
 												</tr>
 												<tr>
-													<td>Clients</td>
+													<td>عملاء</td>
 													<td class="text-center">
 														<input checked="" type="checkbox">
 													</td>
@@ -1097,7 +1102,7 @@
 													</td>
 												</tr>
 												<tr>
-													<td>Projects</td>
+													<td>مشاريع</td>
 													<td class="text-center">
 														<input checked="" type="checkbox">
 													</td>
@@ -1118,7 +1123,7 @@
 													</td>
 												</tr>
 												<tr>
-													<td>Tasks</td>
+													<td>مهام</td>
 													<td class="text-center">
 														<input checked="" type="checkbox">
 													</td>
@@ -1139,7 +1144,7 @@
 													</td>
 												</tr>
 												<tr>
-													<td>Chats</td>
+													<td>دردشات</td>
 													<td class="text-center">
 														<input checked="" type="checkbox">
 													</td>
@@ -1205,7 +1210,7 @@
 										</table>
 									</div>
 									<div class="submit-section">
-										<button class="btn btn-primary submit-btn">Save</button>
+										<button class="btn btn-primary submit-btn">تأكيد</button>
 									</div>
 								</form>
 							</div>
@@ -1220,16 +1225,16 @@
 						<div class="modal-content">
 							<div class="modal-body">
 								<div class="form-header">
-									<h3>Delete Employee</h3>
-									<p>Are you sure want to delete?</p>
+									<h3>حذف الموظف</h3>
+									<p>هل انت متأكد من الحذف ؟</p>
 								</div>
 								<div class="modal-btn delete-action">
 									<div class="row">
 										<div class="col-6">
-											<a href="javascript:void(0);" class="btn btn-primary continue-btn">Delete</a>
+											<a href="javascript:void(0);" class="btn btn-primary continue-btn">حذف</a>
 										</div>
 										<div class="col-6">
-											<a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>
+											<a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary cancel-btn">الغاء</a>
 										</div>
 									</div>
 								</div>

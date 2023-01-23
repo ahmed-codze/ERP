@@ -851,7 +851,7 @@
 											<th class="">عمليات</th>
 										</tr>
 									</thead>
-									<tbody class="depatments-table">
+									<tbody id="tbody" class="depatments-table">
 
 									</tbody>
 								</table>
@@ -875,21 +875,21 @@
 								<form>
 									<div class="form-group">
 										<label> اسم القسم <span class="text-danger">*</span></label>
-										<input class="form-control" type="text">
+										<input  id="DepartName" class="form-control" type="text">
 									</div>
 									<div class="form-group">
 										<label>الادارة<span class="text-danger">*</span></label>
-										<select class="form-select">
-											<option >اختر الادارة </option>
-											<option>موارد بشرية </option>
-											<option>مبيعات</option>
-											<option>انتاج وتطوير</option>
-											<option value="">الادارة المالية</option>
-											<option value="">ادارة التسويق</option>
+										<select id="selectDepart"  class="form-select">
+											<option   >اختر الادارة </option>
+											<option >موارد بشرية </option>
+											<option value="مبيعات">مبيعات</option>
+											<option value="انتاج وتطوير">انتاج وتطوير</option>
+											<option value="الادارة المالية">الادارة المالية</option>
+											<option value="ادارة التسويق">ادارة التسويق</option>
 										</select>
 									</div>
 									<div class="submit-section">
-										<button class="btn btn-primary submit-btn">حفظ</button>
+										<button id="AddSubmit" class="btn btn-primary submit-btn">حفظ</button>
 									</div>
 								</form>
 							</div>
@@ -915,7 +915,7 @@
 										<input class="form-control" value="موارد بشرية" type="text">
 									</div>
 									<div class="submit-section">
-										<button class="btn btn-primary submit-btn">حفظ</button>
+										<button onclick="updateDepartment()" class="btn btn-primary submit-btn">حفظ</button>
 									</div>
 								</form>
 							</div>
@@ -1322,7 +1322,9 @@
 		<script src="assets/js/greedynav.js"></script>
 		<!-- Custom JS -->
 		<script src="assets/js/app.js"></script>
-
+		<!-- my js file -->
+		
+		<script src="assets/js/myScript.js"></script>
 		<script>
 
 			// add active class to navbar 
@@ -1353,8 +1355,11 @@
 						`);
 							}		
 					});
-					
 
+					$("form").submit(function(e){
+       				 e.preventDefault(); });
+					
+				
 
 		</script>
 		
