@@ -40,6 +40,10 @@
             * {
                 font-family: 'IBM Plex Sans Arabic', sans-serif;
             }
+			.week_holiday td
+			{
+				padding: 15px;
+			}
         </style>
         
     </head>
@@ -359,19 +363,19 @@
 												<th>#</th>
 												<th>اليوم </th>
 												
-												<th class="text-end">Action</th>
+												<th class="">Action</th>
 											</tr>
 										</thead>
-										<tbody>
+										<tbody class="week_holiday">
 											<tr class="holiday-completed">
 												<td>1</td>
 												<td>السبت</td>
-												<td class="text-end">
+												<td class="">
 													<div class="dropdown dropdown-action">
 														<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 														<div class="dropdown-menu dropdown-menu-right">
 															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 														</div>
 													</div>
 												</td>
@@ -380,12 +384,12 @@
 												<td>2</td>
 												
 												<td>الجمعة</td>
-												<td class="text-end">
+												<td class="">
 													<div class="dropdown dropdown-action">
 														<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 														<div class="dropdown-menu dropdown-menu-right">
 															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 														</div>
 													</div>
 												</td>											</tr>
@@ -422,10 +426,10 @@
 										<thead>
 											<tr>
 												<th>#</th>
-												<th>Title </th>
-												<th>Holiday Date</th>
-												<th>Day</th>
-												<th class="text-end">Action</th>
+												<th>الاسم </th>
+												<th>التاريخ</th>
+												<th>اليوم/th>
+												<th class="">عمليات</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -471,12 +475,12 @@
 												<td>Bakrid</td>
 												<td>2 Sep 2019</td>
 												<td>Saturday</td>
-												<td class="text-end">
+												<td class="">
 													<div class="dropdown dropdown-action">
 														<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 														<div class="dropdown-menu dropdown-menu-right">
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 														</div>
 													</div>
 												</td>
@@ -486,12 +490,12 @@
 												<td>Deepavali</td>
 												<td>18 Oct 2019</td>
 												<td>Wednesday</td>
-												<td class="text-end">
+												<td class="">
 													<div class="dropdown dropdown-action">
 														<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 														<div class="dropdown-menu dropdown-menu-right">
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 														</div>
 													</div>
 												</td>
@@ -501,12 +505,12 @@
 												<td>Christmas</td>
 												<td>25 Dec 2019</td>
 												<td>Monday</td>
-												<td class="text-end">
+												<td class="">
 													<div class="dropdown dropdown-action">
 														<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 														<div class="dropdown-menu dropdown-menu-right">
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 														</div>
 													</div>
 												</td>
@@ -541,10 +545,10 @@
 										<thead>
 											<tr>
 												<th>#</th>
-												<th>Title </th>
-												<th>Holiday Date</th>
-												<th>Day</th>
-												<th class="text-end">Action</th>
+												<th>الاسم </th>
+												<th>التاريخ</th>
+												<th>اليوم</th>
+												<th class="">عمليات</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -553,12 +557,12 @@
 												<td>New Year</td>
 												<td>1 Jan 2019</td>
 												<td>Sunday</td>
-												<td class="text-end">
+												<td class="">
 													<div class="dropdown dropdown-action">
 														<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 														<div class="dropdown-menu dropdown-menu-right">
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 														</div>
 													</div>
 												</td>
@@ -568,12 +572,12 @@
 												<td>Good Friday</td>
 												<td>14 Apr 2019</td>
 												<td>Friday</td>
-												<td class="text-end">
+												<td class="">
 													<div class="dropdown dropdown-action">
 														<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 														<div class="dropdown-menu dropdown-menu-right">
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 														</div>
 													</div>
 												</td> 
@@ -583,12 +587,12 @@
 												<td>May Day</td>
 												<td>1 May 2019</td>
 												<td>Monday</td>
-												<td class="text-end">
+												<td class="">
 													<div class="dropdown dropdown-action">
 														<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 														<div class="dropdown-menu dropdown-menu-right">
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i>تعديل</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 														</div>
 													</div>
 												</td>											
@@ -598,12 +602,12 @@
 												<td>Memorial Day</td>
 												<td>28 May 2019</td>
 												<td>Monday</td>
-												<td class="text-end">
+												<td class="">
 													<div class="dropdown dropdown-action">
 														<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 														<div class="dropdown-menu dropdown-menu-right">
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 														</div>
 													</div>
 												</td>
@@ -613,12 +617,12 @@
 												<td>Ramzon</td>
 												<td>26 Jun 2019</td>
 												<td>Monday</td>
-												<td class="text-end">
+												<td class="">
 													<div class="dropdown dropdown-action">
 														<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 														<div class="dropdown-menu dropdown-menu-right">
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 														</div>
 													</div>
 												</td>											
@@ -628,12 +632,12 @@
 												<td>Bakrid</td>
 												<td>2 Sep 2019</td>
 												<td>Saturday</td>
-																								<td class="text-end">
+																								<td class="">
 													<div class="dropdown dropdown-action">
 														<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 														<div class="dropdown-menu dropdown-menu-right">
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 														</div>
 													</div>
 												</td>
@@ -643,12 +647,12 @@
 												<td>Deepavali</td>
 												<td>18 Oct 2019</td>
 												<td>Wednesday</td>
-												<td class="text-end">
+												<td class="">
 													<div class="dropdown dropdown-action">
 														<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 														<div class="dropdown-menu dropdown-menu-right">
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> </a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 														</div>
 													</div>
 												</td>
@@ -658,12 +662,12 @@
 												<td>Christmas</td>
 												<td>25 Dec 2019</td>
 												<td>Monday</td>
-												<td class="text-end">
+												<td class="">
 													<div class="dropdown dropdown-action">
 														<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 														<div class="dropdown-menu dropdown-menu-right">
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> </a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 														</div>
 													</div>
 												</td>
@@ -674,109 +678,11 @@
 							</div>
 						</div>
 					</div>
-					<!-- yearly_holiday -->
+					<!-- / yearly_holiday -->
 
-					<!-- <div class="row">
-						<div class="col-md-12">
-							<div class="table-responsive">
-								<table class="table table-striped custom-table mb-0">
-									<thead>
-										<tr>
-											<th>#</th>
-											<th>Title </th>
-											<th>Holiday Date</th>
-											<th>Day</th>
-											<th class="text-end">Action</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr class="holiday-completed">
-											<td>1</td>
-											<td>New Year</td>
-											<td>1 Jan 2019</td>
-											<td>Sunday</td>
-											<td></td>
-										</tr>
-										<tr class="holiday-completed">
-											<td>2</td>
-											<td>Good Friday</td>
-											<td>14 Apr 2019</td>
-											<td>Friday</td>
-											<td></td>
-										</tr>
-										<tr class="holiday-completed">
-											<td>3</td>
-											<td>May Day</td>
-											<td>1 May 2019</td>
-											<td>Monday</td>
-											<td class="text-center">
-											</td>
-										</tr>
-										<tr class="holiday-completed">
-											<td>4</td>
-											<td>Memorial Day</td>
-											<td>28 May 2019</td>
-											<td>Monday</td>
-											<td class="text-center">
-											</td>
-										</tr>
-										<tr class="holiday-completed">
-											<td>5</td>
-											<td>Ramzon</td>
-											<td>26 Jun 2019</td>
-											<td>Monday</td>
-											<td></td>
-										</tr>
-										<tr class="holiday-upcoming">
-											<td>6</td>
-											<td>Bakrid</td>
-											<td>2 Sep 2019</td>
-											<td>Saturday</td>
-											<td class="text-end">
-												<div class="dropdown dropdown-action">
-													<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-													<div class="dropdown-menu dropdown-menu-right">
-														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-													</div>
-												</div>
-											</td>
-										</tr>
-										<tr class="holiday-upcoming">
-											<td>7</td>
-											<td>Deepavali</td>
-											<td>18 Oct 2019</td>
-											<td>Wednesday</td>
-											<td class="text-end">
-												<div class="dropdown dropdown-action">
-													<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-													<div class="dropdown-menu dropdown-menu-right">
-														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-													</div>
-												</div>
-											</td>
-										</tr>
-										<tr class="holiday-upcoming">
-											<td>8</td>
-											<td>Christmas</td>
-											<td>25 Dec 2019</td>
-											<td>Monday</td>
-											<td class="text-end">
-												<div class="dropdown dropdown-action">
-													<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-													<div class="dropdown-menu dropdown-menu-right">
-														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-													</div>
-												</div>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div> -->
+					
+						
+					</div> 
                 </div>
 				<!-- /Page Content -->
 				<!-- Add weekly holiday modal -->
@@ -809,7 +715,7 @@
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title">Add Holiday</h5>
+								<h5 class="modal-title">اضافه الأجازة</h5>
 								<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
@@ -870,16 +776,16 @@
 						<div class="modal-content">
 							<div class="modal-body">
 								<div class="form-header">
-									<h3>Delete Holiday</h3>
-									<p>Are you sure want to delete?</p>
+									<h3>حذف الأجازة</h3>
+									<p>هل انت متأكد من الحذف؟</p>
 								</div>
 								<div class="modal-btn delete-action">
 									<div class="row">
 										<div class="col-6">
-											<a href="javascript:void(0);" class="btn btn-primary continue-btn">Delete</a>
+											<a href="javascript:void(0);" class="btn btn-primary continue-btn">حذف</a>
 										</div>
 										<div class="col-6">
-											<a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>
+											<a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary cancel-btn">الغاء</a>
 										</div>
 									</div>
 								</div>
