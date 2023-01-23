@@ -1320,11 +1320,11 @@
 
 			$.getJSON("http://seifeldeen.pythonanywhere.com/hr/departments/", function (data) {
 
-				for (var i in data) {
+				for (var i = 0; i < data.length; i++) {
 						
-						$('.depatments-table').prepend(`
+						$('.depatments-table').append(`
 						<tr>
-											<td>1</td>
+											<td>${i + 1}</td>
 											<td>${data[i].Department}</td>
 											<td>${data[i].management}</td>
 											<td class="">
