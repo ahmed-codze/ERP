@@ -868,20 +868,20 @@
 								</button>
 							</div>
 							<div class="modal-body">
-								<form>
+								<form action="javacript:void(0)">
 									<div class="form-group">
 										<label>اسم الوظيفة <span class="text-danger">*</span></label>
-										<input class="form-control" type="text">
+										<input class="form-control add-job-input" type="text">
 									</div>
 
 									<div class="form-group">
 										<label>القسم <span class="text-danger">*</span></label>
-										<select class="select departments-options">
+										<select class="select departments-options ">
 
 										</select>
 									</div>
 									<div class="submit-section">
-										<button class="btn btn-primary submit-btn">Submit</button>
+										<button data-bs-dismiss="modal" class="btn btn-primary add-new-job-btn submit-btn cancel-btn">اضافة</button>
 									</div>
 								</form>
 							</div>
@@ -901,32 +901,20 @@
 								</button>
 							</div>
 							<div class="modal-body">
-								<form>
+								<form action="javascript:void(0)">
 									<div class="form-group">
 										<label>اسم الوظيفة <span class="text-danger">*</span></label>
-										<input class="form-control" value="Web Developer" type="text">
+										<input class="form-control edit-designation-input" value="Web Developer" type="text">
 									</div>
-									<div class="form-group">
-										<label>الادارة <span class="text-danger">*</span></label>
-										<select class="select">
-											<option>التسويق</option>
-											<option>الموارد البشرية</option>
-											<option>المالية</option>
-											<option>البيع</option>
-											<option>الانتاج والتشغيل</option>
-										</select>
-									</div>
+
 									<div class="form-group">
 										<label>القسم <span class="text-danger">*</span></label>
-										<select class="select">
-											<option >اختار القسم</option>
-											<option>تطوير المواقع</option>
-											<option>تكنولوجيا المعلومات</option>
-											<option> 	تسويق</option>
+										<select class="select edit-department-select-list">
+											
 										</select>
 									</div>
 									<div class="submit-section">
-										<button class="btn btn-primary submit-btn">حفظ</button>
+										<button data-bs-dismiss="modal" class="btn btn-primary send-edit-btn cancel-btn submit-btn">تعديل</button>
 									</div>
 								</form>
 							</div>
@@ -947,7 +935,7 @@
 								<div class="modal-btn delete-action">
 									<div class="row">
 										<div class="col-6">
-											<a href="javascript:void(0);" class="btn btn-primary continue-btn">حذف</a>
+											<a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary delete-job-btn cancel-btn">حذف</a>
 										</div>
 										<div class="col-6">
 											<a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary cancel-btn">الغاء</a>
@@ -1325,18 +1313,49 @@
 		
 		<!-- Datatable JS -->
 		<script src="assets/js/jquery.dataTables.min.js"></script>
-		
-		 <!-- Theme Settings JS -->
-		<script src="assets/js/layout.js"></script>
-		<script src="assets/js/theme-settings.js"></script>
-		<script src="assets/js/greedynav.js"></script>
-		<!-- Custom JS -->
-		<script src="assets/js/app.js"></script>
+
 
 		<script>
 			// add active class to nav link 
 	
 			$('a:contains("الوظائف")').addClass('active');
+
+				// edit designation 
+				function editDesignation () {
+
+					$(".edit-designation").click( function () {
+						$('.edit-designation-input').attr('data-id' ,$(this).data("id")).val($(this).parentsUntil('tr').siblings('.job-td').text());
+						$(".edit-department-select-list option[value='"+ $(this).parentsUntil('tr').siblings('.department-td').text() +"']").attr("selected", true);
+					})
+					
+				}
+
+
+				// send edit designation data 
+
+				$('.send-edit-btn').click(function () {
+					$.post('ppp', {
+						id : $('.edit-designation-input').data('id'),
+						JobTitle : $('.edit-designation-input').val(),
+						Department : $(".edit-department-select-list option:selected").data('id')
+					})
+				})
+
+				// add new designation 
+
+				$('.add-new-job-btn').click(function () {
+					$JobTitlevar 	= $('.add-job-input').val();
+					$Departmentvar = $('.departments-options option:selected').data('id');
+
+						$.post('http://seifeldeen.pythonanywhere.com/hr/add-job/', {
+							JobTitle : $JobTitlevar,
+							Department : $Departmentvar
+						})
+
+						location.reload();
+					
+				})
+
 
 
 						// get designations data 
@@ -1348,38 +1367,52 @@
 								$('.designations-table').append(`
 								<tr data-id=${data[i].id} >
 													<td>${i + 1}</td>
-													<td>${data[i].JobTitle}</td>
-													<td>${data[i].Department.Department}</td>
+													<td class="job-td">${data[i].JobTitle}</td>
+													<td class="department-td">${data[i].Department.Department}</td>
 													<td>${data[i].Department.management}</td>
-													<td class="">
+													<td class="action-td">
 														<div class="dropdown dropdown-action">
 															<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 														<div class="dropdown-menu dropdown-menu-right">
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_designation"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
+															<a class="dropdown-item edit-designation" data-id=${data[i].id} href="#" data-bs-toggle="modal" data-bs-target="#edit_designation"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
 															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_designation"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 														</div>
 														</div>
 													</td>
 												</tr>
 								`);
-									}		
+									}	
+									
+									editDesignation();
 							});
 
 
-					// get departments to add new job 
+							
+							$.getJSON("http://seifeldeen.pythonanywhere.com/hr/departments/", function (data) {
+								
+								for (var i = 0; i < data.length; i++) {
+									
+									// get departments to add new job 
+									$('.departments-options').append(`
+										<option value="${data[i].Department}" data-id=${data[i].Department.id} >${data[i].Department}</option>
+									`);
+									$('.edit-department-select-list').append(`
+										<option value="${data[i].Department}" data-id=${data[i].Department.id} >${data[i].Department}</option>
+									`);
+					}
+				});
 
-					$.getJSON("http://seifeldeen.pythonanywhere.com/hr/departments/", function (data) {
 
-				for (var i = 0; i < data.length; i++) {
-						
-						$('.departments-options').append(`
-							<option>${data[i].Department}</option>
-						`);
-			}		
-	});
+
 
 
 		</script>
-
+		
+		 <!-- Theme Settings JS -->
+		 <script src="assets/js/layout.js"></script>
+		 <script src="assets/js/theme-settings.js"></script>
+		 <script src="assets/js/greedynav.js"></script>
+		 <!-- Custom JS -->
+		 <script src="assets/js/app.js"></script>
     </body>
 </html>
