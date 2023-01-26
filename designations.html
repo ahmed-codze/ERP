@@ -1334,7 +1334,7 @@
 				// send edit designation data 
 
 				$('.send-edit-btn').click(function () {
-					$.post('ppp', {
+					$.post('http://seifeldeen.pythonanywhere.com/hr/edit-job/', {
 						id : $('.edit-designation-input').data('id'),
 						JobTitle : $('.edit-designation-input').val(),
 						Department : $(".edit-department-select-list option:selected").data('id')

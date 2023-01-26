@@ -879,13 +879,7 @@
 									</div>
 									<div class="form-group">
 										<label>الادارة<span class="text-danger">*</span></label>
-										<select id="selectDepart"  class="form-select">
-											<option   >اختر الادارة </option>
-											<option >موارد بشرية </option>
-											<option value="مبيعات">مبيعات</option>
-											<option value="انتاج وتطوير">انتاج وتطوير</option>
-											<option value="الادارة المالية">الادارة المالية</option>
-											<option value="ادارة التسويق">ادارة التسويق</option>
+										<select id="selectDepart"  class="  form-select">
 										</select>
 									</div>
 									<div class="submit-section">
@@ -912,10 +906,15 @@
 								<form>
 									<div class="form-group">
 										<label>اسم القسم <span class="text-danger">*</span></label>
-										<input class="form-control" value="موارد بشرية" type="text">
+										<input class="form-control" id="depart_name_input" type="text">
 									</div>
+									<div class="form-group">
+										<label>الادارة<span class="text-danger">*</span></label>
+										<select id="edit_depart"  class="form-select"></select>
+									</div>
+
 									<div class="submit-section">
-										<button onclick="updateDepartment()" class="btn btn-primary submit-btn">حفظ</button>
+										<button  class="btn btn-primary submit-btn depart_submit">حفظ</button>
 									</div>
 								</form>
 							</div>
@@ -939,7 +938,7 @@
 											<a href="javascript:void(0);" class="btn btn-primary continue-btn">حذف</a>
 										</div>
 										<div class="col-6">
-											<a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary cancel-btn">حذف</a>
+											<a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary cancel-btn">الغاء</a>
 										</div>
 									</div>
 								</div>
@@ -1322,42 +1321,118 @@
 		<script src="assets/js/greedynav.js"></script>
 		<!-- Custom JS -->
 		<script src="assets/js/app.js"></script>
-		<!-- my js file -->
 		
+		<!-- my js file -->
 		<script src="assets/js/myScript.js"></script>
 		<script>
-
+			
 			// add active class to navbar 
 
-			$('a:contains("الأقسام")').addClass('active');
+			$('a:contains("الأقسام")').addClass('active')				
+				
+				// edit department
+				function editDepartment()
+				{
+					// console.log('hello');
 
-			// get depatments data 
+					$("#edit_department").click( function () {
+						$('#depart_name_input').attr('data-id' ,$(this).data("id")).val($(this).parentsUntil('tr').siblings('.depart_data').text());
+						$("#edit_depart option[value='"+ $(this).parentsUntil('tr').siblings('.mangement_data').text() +"']").attr("selected", true);
 
-			$.getJSON("http://seifeldeen.pythonanywhere.com/hr/departments/", function (data) {
+					})
+					console.log($(this).data("id"));
 
-				for (var i = 0; i < data.length; i++) {
+				}
+				
+				$('.depart_submit').click(function () {
+					$.post('http://seifeldeen.pythonanywhere.com/hr/add-department/', {
+						id : $('#depart_name_input').data('id'),
+						Department : $('#depart_name_input').val(),
+						management : $("#edit_depart option:selected").val()
+					})
+				})
+				
+				$.getJSON("http://seifeldeen.pythonanywhere.com/hr/departments/",function(data)
+				{		
+					
+					// GET DATA ON TABLE
+					for (var i = 0; i < data.length; i++) {
+							
+								
+								$('.depatments-table').append(`
+								<tr id="${data[i].id}">
+													<td>${i + 1}</td>
+													<td class="depart_data">${data[i].Department}</td>
+													<td class="mangement_data">${data[i].management}</td>
+													<td class="">
+													<div class="dropdown dropdown-action">
+															<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+														<div class="dropdown-menu dropdown-menu-right">
+															<a class="dropdown-item edit_department " onclick="editDepartment(${data[i].id})" href="#"  data-id=${data[i].id} data-bs-toggle="modal" data-bs-target="#edit_department"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
+															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_department"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
+														</div>
+														</div>
+													</td>
+												</tr>
+												
+								`);
+								console.log(data[i].id)
+									}		
+					 
+							editDepartment();
+					
+						});
+				
+				$.getJSON("http://seifeldeen.pythonanywhere.com/hr/available-managments/",function(data)
+					//get mangement to add department
+					{
+
+						for(var i=0;i<data.length;i++)
+						{
+
+							$('#selectDepart').append(`<option value="${data[i].id}" data-id=${data[i].management.id} >${data[i].management}</option>`);
+							$('#edit_depart').append(`<option value="${data[i].id}" data-id=${data[i].management.id} >${data[i].management}</option>`);
+						}	
+					
+					
+					}
+			
+				
+				
+				
+				
+				);
+			
+				
+			
+					// add new depatments  				
+					$('#AddSubmit').click(function () 
+					{
+						$DepatmentName 	= $('#DepartName').val();
+						$MangementName = $('#selectDepart option:selected').val();
+						console.log($MangementName);
+						console.log($DepatmentName);
+						$.post('http://seifeldeen.pythonanywhere.com/hr/add-department/', 
+						{
+							Department :$DepatmentName,
+							management:$MangementName,
+						});
 						
-						$('.depatments-table').append(`
-						<tr id="${data[i].id}">
-											<td>${i + 1}</td>
-											<td>${data[i].Department}</td>
-											<td>${data[i].management}</td>
-											<td class="">
-                                            <div class="dropdown dropdown-action">
-													<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_department"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
-                                                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_department"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
-                                                </div>
-												</div>
-											</td>
-										</tr>
-						`);
-							}		
+						location.reload();
+					console.log($MangementName)
+						
 					});
 
-					$("form").submit(function(e){
-       				 e.preventDefault(); });
+
+					
+				
+			
+
+			$("form").submit(function(e){
+    			e.preventDefault();
+				});	
+			
+		
 					
 				
 
