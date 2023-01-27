@@ -1333,17 +1333,13 @@
 				// edit department
 				function editDepartment()
 				{
-					// console.log('hello');
-
-					$("#edit_department").click( function () {
+					$(".edit_department").click( function () {
 						$('#depart_name_input').attr('data-id' ,$(this).data("id")).val($(this).parentsUntil('tr').siblings('.depart_data').text());
-						$("#edit_depart option[value='"+ $(this).parentsUntil('tr').siblings('.mangement_data').text() +"']").attr("selected", true);
-
+						$("#edit_depart option[value='"+ $(this).parentsUntil('tr').siblings('.mangement_data').data('managemant_id') +"']").attr("selected", true);
+						console.log($(this).parentsUntil('tr').siblings('.mangement_data').data('managemant_id'));
 					})
-					console.log($(this).data("id"));
-
+					
 				}
-				
 				$('.depart_submit').click(function () {
 					$.post('http://seifeldeen.pythonanywhere.com/hr/add-department/', {
 						id : $('#depart_name_input').data('id'),
@@ -1363,12 +1359,12 @@
 								<tr id="${data[i].id}">
 													<td>${i + 1}</td>
 													<td class="depart_data">${data[i].Department}</td>
-													<td class="mangement_data">${data[i].management}</td>
+													<td class="mangement_data" data-managemant_id="${data[i].id}" >${data[i].management}</td>
 													<td class="">
 													<div class="dropdown dropdown-action">
 															<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 														<div class="dropdown-menu dropdown-menu-right">
-															<a class="dropdown-item edit_department " onclick="editDepartment(${data[i].id})" href="#"  data-id=${data[i].id} data-bs-toggle="modal" data-bs-target="#edit_department"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
+															<a class="dropdown-item edit_department " href="#"  data-id=${data[i].id} data-bs-toggle="modal" data-bs-target="#edit_department"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
 															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_department"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 														</div>
 														</div>
@@ -1376,7 +1372,6 @@
 												</tr>
 												
 								`);
-								console.log(data[i].id)
 									}		
 					 
 							editDepartment();
@@ -1390,15 +1385,12 @@
 						for(var i=0;i<data.length;i++)
 						{
 
-							$('#selectDepart').append(`<option value="${data[i].id}" data-id=${data[i].management.id} >${data[i].management}</option>`);
-							$('#edit_depart').append(`<option value="${data[i].id}" data-id=${data[i].management.id} >${data[i].management}</option>`);
+							$('#selectDepart').append(`<option value="${data[i].id}"  >${data[i].management}</option>`);
+							$('#edit_depart').append(`<option value="${data[i].id}" >${data[i].management}</option>`);
 						}	
 					
 					
 					}
-			
-				
-				
 				
 				
 				);
@@ -1410,8 +1402,7 @@
 					{
 						$DepatmentName 	= $('#DepartName').val();
 						$MangementName = $('#selectDepart option:selected').val();
-						console.log($MangementName);
-						console.log($DepatmentName);
+
 						$.post('http://seifeldeen.pythonanywhere.com/hr/add-department/', 
 						{
 							Department :$DepatmentName,
@@ -1419,7 +1410,6 @@
 						});
 						
 						location.reload();
-					console.log($MangementName)
 						
 					});
 
