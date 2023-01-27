@@ -872,7 +872,7 @@
 								</button>
 							</div>
 							<div class="modal-body">
-								<form>
+								<form >
 									<div class="form-group">
 										<label> اسم القسم <span class="text-danger">*</span></label>
 										<input  id="DepartName" class="form-control" type="text">
@@ -914,7 +914,7 @@
 									</div>
 
 									<div class="submit-section">
-										<button  class="btn btn-primary submit-btn depart_submit">حفظ</button>
+										<button data-bs-dismiss="modal" class="btn btn-primary submit-btn depart_submit">حفظ</button>
 									</div>
 								</form>
 							</div>
@@ -935,7 +935,7 @@
 								<div class="modal-btn delete-action">
 									<div class="row">
 										<div class="col-6">
-											<a  class="btn btn-primary delete-department-btn continue-btn">حذف</a>
+											<a data-bs-dismiss="modal" class="btn btn-primary delete-department-btn continue-btn">حذف</a>
 										</div>
 										<div class="col-6">
 											<a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary cancel-btn">الغاء</a>
@@ -1343,7 +1343,8 @@
 						},
 						
 					});
-					location.reload();
+					$('.row-' + $deprat_id + ' .depart_data').text($('#depart_name_input').val());
+					$('.row-' + $deprat_id + ' .mangement_data').text($("#edit_depart option:selected").val());
 				})
 
 				// delete department 
@@ -1360,12 +1361,13 @@
 				$('.delete-department-btn').click(function () {
 					$.ajaxSetup({ cache: false });
 					$.ajax({
-						url: `http://seifeldeen.pythonanywhere.com/hr/delete-department/${$(this).data('id')}/`,
+						url: `http://seifeldeen.pythonanywhere.com/hr/delete-department/${$('.delete-department-btn').attr('data-id')}/`,
 						type: 'DELETE',
 						cache: false
 					});
-
-					window.location.href = window.location.href;
+					$('.row-' + $('.delete-department-btn').attr('data-id')).hide('slow');
+					$('.delete-department-btn').removeAttr('data-id');
+					deleteDepartment();
 				})
 				
 				$.getJSON("http://seifeldeen.pythonanywhere.com/hr/departments/",function(data)
@@ -1376,7 +1378,7 @@
 							
 								
 								$('.depatments-table').append(`
-								<tr id="${data[i].id}">
+								<tr class="row-${data[i].id}">
 													<td>${i + 1}</td>
 													<td class="depart_data">${data[i].Department}</td>
 													<td class="mangement_data" data-managemant_id="${data[i].id}" >${data[i].management}</td>
@@ -1412,7 +1414,6 @@
 					
 					}
 				
-				
 				);
 			
 				
@@ -1421,7 +1422,7 @@
 					$('#AddSubmit').click(function () 
 					{
 						$DepatmentName 	= $('#DepartName').val();
-						$MangementName = $('#selectDepart option:selected').val();
+						$MangementName = $('#selectDepart option:selected').data('id');
 
 						$.post('http://seifeldeen.pythonanywhere.com/hr/add-department/', 
 						{

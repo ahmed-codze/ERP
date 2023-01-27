@@ -5,7 +5,7 @@ $('a:contains("الوظائف")').addClass('active');
 // add new designation 
 $('.add-new-job-btn').click(function () {
     $JobTitlevar 	= $('.add-job-input').val();
-    $Departmentvar = $('.departments-options option:selected').val();
+    $Departmentvar = $('.departments-options option:selected').data('id');
     
     $.post('http://seifeldeen.pythonanywhere.com/hr/add-job/', {
         JobTitle : $JobTitlevar,
@@ -20,8 +20,8 @@ function editDesignation () {
 
     $(".edit-designation").click( function () {
         $('.edit-designation-input').attr('data-id' ,$(this).data("id")).val($(this).parentsUntil('tr').siblings('.job-td').text());
-        $(".edit-department-select-list option[value='"+ $(this).parentsUntil('tr').siblings('.department-td').data('department_id') +"']").attr("selected", true);
-        $('.select2-selection__rendered').text($(".edit-department-select-list option[value='"+ $(this).parentsUntil('tr').siblings('.department-td').data('department_id') +"']").text());
+        $(".edit-department-select-list option[value='"+ $(this).parentsUntil('tr').siblings('.department-td').text() +"']").attr("selected", true);
+        $('.select2-selection__rendered').text($(this).parentsUntil('tr').siblings('.department-td').text());
     })
     
 }
@@ -35,15 +35,17 @@ $('.send-edit-btn').click(function () {
         type: 'PUT',
         data: {
             JobTitle : $('.edit-designation-input').val(),
-            Department : $(".edit-department-select-list option:selected").val()
+            Department : $(".edit-department-select-list option:selected").data('id')
         },
         
     });
-    location.reload();
+    $('.row-' + $('.edit-designation-input').data('id') + ' .job-td ').text($('.edit-designation-input').val());
+    $('.row-' + $('.edit-designation-input').data('id') + ' .department-td ').text($(".edit-department-select-list option:selected").val())
 })
 
 // delete designation 
 function deleteDesignation() {
+    $('.delete-job-btn').removeAttr('data-id');
 $('.delete-designation').click(function () {
         $('.delete-job-btn').attr('data-id', $(this).data('id'));
 })
@@ -52,13 +54,14 @@ $('.delete-designation').click(function () {
 // send delete request 
 
 $('.delete-job-btn').click(function () {
-    $id = $(this).data('id');
     $.ajax({
-        url: `http://seifeldeen.pythonanywhere.com/hr/delete-job/${$id}/`,
+        url: `http://seifeldeen.pythonanywhere.com/hr/delete-job/${$('.delete-job-btn').attr('data-id')}/`,
         type: 'DELETE',
     });
+    $('.row-' + $('.delete-job-btn').attr('data-id')).hide('slow');
+    $('.delete-job-btn').removeAttr('data-id');
     deleteDesignation();
-    location.reload();
+    
 })
 
 
@@ -71,7 +74,7 @@ $.getJSON("http://seifeldeen.pythonanywhere.com/hr/available-jobs/", function (d
     {
         
         $('.designations-table').append(`
-        <tr data-id=${data[i].id} >
+        <tr data-id=${data[i].id} class="row-${data[i].id}">
                             <td>${i + 1}</td>
                             <td class="job-td">${data[i].JobTitle}</td>
                             <td class="department-td" data-department_id=${data[i].Department.id} >${data[i].Department.Department}</td>
@@ -103,10 +106,10 @@ $.getJSON("http://seifeldeen.pythonanywhere.com/hr/departments/", function (data
     {
         
         $('.departments-options').append(`
-            <option value="${data[i].id}"  >${data[i].Department}</option>
+            <option value="${data[i].Department}" data-id=${data[i].id}  >${data[i].Department}</option>
         `);
         $('.edit-department-select-list').append(`
-            <option value="${data[i].id}"  >${data[i].Department}</option>
+            <option value="${data[i].Department}" data-id=${data[i].id} >${data[i].Department}</option>
         `);
     }
 });
