@@ -532,7 +532,7 @@
 								<h2 class="page-title">أجازات اخري</h2>		
 							</div>
 							<div class="col-auto float-end ms-auto">
-								<a href="#" class="btn add-btn" data-bs-toggle="modal" data-bs-target="#add_holiday">
+								<a href="#" class="btn add-btn" data-bs-toggle="modal" data-bs-target="#add_other_holiday">
 									<i class="fa fa-plus"></i> اضافة أجازة
 								</a>
 							</div>
@@ -546,8 +546,8 @@
 											<tr>
 												<th>#</th>
 												<th>الاسم </th>
-												<th>التاريخ</th>
-												<th>اليوم</th>
+												<th>name</th>
+												<th>المدة</th>
 												<th class="">عمليات</th>
 											</tr>
 										</thead>
@@ -724,21 +724,53 @@
 								<form>
 									<div class="form-group">
 										<label>اسم الأجازة <span class="text-danger">*</span></label>
-										<input class="form-control" type="text">
+										<input id="holiday_name" class="form-control" type="text">
 									</div>
 									<div class="form-group">
 										<label>تاريخ الأجازة <span class="text-danger">*</span></label>
-										<div class="cal-icon"><input id="holiday_Date" class="form-control datetimepicker" onchange="getDayName()" type="date"></div>
+										<div class="cal-icon"><input id="holiday_Date" class="form-control datetimepicker" type="date"></div>
 									</div>
 									<div class="submit-section">
-										<button class="btn btn-primary submit-btn">Submit</button>
+										<button class="btn btn-primary submit-btn  "id="add_holiday">Submit</button>
 									</div>
 								</form>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!-- /Add Holiday Modal -->
+				<!-- Add oher Holiday Modal -->
+				<div class="modal custom-modal fade" id="add_other_holiday" role="dialog">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">اضافه الأجازة</h5>
+								<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form>
+									<div class="form-group">
+										<label>اسم الأجازة <span class="text-danger">*</span></label>
+										<input id="holiday_name_AR" class="form-control" type="text">
+									</div>
+									<div class="form-group">
+										<label>holiday name<span class="text-danger">*</span></label>
+										<input id="holiday_name_EN" class="form-control" type="text">
+									</div>
+									<div class="form-group">
+										<label>عدد الأجازات<span class="text-danger">*</span></label>
+										<div ><input id="holiday_number" class="form-control " type="number"></div>
+									</div>
+									<div class="submit-section">
+										<button class="btn btn-primary submit-btn  "id="add_other_holiday">Submit</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Add oher Holiday Modal -->
 				
 				<!-- Edit Holiday Modal -->
 				<div class="modal custom-modal fade" id="edit_holiday" role="dialog">
