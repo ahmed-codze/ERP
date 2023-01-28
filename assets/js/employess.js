@@ -49,7 +49,7 @@ function delete_employee(){
 										<a class="dropdown-item delete_employee" href="#"    data-id="${data[i].id}" data-bs-toggle="modal" data-bs-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
 									</div>
 								</div>
-								<h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="profile.html">${data[i].first_name} ${data[i].last_name}</a></h4>
+								<h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="profile.html?id=${data[i].id}">${data[i].first_name} ${data[i].last_name}</a></h4>
 								<div class="small text-muted">${data[i].JobTitle}</div>
 							</div>
 						</div>
