@@ -35,26 +35,31 @@ $('#add_other_holiday_btn').click(function () {
 
 // delete holiday
 function delete_holiday(){
-    // $('.delete-holiday-btn').removeAttr('data-id');
+    
     $('.delete_holiday').click(function(){
         $id=$(this).attr('data-id');
+    
         console.log($(this).attr('data-id'));
+    
         $('.delete_holiday_btn').click(function(){
+                    
             $.ajax({
                 url: `http://seifeldeen.pythonanywhere.com/hr/delete-leave/${$id}/`,
                 type: 'DELETE',
             });
             
-            $('.row-' + $('.delete-holiday-btn').attr('data-id')).hide('slow');
-            // $('.delete-holiday-btn').removeAttr('data-id');
+            $('.row-' + $id).hide('slow');
         
-            })
-           
         
-    });
+            
+        })
+        
+    })
+    
+    
 }
 
-// delete_holiday();
+delete_holiday();
 
 
    
