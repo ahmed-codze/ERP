@@ -537,31 +537,31 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label> صوره الهويه <span class="text-danger">*</span></label>
-											<input class="form-control" type="file" id="formFile">
+											<input class="form-control" type="file" id="idformFile">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label> صوره شخصيه <span class="text-danger">*</span></label>
-											<input class="form-control" type="file" id="formFile">
+											<input class="form-control" type="file" id="selfpicformFile">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label> سيره ذاتيه  <span class="text-danger">*</span></label>
-											<input class="form-control" type="file" id="formFile">
+											<input class="form-control" type="file" id="cvformFile">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label> العقد  <span class="text-danger">*</span></label>
-											<input class="form-control" type="file" id="formFile">
+											<input class="form-control" type="file" id="conractformFile">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label> التامين  <span class="text-danger">*</span></label>
-											<input class="form-control" type="file" id="formFile">
+											<input class="form-control" type="file" id="insformFile">
 										</div>
 									</div>
 
@@ -1280,7 +1280,7 @@
 			
 			);
 
-		$('#AddSubmit').click(function () {
+			$('#AddSubmit').click(function () {
 
 				$theempfirstname 		= $('#empfirstname').val();
 				$theemplastname	 	= $('#emplastname').val();
@@ -1301,9 +1301,13 @@
 				$theAvjobs			 	= $('#Avjobs option:selected').data('id');
 				$theAvDirectEmp	 	= $('#AvDirectEmp option:selected').data('id');
 
-				
-				$.post('http://seifeldeen.pythonanywhere.com/hr/add-emp/', 
-				{
+				$thecvformFile = $('#cvformFile').prop('files')[0];
+				$theidformFile = $('#idformFile').prop('files')[0];
+				$theselfpicformFile = $('#selfpicformFile').prop('files')[0];
+				$theconractformFile = $('#conractformFile').prop('files')[0];
+				$theinsformFile = $('#insformFile').prop('files')[0];
+
+				thedata={
 					"family_relation": $theempfamrelation,
 					"address": $theempaddress,
 					"username": $theempusername,
@@ -1321,15 +1325,44 @@
 					"emp_type": $theempcontracttype,
 					"salary": $theempsallary,
 					"the_contract_time": $thecontacttime,
-					"direct_manager": $theAvDirectEmp
-				}).done(function(msg){ 
-					location.reload()
-				}).fail( function(xhr, textStatus, errorThrown) {
-					alert("error check console");
-					console.log(xhr.responseText);
-				});;
+					"direct_manager": $theAvDirectEmp ,
 
-				location.reload()
+					"ProfileImg": $theselfpicformFile,
+					"CV": $thecvformFile,
+					"national_id": $theidformFile,
+					"insurance": $theinsformFile,
+					"contract_copy": $theconractformFile,
+
+				}
+				var fd = new FormData();
+				for ( var key in thedata ) {
+					fd.append(key, thedata[key]);
+				}
+
+				$.ajax({
+					// Your server script to process the upload
+					url: 'http://seifeldeen.pythonanywhere.com/hr/add-emp/',
+					type: 'POST',
+					dataType : "json",
+					// Form data
+					data: fd,
+
+					// Tell jQuery not to process data or worry about content-type
+					// You *must* include these options!
+					cache: false,
+					contentType: false,
+					processData: false,
+
+
+					success: function(){  
+						location.reload()
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) { 
+						console.log( errorThrown); 
+						console.log(XMLHttpRequest)
+					}    
+
+				});
 
 												
 			});
