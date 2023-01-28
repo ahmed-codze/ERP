@@ -35,25 +35,26 @@ $('#add_other_holiday_btn').click(function () {
 
 // delete holiday
 function delete_holiday(){
-    $('.delete-holiday-btn').removeAttr('data-id');
+    // $('.delete-holiday-btn').removeAttr('data-id');
     $('.delete_holiday').click(function(){
-        $('.delete-holiday-btn').attr('data-id', $(this).data('id'));
+        $id=$(this).attr('data-id');
+        console.log($(this).attr('data-id'));
+        $('.delete_holiday_btn').click(function(){
+            $.ajax({
+                url: `http://seifeldeen.pythonanywhere.com/hr/delete-leave/${$id}/`,
+                type: 'DELETE',
+            });
+            
+            $('.row-' + $('.delete-holiday-btn').attr('data-id')).hide('slow');
+            // $('.delete-holiday-btn').removeAttr('data-id');
+        
+            })
+           
+        
     });
-    console.log('hello',  $('.delete-holiday-btn').attr('data-id', $(this).data('id')));
 }
 
-$('.delete_holiday_btn').click(function(){
-    $.ajax({
-        url: `http://seifeldeen.pythonanywhere.com/hr/delete-leave/${$('delete_holiday_btn').attr('data-id')}/`,
-        type: 'DELETE',
-    });
-    
-    $('.row-' + $('.delete-holiday-btn').attr('data-id')).hide('slow');
-    $('.delete-holiday-btn').removeAttr('data-id');
-     delete_holiday();
-
-    })
-   
+// delete_holiday();
 
 
    
