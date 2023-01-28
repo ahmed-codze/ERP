@@ -7,31 +7,27 @@
 		// flapticker for Date Input
 		var example = flatpickr('#flatpickr');
         
-		// delete holiday
+		// delete employee
 function delete_employee(){
     
     $('.delete_employee').click(function(){
-        $id=$(this).attr('data-id');
-    
-        console.log($(this).attr('data-id'));
-    
-        $('.delete_employee_btn').click(function(){
-                    
-            $.ajax({
-                url: `http://seifeldeen.pythonanywhere.com/hr/delete-leave/${$id}/`,
-                type: 'DELETE',
-            });
-            
-            $('.row-' + $id).hide('slow');
-        
-        
-            
-        })
+        $id=$(this).attr('data-id');    
         
     })
     
     
-}
+}        $('.delete_employee_btn').click(function(){
+                    
+	$.ajax({
+		url: `http://seifeldeen.pythonanywhere.com/hr/delete-emp/${$id}/`,
+		type: 'DELETE',
+	});
+	
+	$('.row-' + $id).fadeOut('slow');
+
+
+	
+})
 
 
 					// get depatments data 
@@ -41,7 +37,7 @@ function delete_employee(){
 				for (var i in data) {
 						
 						$('.staff-grid-row').append(`
-						<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3" data-employee-id=${data[i].id} >
+						<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3 row-${data[i].id}" data-employee-id=${data[i].id} >
 							<div class="profile-widget">
 								<div class="profile-img">
 									<a href="profile.html" class="avatar"><img src="https://seifeldeen.pythonanywhere.com${data[i].ProfileImg}" alt=""></a>
