@@ -1401,9 +1401,13 @@
 						"salary": $theempsallary,
 						"the_contract_time": $thecontacttime,
 						"direct_manager": $theAvDirectEmp
+					}).done(function(msg){  
+						location.reload()
 					}).fail( function(xhr, textStatus, errorThrown) {
+						alert("error check console");
 						console.log(xhr.responseText);
 					});;
+
 
 
 													
