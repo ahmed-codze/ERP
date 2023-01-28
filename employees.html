@@ -2,6 +2,7 @@
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark"  data-sidebar-size="lg" data-sidebar-image="none">
     <head>
         <meta charset="utf-8">
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
         <meta name="description" content="Smarthr - Bootstrap Admin Template">
 		<meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
@@ -386,7 +387,7 @@
 				
 				<!-- Add Employee Modal -->
 				<div id="add_employee" class="modal custom-modal fade" role="dialog">
-					<div class="modal-dialog modal-dialog-centered modal-lg">
+					<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
 								<h5 class="modal-title">اضافة موظف</h5>
@@ -395,285 +396,180 @@
 								</button>
 							</div>
 							<div class="modal-body">
-								<form>
-									<div class="row">
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label class="col-form-label">الاسم الاول <span class="text-danger">*</span></label>
-												<input class="form-control" type="text">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label class="col-form-label">الاسم الاخير</label>
-												<input class="form-control" type="text">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label class="col-form-label">اسم المستخدم<span class="text-danger">*</span></label>
-												<input class="form-control" type="text">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label class="col-form-label">البريد الالكتروني<span class="text-danger">*</span></label>
-												<input class="form-control" type="email">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label class="col-form-label">كلمه المرور</label>
-												<input class="form-control" type="password">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label class="col-form-label">تأكيد كلمه المرور</label>
-												<input class="form-control" type="password">
-											</div>
-										</div>
-										<div class="col-sm-6">  
-											<div class="form-group">
-												<label class="col-form-label"> ID <span class="text-danger">*</span></label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-sm-6">  
-											<div class="form-group">
-												<label class="col-form-label">تاريخ الانضمام <span class="text-danger">*</span></label>
-												<div class="cal-icon"><input class="form-control "  id="flatpickr" type="date"></div>
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label class="col-form-label">جوال </label>
-												<input class="form-control" type="text">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label class="col-form-label">شركة</label>
-												<select class="select">
-													<option value="">Global Technologies</option>
-													<option value="1">Delta Infotech</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>قسم <span class="text-danger">*</span></label>
-												<select class="select">
-													<option>اختر القسم</option>
-													<option>Web Development</option>
-													<option>IT Management</option>
-													<option>Marketing</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>الادارة <span class="text-danger">*</span></label>
-												<select class="select">
-													<option>اختر الادارة</option>
-													<option >موارد بشرية </option>
-													<option value="مبيعات">مبيعات</option>
-													<option value="انتاج وتطوير">انتاج وتطوير</option>
-													<option value="الادارة المالية">الادارة المالية</option>
-													<option value="ادارة التسويق">ادارة التسويق</option>
-												</select>
-											</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label class="col-form-label">الاسم الأول <span class="text-danger">*</span></label>
+											<input class="form-control" type="text" id="empfirstname">
 										</div>
 									</div>
-									<div class="table-responsive m-t-15">
-										<table class="table table-striped custom-table">
-											<thead>
-												<tr>
-													<th>الاذونات</th>
-													<th class="text-center">قراءة</th>
-													<th class="text-center">كتابة</th>
-													<th class="text-center">اضافة</th>
-													<th class="text-center">تعديل</th>
-													<th class="text-center">تصدير</th>
-													<th class="text-center">استيراد</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>الاجازات</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-												</tr>
-												<tr>
-													<td>الاوراق</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-												</tr>
-												<tr>
-													<td>العميل</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-												</tr>
-												<tr>
-													<td>المشاريع</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-												</tr>
-												<tr>
-													<td>مهام</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-												</tr>
-												<tr>
-													<td>دردشات</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-												</tr>
-												<tr>
-													<td>Assets</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-												</tr>
-												<tr>
-													<td>Timing Sheets</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-												</tr>
-											</tbody>
-										</table>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label class="col-form-label">الاسم الاخير<span class="text-danger">*</span></label>
+											<input class="form-control" type="text" id="emplastname">
+										</div>
 									</div>
-									<div class="submit-section">
-										<button class="btn btn-primary submit-btn">تأكيد</button>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label class="col-form-label">اسم المستخدم <span class="text-danger">*</span></label>
+											<input class="form-control" type="text" id="empusername">
+										</div>
 									</div>
-								</form>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label class="col-form-label">البريد الالكتروني <span class="text-danger">*</span></label>
+											<input class="form-control" type="email" id="empmail">
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label class="col-form-label">كلمة المرور<span class="text-danger">*</span></label>
+											<input class="form-control" type="password" id="pass1">
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label class="col-form-label">تأكيد كلمة المرور <span class="text-danger">*</span></label>
+											<input class="form-control" type="password">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label> الجنس<span class="text-danger">*</span></label>
+											<select class="select" id="empgender">
+												<option>اختر النوع</option>
+												<option>مذكر</option>
+												<option>مؤنث</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label> نوع العقد <span class="text-danger">*</span></label>
+											<select class="select" id="empcontracttype">
+												<option>اختر النوع</option>
+												<option>يتم التجربة</option>
+												<option>تم التثبيت</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label class="col-form-label">العنوان  <span class="text-danger">*</span></label>
+											<input class="form-control" type="text" id="empaddress">
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label class="col-form-label">جوال <span class="text-danger">*</span></label>
+											<input class="form-control" type="number" id="empphone">
+										</div>
+									</div>
+									<div class="col-sm-6">  
+										<div class="form-group">
+											<label class="col-form-label"> تاريخ الميلاد  <span class="text-danger">*</span></label>
+											<div class="cal-icon"><input class="form-control" id="flatpickr1" type="date" ></div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label class="col-form-label">اسم العائله <span class="text-danger">*</span></label>
+											<input class="form-control" type="text" id="empfamname">
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label class="col-form-label">صله القرابه  <span class="text-danger">*</span></label>
+											<input class="form-control" type="text" id="empfamrelation">
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label class="col-form-label">جوال الطواررئ <span class="text-danger">*</span></label>
+											<input class="form-control" type="number" id="empfamphone">
+										</div>
+									</div>
+									<div class="col-sm-6">  
+										<div class="form-group">
+											<label class="col-form-label"> ID <span class="text-danger">*</span></label>
+											<input type="text" class="form-control" disabled value="**2023">
+										</div>
+									</div>
+									<div class="col-sm-6">  
+										<div class="form-group">
+											<label class="col-form-label">مده العقد  <span class="text-danger">*</span></label>
+											<div class="cal-icon"><input class="form-control " id="flatpickr2" type="date" id="contacttime"></div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label class="col-form-label"> المرتب <span class="text-danger">*</span></label>
+											<input class="form-control" type="text" id="empsallary">
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label class="col-form-label"> حساب بنكي <span class="text-danger">*</span></label>
+											<input class="form-control" type="text" id="empbankacc">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label> مسمي وظيفي <span class="text-danger">*</span></label>
+											<select class="select" id="Avjobs">
+												<option>اختر الوظيفه</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label> المدير المباشر<span class="text-danger">*</span></label>
+											<select class="select" id="AvDirectEmp">
+												<option>اختر المدير</option>
+											</select>
+										</div>
+									</div>
+
+									<!-- files -->
+									<div class="col-md-6">
+										<div class="form-group">
+											<label> صوره الهويه <span class="text-danger">*</span></label>
+											<input class="form-control" type="file" id="formFile">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label> صوره شخصيه <span class="text-danger">*</span></label>
+											<input class="form-control" type="file" id="formFile">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label> سيره ذاتيه  <span class="text-danger">*</span></label>
+											<input class="form-control" type="file" id="formFile">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label> العقد  <span class="text-danger">*</span></label>
+											<input class="form-control" type="file" id="formFile">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label> التامين  <span class="text-danger">*</span></label>
+											<input class="form-control" type="file" id="formFile">
+										</div>
+									</div>
+
+
+								</div>
+								<div class="submit-section">
+									<button class="btn btn-primary submit-btn" id="AddSubmit">تأكيد</button>
+								</div>
 							</div>
 						</div>
 					</div>
