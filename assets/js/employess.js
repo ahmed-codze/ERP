@@ -40,7 +40,7 @@ function delete_employee(){
 						<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3 row-${data[i].id}" data-employee-id=${data[i].id} >
 							<div class="profile-widget">
 								<div class="profile-img">
-									<a href="profile.html" class="avatar"><img src="https://seifeldeen.pythonanywhere.com${data[i].ProfileImg}" alt=""></a>
+									<a href="profile.html?id=${data[i].id}" class="avatar"><img src="https://seifeldeen.pythonanywhere.com${data[i].ProfileImg}" alt=""></a>
 								</div>
 								<div class="dropdown profile-action">
 									<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
