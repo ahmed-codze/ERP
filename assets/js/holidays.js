@@ -9,7 +9,6 @@ $('a:contains("الأجازات")').addClass('active');
 $('#add_other_holiday_btn').click(function () {
     
     $holiday_name_AR=$('#holiday_name_AR').val();
-    $holiday_name_EN=$('#holiday_name_EN').val();
     $holiday_number=$('#holiday_number').val();
     
     $.ajax({
@@ -17,7 +16,6 @@ $('#add_other_holiday_btn').click(function () {
         type: 'post',
         data:{
             leave_ar:$holiday_name_AR,
-            leave_en:$holiday_name_EN,
             num:$holiday_number
         },
     
@@ -68,7 +66,6 @@ function editHoliday () {
 
     $(".edit_holiday").click( function () {
         $('.edit_holiday_ar_input').attr('data-id' ,$(this).data("id")).val($(this).parentsUntil('tr').siblings('.holiday_ar_td').text());
-        $('.edit_holiday_en_input').attr('data-id' ,$(this).data("id")).val($(this).parentsUntil('tr').siblings('.holiday_en_td').text());
         $('.edit_holiday_number_input').attr('data-id' ,$(this).data("id")).val($(this).parentsUntil('tr').siblings('.holiday_num_td').text());
     })
     
@@ -80,13 +77,11 @@ $('.send-edit-btn').click(function () {
         type: 'PUT',
         data: {
             leave_ar : $('.edit_holiday_ar_input').val(),
-            leave_en : $('.edit_holiday_en_input').val(),
             num      : $('.edit_holiday_number_input').val(),
         },
         
     });
     $('.row-' + $('.edit_holiday_ar_input').data('id') + ' .holiday_ar_td ').text($('.edit_holiday_ar_input').val());
-    $('.row-' + $('.edit_holiday_en_input').data('id') + ' .holiday_en_td ').text($(".edit_holiday_en_input").val());
     $('.row-' + $('.edit_holiday_number_input').data('id') + ' .holiday_num_td ').text($(".edit_holiday_number_input").val());
 })
 
@@ -104,7 +99,6 @@ $.getJSON("http://seifeldeen.pythonanywhere.com/hr/available-leaves/", function 
         <tr data-id=${data[i].id} class="row-${data[i].id} ">
                             <td>${i + 1}</td>
                             <td class="holiday_ar_td" >${data[i].leave_ar}</td>
-                            <td class="holiday_en_td">${data[i].leave_en}</td>
                             <td class="holiday_num_td" >${data[i].num}</td>
                             <td class="action-td">
                                 <div class="dropdown dropdown-action">
