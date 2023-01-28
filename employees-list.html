@@ -906,7 +906,7 @@
 								<div class="modal-btn delete-action">
 									<div class="row">
 										<div class="col-6">
-											<a href="javascript:void(0);" class="btn btn-primary continue-btn">حذف</a>
+											<a href="javascript:void(0);" class="btn btn-primary continue-btn delete_employee_list_btn ">حذف</a>
 										</div>
 										<div class="col-6">
 											<a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary cancel-btn">الغاء</a>
@@ -1295,7 +1295,30 @@
 			var example2 = flatpickr('#flatpickr2');
 			// add active class
 			$('a:contains("عرض الموظفين")').addClass('active');
-
+			function delete_employee(){
+    
+		$('.delete_employee_list').click(function(){
+			$id=$(this).attr('data-id');
+		
+			console.log($(this).attr('data-id'));
+		
+			$('.delete_employee_list_btn').click(function(){
+						
+				$.ajax({
+					url: `http://seifeldeen.pythonanywhere.com/hr/delete-emp-list/${$id}/`,
+					type: 'DELETE',
+				});
+				
+				$('.row-' + $id).hide('slow');
+			
+			
+				
+			})
+			
+		})
+		
+		
+	}
 
 			// get employees data for main table 
 
@@ -1319,7 +1342,7 @@
 													<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 													<div class="dropdown-menu dropdown-menu-right">
 														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-														<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+														<a class="dropdown-item delete_employee_list "data-id="${data[i].id}" href="#" data-bs-toggle="modal" data-bs-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
 													</div>
 												</div>
 											</td>
