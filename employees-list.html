@@ -906,7 +906,7 @@
 								<div class="modal-btn delete-action">
 									<div class="row">
 										<div class="col-6">
-											<a href="javascript:void(0);" class="btn btn-primary continue-btn delete_employee_list_btn ">حذف</a>
+											<a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary continue-btn delete_employee_list_btn ">حذف</a>
 										</div>
 										<div class="col-6">
 											<a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary cancel-btn">الغاء</a>
@@ -1295,37 +1295,37 @@
 			var example2 = flatpickr('#flatpickr2');
 			// add active class
 			$('a:contains("عرض الموظفين")').addClass('active');
+
+
 			function delete_employee(){
     
 		$('.delete_employee_list').click(function(){
-			$id=$(this).attr('data-id');
+			$id= $(this).attr('data-id');
 		
 			console.log($(this).attr('data-id'));
 		
-			$('.delete_employee_list_btn').click(function(){
-						
-				$.ajax({
-					url: `http://seifeldeen.pythonanywhere.com/hr/delete-emp-list/${$id}/`,
-					type: 'DELETE',
-				});
-				
-				$('.row-' + $id).hide('slow');
-			
-			
-				
-			})
-			
 		})
-		
+
 		
 	}
+
+	$('.delete_employee_list_btn').click(function(){
+						
+		$.ajax({
+		url: `http://seifeldeen.pythonanywhere.com/hr/delete-emp/${$id}/`,
+		type: 'DELETE',
+	});
+	
+	$('.row-' + $id).fadeOut('slow');
+	
+		})
 
 			// get employees data for main table 
 
 			$.getJSON('http://seifeldeen.pythonanywhere.com/hr/somedata/', function (data) {
 				for ( i in data) {
 					$('.employees-table').append(`
-					<tr>
+					<tr class="row-${data[i].id}">
 											<td>
 												<h2 class="table-avatar">
 													<a href="profile.html?id=${data[i].id}" class="avatar"><img alt="" src="http://seifeldeen.pythonanywhere.com${data[i].ProfileImg}"></a>
@@ -1349,6 +1349,7 @@
 										</tr>
 					`)
 				}
+				delete_employee();
 			})
 			
 
