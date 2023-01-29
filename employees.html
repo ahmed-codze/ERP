@@ -396,47 +396,50 @@
 								</button>
 							</div>
 							<div class="modal-body">
+								<form >
 								<div class="row">
 									<div class="col-sm-6">
+	
 										<div class="form-group">
 											<label class="col-form-label">الاسم الأول <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="empfirstname">
+											<input class="form-control" type="text" id="empfirstname" required>
 										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label class="col-form-label">الاسم الاخير<span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="emplastname">
 										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label class="col-form-label">اسم المستخدم <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="empusername">
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label class="col-form-label">الاسم الاخير<span class="text-danger">*</span></label>
+												<input class="form-control" type="text" id="emplastname" required>
+											</div>
 										</div>
-									</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label class="col-form-label">اسم المستخدم <span class="text-danger">*</span></label>
+												<input class="form-control" type="text" id="empusername" required>
+											</div>
+										</div>
+									
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label">البريد الالكتروني <span class="text-danger">*</span></label>
-											<input class="form-control" type="email" id="empmail">
+											<input class="form-control" type="email" id="empmail" required>
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label">كلمة المرور<span class="text-danger">*</span></label>
-											<input class="form-control" type="password" id="pass1">
+											<input class="form-control" type="password" id="pass1" required>
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label">تأكيد كلمة المرور <span class="text-danger">*</span></label>
-											<input class="form-control" type="password">
+											<input class="form-control" type="password" required>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label> الجنس<span class="text-danger">*</span></label>
-											<select class="select" id="empgender">
+											<select class="select" id="empgender" required>
 												<option>اختر النوع</option>
 												<option>مذكر</option>
 												<option>مؤنث</option>
@@ -446,7 +449,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label> نوع العقد <span class="text-danger">*</span></label>
-											<select class="select" id="empcontracttype">
+											<select class="select" id="empcontracttype" required>
 												<option>اختر النوع</option>
 												<option>يتم التجربة</option>
 												<option>تم التثبيت</option>
@@ -456,69 +459,69 @@
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label">العنوان  <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="empaddress">
+											<input class="form-control" type="text" id="empaddress" required>
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label">جوال <span class="text-danger">*</span></label>
-											<input class="form-control" type="number" id="empphone">
+											<input class="form-control" type="number" id="empphone" required>
 										</div>
 									</div>
 									<div class="col-sm-6">  
 										<div class="form-group">
 											<label class="col-form-label"> تاريخ الميلاد  <span class="text-danger">*</span></label>
-											<div class="cal-icon"><input class="form-control" id="flatpickr1" type="date" ></div>
+											<div class="cal-icon"><input class="form-control" id="flatpickr1" type="date" required ></div>
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label">اسم العائله <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="empfamname">
+											<input class="form-control" type="text" id="empfamname" required>
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label">صله القرابه  <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="empfamrelation">
+											<input class="form-control" type="text" id="empfamrelation" required>
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label">جوال الطواررئ <span class="text-danger">*</span></label>
-											<input class="form-control" type="number" id="empfamphone">
+											<input class="form-control" type="number" id="empfamphone" required>
 										</div>
 									</div>
 									<div class="col-sm-6">  
 										<div class="form-group">
 											<label class="col-form-label"> ID <span class="text-danger">*</span></label>
-											<input type="text" class="form-control" disabled value="**2023">
+											<input type="text" class="form-control" disabled value="**2023" required>
 										</div>
 									</div>
 									<div class="col-sm-6">  
 										<div class="form-group">
 											<label class="col-form-label">مده العقد  <span class="text-danger">*</span></label>
-											<div class="cal-icon"><input class="form-control " id="flatpickr2" type="date" id="contacttime"></div>
+											<div class="cal-icon"><input class="form-control " id="flatpickr2" type="date" id="contacttime" required></div>
 										</div>
 									</div>
 
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label"> المرتب <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="empsallary">
+											<input class="form-control" type="text" id="empsallary" required>
 										</div>
 									</div>
 
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label"> حساب بنكي <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="empbankacc">
+											<input class="form-control" type="text" id="empbankacc" required>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label> مسمي وظيفي <span class="text-danger">*</span></label>
-											<select class="select" id="Avjobs">
+											<select class="select" id="Avjobs" required>
 												<option>اختر الوظيفه</option>
 											</select>
 										</div>
@@ -527,7 +530,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label> المدير المباشر<span class="text-danger">*</span></label>
-											<select class="select" id="AvDirectEmp">
+											<select class="select" id="AvDirectEmp" required>
 												<option>اختر المدير</option>
 											</select>
 										</div>
@@ -570,6 +573,7 @@
 								<div class="submit-section">
 									<button class="btn btn-primary submit-btn" id="AddSubmit">تأكيد</button>
 								</div>
+							</form>
 							</div>
 						</div>
 					</div>
@@ -1244,132 +1248,6 @@
 		<!-- employees JS -->
 		<script src="assets/js/employess.js"></script>
 
-
-		<script>
-			// flatpickr for Date Input
-		var example1 = flatpickr('#flatpickr1');
-		var example2 = flatpickr('#flatpickr2');
-		
-		$.getJSON("http://seifeldeen.pythonanywhere.com/hr/available-jobs/",function(data)
-				//get mangement to add department
-				{
-
-					for(var i=0;i<data.length;i++)
-					{
-
-						$('#Avjobs').append(`<option value="${data[i].JobTitle}"  data-id=${data[i].id} >${data[i].JobTitle}</option>`);
-					}	
-				
-				
-				}
-			
-			);
-
-		$.getJSON("http://seifeldeen.pythonanywhere.com/hr/somedata/",function(data)
-				//get mangement to add department
-				{
-
-					for(var i=0;i<data.length;i++)
-					{
-
-						$('#AvDirectEmp').append(`<option value="${data[i].username}"  data-id=${data[i].id} >${data[i].username}</option>`);
-					}	
-				
-				
-				}
-			
-			);
-
-			$('#AddSubmit').click(function () {
-
-				$theempfirstname 		= $('#empfirstname').val();
-				$theemplastname	 	= $('#emplastname').val();
-				$theempusername 		= $('#empusername').val();
-				$theempmail 			= $('#empmail').val();
-				$thepass1				= $('#pass1').val();
-				$theempgender			= $('#empgender option:selected').val();
-				$theempcontracttype	= $('#empcontracttype option:selected').val();
-				$theempaddress 		= $('#empaddress').val();
-				$theempphone 			= $('#empphone').val();
-				$theempdatebirth 		= $('#flatpickr1').val();
-				$theempfamname 		= $('#empfamname').val();
-				$theempfamrelation		= $('#empfamrelation').val();
-				$theempfamphone 		= $('#empfamphone').val();
-				$thecontacttime 		= $('#flatpickr2').val();
-				$theempsallary  		= $('#empsallary').val();
-				$theempbankacc			= $('#empbankacc').val();
-				$theAvjobs			 	= $('#Avjobs option:selected').data('id');
-				$theAvDirectEmp	 	= $('#AvDirectEmp option:selected').data('id');
-
-				$thecvformFile = $('#cvformFile').prop('files')[0];
-				$theidformFile = $('#idformFile').prop('files')[0];
-				$theselfpicformFile = $('#selfpicformFile').prop('files')[0];
-				$theconractformFile = $('#conractformFile').prop('files')[0];
-				$theinsformFile = $('#insformFile').prop('files')[0];
-
-				thedata={
-					"family_relation": $theempfamrelation,
-					"address": $theempaddress,
-					"username": $theempusername,
-					"password" : $thepass1 ,
-					"first_name": $theempfirstname,
-					"last_name": $theemplastname,
-					"email": $theempmail,
-					"birthday": $theempdatebirth,
-					"gender": $theempgender,
-					"caontact_number": $theempphone,
-					"family_name": $theempfamname,
-					"emergancy_contact": $theempfamphone,
-					"bank_account": $theempbankacc,
-					"JobTitle": $theAvjobs,
-					"emp_type": $theempcontracttype,
-					"salary": $theempsallary,
-					"the_contract_time": $thecontacttime,
-					"direct_manager": $theAvDirectEmp ,
-
-					"ProfileImg": $theselfpicformFile,
-					"CV": $thecvformFile,
-					"national_id": $theidformFile,
-					"insurance": $theinsformFile,
-					"contract_copy": $theconractformFile,
-
-				}
-				var fd = new FormData();
-				for ( var key in thedata ) {
-					fd.append(key, thedata[key]);
-				}
-
-				$.ajax({
-					// Your server script to process the upload
-					url: 'http://seifeldeen.pythonanywhere.com/hr/add-emp/',
-					type: 'POST',
-					dataType : "json",
-					// Form data
-					data: fd,
-
-					// Tell jQuery not to process data or worry about content-type
-					// You *must* include these options!
-					cache: false,
-					contentType: false,
-					processData: false,
-
-
-					success: function(){  
-						location.reload()
-					},
-					error: function(XMLHttpRequest, textStatus, errorThrown) { 
-						console.log( errorThrown); 
-						console.log(XMLHttpRequest)
-					}    
-
-				});
-
-												
-			});
-
-
-	</script>
-		
 
 		</body>
 		</html>
