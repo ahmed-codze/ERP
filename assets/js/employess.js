@@ -28,6 +28,42 @@ function delete_employee(){
 
 	
 })
+// *********************** edit employee *******************************
+	function edit_employee()
+	{
+		$(".edit_employee").click(function(){
+			let $id=$(this).attr('data-id');
+			// $.ajax({
+			// 	url:`http://seifeldeen.pythonanywhere.com/hr/emp-data/${$id}/`,
+			// 	type:'get',
+			// 	data: first_name=$('#frist_name_edit_input').val(),
+
+				
+			// });
+			$.getJSON(`http://seifeldeen.pythonanywhere.com/hr/emp-data/${$id}/`,function(data){
+
+				$('#frist_name_edit_input').val(data.first_name);
+				$('#last_name_edit_input').val(data.last_name);
+				$('#frist_name_edit_input').val(data.first_name);
+				$('#username_edit_input').val(data.username);
+				$('#email_edit_input').val(data.email);
+				$('#confirm_password_edit_input').val(data.emp_id);
+				$('#date_edit_input').val(data.date_joined);
+				$('#phone_edit_input').val(data.caontact_number);
+				$('#company_edit_input').val(data.id.Department);
+				console.log(data.id.Department);
+			});
+			
+		}
+		);
+
+
+
+		
+		
+	}
+	
+
 	// flatpickr for Date Input
 	var example1 = flatpickr('#flatpickr1');
 	var example2 = flatpickr('#flatpickr2');
@@ -59,8 +95,9 @@ function delete_employee(){
 			
 			
 			}
-		
-		);
+			
+			);
+			
 
 		$('#AddSubmit').click(function () {
 
@@ -175,7 +212,7 @@ $.getJSON("http://seifeldeen.pythonanywhere.com/hr/somedata/", function (data) {
 			</div>
 			`);
 				}		
-
+				edit_employee();
 					delete_employee();
 			});
 					
