@@ -1461,8 +1461,8 @@
 							location.reload()
 						},
 						error: function(XMLHttpRequest, textStatus, errorThrown) { 
-							console.log( errorThrown); 
-							console.log(XMLHttpRequest)
+							console.log(XMLHttpRequest.responseJSON)
+							alert(errorThrown)
 						}    
 
 				});
