@@ -5,11 +5,13 @@ $('a:contains("الوظائف")').addClass('active');
 // add new designation 
 $('.add-new-job-btn').click(function () {
     $JobTitlevar 	= $('.add-job-input').val();
-    $Departmentvar = $('.departments-options option:selected').data('id');
+    $Departmentvar = $('.departments-options option:selected').data('department');
+    $managementVar = $('.departments-options option:selected').data('management');
     
     $.post('http://seifeldeen.pythonanywhere.com/hr/add-job/', {
         JobTitle : $JobTitlevar,
-        Department : $Departmentvar
+        Department : $Departmentvar,
+        management : $managementVar
     })
         
     location.reload();
@@ -72,7 +74,7 @@ $.getJSON("http://seifeldeen.pythonanywhere.com/hr/available-jobs/", function (d
 
     for (var i = 0; i < data.length; i++) 
     {
-        
+        if (data[i].Department != null) {
         $('.designations-table').append(`
         <tr data-id=${data[i].id} class="row-${data[i].id}">
                             <td>${i + 1}</td>
@@ -90,6 +92,25 @@ $.getJSON("http://seifeldeen.pythonanywhere.com/hr/available-jobs/", function (d
                             </td>
                         </tr>
         `);
+    } else {
+        $('.designations-table').prepend(`
+        <tr data-id=${data[i].id} class="row-${data[i].id}">
+                            <td>${i + 1}</td>
+                            <td class="job-td">${data[i].JobTitle}</td>
+                            <td class="department-td" data-department_id= ></td>
+                            <td>${data[i].management}</td>
+                            <td class="action-td">
+                                <div class="dropdown dropdown-action">
+                                    <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item edit-designation" data-id=${data[i].id} href="#" data-bs-toggle="modal" data-bs-target="#edit_designation"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
+                                    <a class="dropdown-item delete-designation" data-id=${data[i].id} href="#" data-bs-toggle="modal" data-bs-target="#delete_designation"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
+                                </div>
+                                </div>
+                            </td>
+                        </tr>
+        `);
+    }
     }	
             
             editDesignation();
@@ -106,13 +127,29 @@ $.getJSON("http://seifeldeen.pythonanywhere.com/hr/departments/", function (data
     {
         
         $('.departments-options').append(`
-            <option value="${data[i].Department}" data-id=${data[i].id}  >${data[i].Department}</option>
+            <option value="${data[i].Department}" data-id=${data[i].id} data-department="${data[i].id}" data-management=""  >${data[i].Department}</option>
         `);
         $('.edit-department-select-list').append(`
-            <option value="${data[i].Department}" data-id=${data[i].id} >${data[i].Department}</option>
+            <option value="${data[i].Department}" data-id=${data[i].id} >${data[i].id}</option>
         `);
     }
 });
+
+//get mangement to add department
+$.getJSON("http://seifeldeen.pythonanywhere.com/hr/available-managments/",function(data)
+{
+
+    for(var i=0;i<data.length;i++)
+    {
+
+        $('.departments-options').append(`<option value="${data[i].management}" data-department="" data-management="${data[i].id}"  data-id=${data[i].id} >${data[i].management}</option>`);
+        $('.edit-department-select-list').append(`<option value="${data[i].management}" data-department="" data-management="${data[i].id}" data-id=${data[i].id} >${data[i].management}</option>`);
+    }	
+
+
+}
+
+);
 
 $("form").submit(function(e){
 e.preventDefault();
