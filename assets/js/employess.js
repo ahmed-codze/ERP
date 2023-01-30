@@ -47,15 +47,16 @@ function delete_employee(){
 				$('#frist_name_edit_input').val(data.first_name);
 				$('#username_edit_input').val(data.username);
 				$('#email_edit_input').val(data.email);
-				$('#confirm_password_edit_input').val(data.emp_id);
-				$('#date_edit_input').val(data.date_joined);
+				$('#id_edit_input').val(data.emp_id);
+				$('.date_edit_input').val(data.date_joined);
 				$('#phone_edit_input').val(data.caontact_number);
-				$('#company_edit_input').val(data.id.Department);
-				console.log(data.id.Department);
+				$('#company_edit_input').val(data.emp_id.Department);
+				
 			});
 			
 		}
 		);
+
 
 
 
