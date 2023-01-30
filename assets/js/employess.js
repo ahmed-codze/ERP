@@ -1,4 +1,6 @@
-
+$("form").submit(function(e){
+    e.preventDefault();
+    });	
 		
 // add active class to nav link 
 
@@ -44,18 +46,40 @@ function delete_employee(){
 
 				$('#frist_name_edit_input').val(data.first_name);
 				$('#last_name_edit_input').val(data.last_name);
-				$('#frist_name_edit_input').val(data.first_name);
 				$('#username_edit_input').val(data.username);
 				$('#email_edit_input').val(data.email);
 				$('#id_edit_input').val(data.emp_id);
 				$('.date_edit_input').val(data.date_joined);
 				$('#phone_edit_input').val(data.caontact_number);
-				$('#company_edit_input').val(data.emp_id.Department);
+				// $('#company_edit_input').val(data.emp_id.Department);
 				
 			});
+			$('.send-edit-btn').click(function () {
+			
+				$.ajax({
+					url: `http://seifeldeen.pythonanywhere.com/hr/update-emp/${$id}/`,
+					type: 'PUT',
+					data: 
+					{
+						first_name: $('#frist_name_edit_input').val(),
+						last_name: $("#last_name_edit_input").val(),
+						username: $("#username_edit_input").val(),
+						email: $("#email_edit_input").val(),
+						emp_id : $("#id_edit_input").val(),
+						date_joined : $(".date_edit_input").val(),
+						caontact_number : $("#phone_edit_input").val(),
+						
+					},
+					
+				});
+				// $('.row-' + $('.edit-designation-input').data('id') + ' .job-td ').text($('.edit-designation-input').val());
+				// $('.row-' + $('.edit-designation-input').data('id') + ' .department-td ').text($(".edit-department-select-list option:selected").val())
+				console.log( 'hi',$id);
+			})
 			
 		}
 		);
+		
 
 
 

@@ -35,7 +35,27 @@ function edit_employeeList()
             // $('#company_editList_input').val(data.emp_id.Department);
             console.log(data.id.Department);
         });
-        
+        $('.send-edit-btn').click(function () {
+			
+            $.ajax({
+                url: `http://seifeldeen.pythonanywhere.com/hr/update-emp/${$id}/`,
+                type: 'PUT',
+                data: 
+                {
+                    first_name: $('#frist_name_editList_input').val(),
+                    last_name: $("#last_name_editList_input").val(),
+                    username: $("#username_editList_input").val(),
+                    email: $("#email_editList_input").val(),
+                    emp_id : $("#id_editList_input").val(),
+                    date_joined : $(".date_editList_input").val(),
+                    caontact_number : $("#phone_editList_input").val(),
+                },
+                
+            });
+            // $('.row-' + $('.edit-designation-input').data('id') + ' .job-td ').text($('.edit-designation-input').val());
+            // $('.row-' + $('.edit-designation-input').data('id') + ' .department-td ').text($(".edit-department-select-list option:selected").val())
+            console.log( 'hi',$id);
+        }) 
     }
     );
 
