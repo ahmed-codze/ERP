@@ -126,30 +126,35 @@ function delete_employee(){
 
 		$('#AddSubmit').click(function () {
 
-			$theempfirstname 		= $('#empfirstname').val();
+			$theempfirstname 	= $('#empfirstname').val();
 			$theemplastname	 	= $('#emplastname').val();
-			$theempusername 		= $('#empusername').val();
-			$theempmail 			= $('#empmail').val();
-			$thepass1				= $('#pass1').val();
-			$theempgender			= $('#empgender option:selected').val();
+			$theempusername 	= $('#empusername').val();
+			$theempmail 		= $('#empmail').val();
+			$thepass1			= $('#pass1').val();
+			$theempgender		= $('#empgender option:selected').val();
 			$theempcontracttype	= $('#empcontracttype option:selected').val();
 			$theempaddress 		= $('#empaddress').val();
-			$theempphone 			= $('#empphone').val();
-			$theempdatebirth 		= $('#flatpickr1').val();
+			$theempphone 		= $('#empphone').val();
+			$theempdatebirth 	= $('#flatpickr1').val();
 			$theempfamname 		= $('#empfamname').val();
-			$theempfamrelation		= $('#empfamrelation').val();
-			$theempfamphone 		= $('#empfamphone').val();
-			$thecontacttime 		= $('#flatpickr2').val();
-			$theempsallary  		= $('#empsallary').val();
-			$theempbankacc			= $('#empbankacc').val();
-			$theAvjobs			 	= $('#Avjobs option:selected').data('id');
+			$theempfamrelation	= $('#empfamrelation').val();
+			$theempfamphone 	= $('#empfamphone').val();
+			$thecontacttime 	= $('#flatpickr2').val();
+			$theempsallary  	= $('#empsallary').val();
+			//payment method
+			$ibanNumber			= $('#iban-input').val();
+			$paypalNumber		= $('#pay-pal-input').val();
+			$bankName			= $('#bank-name-input').val();
+			$theempbankacc		= $('#bank-account-input').val();
+
+			$theAvjobs			= $('#Avjobs option:selected').data('id');
 			$theAvDirectEmp	 	= $('#AvDirectEmp option:selected').data('id');
 
-			$thecvformFile = $('#cvformFile').prop('files')[0];
-			$theidformFile = $('#idformFile').prop('files')[0];
+			$thecvformFile 		= $('#cvformFile').prop('files')[0];
+			$theidformFile 		= $('#idformFile').prop('files')[0];
 			$theselfpicformFile = $('#selfpicformFile').prop('files')[0];
 			$theconractformFile = $('#conractformFile').prop('files')[0];
-			$theinsformFile = $('#insformFile').prop('files')[0];
+			$theinsformFile 	= $('#insformFile').prop('files')[0];
 
 			thedata={
 				"family_relation": $theempfamrelation,
@@ -164,7 +169,8 @@ function delete_employee(){
 				"caontact_number": $theempphone,
 				"family_name": $theempfamname,
 				"emergancy_contact": $theempfamphone,
-				"bank_account": $theempbankacc,
+				
+				
 				"JobTitle": $theAvjobs,
 				"emp_type": $theempcontracttype,
 				"salary": $theempsallary,
@@ -176,7 +182,12 @@ function delete_employee(){
 				"national_id": $theidformFile,
 				"insurance": $theinsformFile,
 				"contract_copy": $theconractformFile,
-
+				
+				"bank_account_iban": $ibanNumber,
+				"bank_name": $bankName,
+				"paypal_email": $paypalNumber,
+				"bank_account_name": $theempbankacc,
+			
 			}
 			var fd = new FormData();
 			for ( var key in thedata ) {
@@ -202,9 +213,8 @@ function delete_employee(){
 					location.reload()
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) { 
-					console.log( errorThrown); 
-					console.log(XMLHttpRequest)
-				}    
+					console.log(XMLHttpRequest.responseJSON)
+				} 
 
 			});
 
@@ -236,11 +246,43 @@ $.getJSON("http://seifeldeen.pythonanywhere.com/hr/somedata/", function (data) {
 				</div>
 			</div>
 			`);
-				}		
+				}	
+				
+				
+
 				edit_employee();
 					delete_employee();
 			});
-					
-	// validation
+			$iban_Value=document.getElementById('iban').value;
+			$paypal_Value=document.getElementById('paypal').value;
+			console.log($iban_Value);
+			$('input[type="checkbox"]').on('change', function() {
+				$('input[type="checkbox"]').not(this).prop('checked', false);
+			 });
+		function paymentMethod()
+		{
+			// if(cheaked==true && $iban_Value=='bank' )
+			// {
+			// 	$('.iban-input').fadeIn();
+			// }
+			// if(cheaked==true && $paypal_Value=='paypal')
+			// {
+			// 	$('.paypal-input').fadeIn();
+
+			// }
+			// 
+			$(document).ready(function(){
+				$('.select_payment').on('change',function(){
+					$('.payment_option').hide();
+					$("#"+$(this).val()).fadeIn('fast');
+
+				}).change();
+
+
+
+			});
+
+		}
+		paymentMethod();
 		
 		
