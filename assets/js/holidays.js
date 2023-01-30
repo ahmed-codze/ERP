@@ -4,7 +4,87 @@ $("form").submit(function(e){
 // add active class to nav link 
 $('a:contains("الأجازات")').addClass('active');
 
-// Add holidays
+
+// show weekly holiday
+
+$.getJSON("http://seifeldeen.pythonanywhere.com/hr/list-weakly-leave/", function (data) {
+
+    for (var i = 0; i < data.length; i++) 
+    {
+        
+        $('.weekly-holiday-table').append(`
+        <tr data-id=${data[i].id} class="row-${data[i].id} ">
+                            <td>${i + 1}</td>
+                            <td class=" week_holiday_name_td" >${data[i].day}</td>
+                            <td class="action-td">
+                                <div class="dropdown dropdown-action">
+                                    <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item edit_week_holiday" data-id=${data[i].id} href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
+                                    <a class="dropdown-item delete_week_holiday " data-id=${data[i].id} href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
+                                </div>
+                                </div>
+                            </td>
+        </tr>
+        `);
+    }	
+    
+    delete_week_holiday();
+})
+// Add week holidays
+
+$('#add-week-holiday-btn').click(function () {
+    
+    //  $week-holiday=$('#week-holiday-name').val();
+    $holiday_name=$('#week-holiday-name').val();
+    
+    $.ajax({
+        url: `http://seifeldeen.pythonanywhere.com/hr/add-weakly-leave/`,
+        type: 'post',
+        data:{
+            day:$('#week-holiday-name').val(),
+            
+        },
+    
+    });
+    console.log($holiday_name);
+    location.reload();
+    
+})
+
+
+// delete week holiday
+
+
+function delete_week_holiday(){
+    
+    $('.delete_week_holiday').click(function(){
+        $id=$(this).attr('data-id');
+    
+        console.log($(this).attr('data-id'));
+    
+        $('.delete_holiday_btn').click(function(){
+                    
+            $.ajax({
+                url: `http://seifeldeen.pythonanywhere.com/hr/delete-weakly-leave/${$id}/`,
+                type: 'DELETE',
+            });
+            
+            $('.row-' + $id).hide('slow');
+        
+        
+            
+        })
+        
+    })
+    
+    
+}
+
+
+
+
+// Add other holidays
 
 $('#add_other_holiday_btn').click(function () {
     
@@ -23,12 +103,6 @@ $('#add_other_holiday_btn').click(function () {
     location.reload();
     
 })
-
-
-
-
-
-
 
 
 // delete holiday
@@ -57,6 +131,7 @@ function delete_holiday(){
     
 }
 
+delete_holiday();
 delete_holiday();
 
 

@@ -41,9 +41,9 @@
             * {
                 font-family: 'IBM Plex Sans Arabic', sans-serif;
             }
-			.week_holiday td
+			.week_holiday td ,.other_holdiday td
 			{
-				padding: 15px;
+				padding: 17px;
 			}
         </style>
         
@@ -367,33 +367,8 @@
 												<th class="">Action</th>
 											</tr>
 										</thead>
-										<tbody class="week_holiday">
-											<tr class="holiday-completed">
-												<td>1</td>
-												<td>السبت</td>
-												<td class="">
-													<div class="dropdown dropdown-action">
-														<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-														<div class="dropdown-menu dropdown-menu-right">
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
-														</div>
-													</div>
-												</td>
-											</tr>
-											<tr class="holiday-completed">
-												<td>2</td>
-												
-												<td>الجمعة</td>
-												<td class="">
-													<div class="dropdown dropdown-action">
-														<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-														<div class="dropdown-menu dropdown-menu-right">
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
-														</div>
-													</div>
-												</td>											</tr>
+										<tbody class="weekly-holiday-table week_holiday">
+										
 											
 										</tbody>
 									</table>
@@ -580,10 +555,10 @@
 								<form>
 									<div class="form-group  ">
 										<label  >يوم الأجازة <span class="text-danger">*</span></label>
-										<input class="form-control" type="text">
+										<input class="form-control" id="week-holiday-name" type="text">
 									</div>
 									<div class="submit-section">
-										<button class="btn btn-primary submit-btn">Submit</button>
+										<button class="btn btn-primary submit-btn" id="add-week-holiday-btn">Submit</button>
 									</div>
 								</form>
 							</div>
