@@ -17,33 +17,7 @@ $('.add-new-job-btn').click(function () {
     location.reload();
 })
 
-// edit designation 
-function editDesignation () {
 
-    $(".edit-designation").click( function () {
-        $('.edit-designation-input').attr('data-id' ,$(this).data("id")).val($(this).parentsUntil('tr').siblings('.job-td').text());
-        $(".edit-department-select-list option[value='"+ $(this).parentsUntil('tr').siblings('.department-td').text() +"']").attr("selected", true);
-        $('.select2-selection__rendered').text($(this).parentsUntil('tr').siblings('.department-td').text());
-    })
-    
-}
-
-// send edit designation data 
-
-$('.send-edit-btn').click(function () {
-    $id = $('.edit-designation-input').data('id');
-    $.ajax({
-        url: `http://seifeldeen.pythonanywhere.com/hr/edit-job/${$id}/`,
-        type: 'PUT',
-        data: {
-            JobTitle : $('.edit-designation-input').val(),
-            Department : $(".edit-department-select-list option:selected").data('id')
-        },
-        
-    });
-    $('.row-' + $('.edit-designation-input').data('id') + ' .job-td ').text($('.edit-designation-input').val());
-    $('.row-' + $('.edit-designation-input').data('id') + ' .department-td ').text($(".edit-department-select-list option:selected").val())
-})
 
 // delete designation 
 function deleteDesignation() {
@@ -80,7 +54,7 @@ $.getJSON("http://seifeldeen.pythonanywhere.com/hr/available-jobs/", function (d
                             <td>${i + 1}</td>
                             <td class="job-td">${data[i].JobTitle}</td>
                             <td class="department-td" data-department_id=${data[i].Department.id} >${data[i].Department.Department}</td>
-                            <td>${data[i].Department.management}</td>
+                            <td class="management-td" >${data[i].Department.management}</td>
                             <td class="action-td">
                                 <div class="dropdown dropdown-action">
                                     <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
@@ -98,7 +72,7 @@ $.getJSON("http://seifeldeen.pythonanywhere.com/hr/available-jobs/", function (d
                             <td>${i + 1}</td>
                             <td class="job-td">${data[i].JobTitle}</td>
                             <td class="department-td" data-department_id= ></td>
-                            <td>${data[i].management}</td>
+                            <td class="management-td">${data[i].management}</td>
                             <td class="action-td">
                                 <div class="dropdown dropdown-action">
                                     <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
@@ -150,6 +124,46 @@ $.getJSON("http://seifeldeen.pythonanywhere.com/hr/available-managments/",functi
 }
 
 );
+
+// edit designation 
+function editDesignation () {
+
+    $(".edit-designation").click( function () {
+        $('.edit-designation-input').attr('data-id' ,$(this).data("id")).val($(this).parentsUntil('tr').siblings('.job-td').text());
+        
+        if ($(this).parentsUntil('tr').siblings('.department-td').text() != '' ){
+        $(".edit-department-select-list option[value='"+ $(this).parentsUntil('tr').siblings('.department-td').text() +"']").attr("selected", true);
+        $('.select2-selection__rendered').text($(this).parentsUntil('tr').siblings('.department-td').text());
+        } else {
+            $(".edit-department-select-list option[value='"+ $(this).parentsUntil('tr').siblings('.management-td').text() +"']").attr("selected", true);
+            $('.select2-selection__rendered').text($(this).parentsUntil('tr').siblings('.management-td').text());
+        
+        }
+    })
+    
+}
+
+// send edit designation data 
+
+$('.send-edit-btn').click(function () {
+    $id = $('.edit-designation-input').data('id');
+    $.ajax({
+        url: `http://seifeldeen.pythonanywhere.com/hr/edit-job/${$id}/`,
+        type: 'PUT',
+        data: {
+            JobTitle : $('.edit-designation-input').val(),
+            Department : $(".edit-department-select-list option:selected").data('department'),
+            management : $(".edit-department-select-list option:selected").data('management')
+        },
+        success : function () {
+            location.reload();
+        }
+        
+    });
+    $('.row-' + $('.edit-designation-input').data('id') + ' .job-td ').text($('.edit-designation-input').val());
+    $('.row-' + $('.edit-designation-input').data('id') + ' .department-td ').text($(".edit-department-select-list option:selected").val())
+
+})
 
 $("form").submit(function(e){
 e.preventDefault();

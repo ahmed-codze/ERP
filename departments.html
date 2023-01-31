@@ -1332,30 +1332,7 @@
 
 			$('a:contains("الأقسام")').addClass('active')				
 				
-				// edit department
-				function editDepartment()
-				{
-					$(".edit_department").click( function () {
-						$('#depart_name_input').attr('data-id' ,$(this).data("id")).val($(this).parentsUntil('tr').siblings('.depart_data').text());
-						$("#edit_depart option[value='"+ $(this).parentsUntil('tr').siblings('.mangement_data').text() +"']").attr("selected", true);
-					})
-					
-				}
-				$('.depart_submit').click(function () {
-
-					$deprat_id = $('#depart_name_input').data('id');
-					$.ajax({
-						url: `http://seifeldeen.pythonanywhere.com/hr/edit-department/${$deprat_id}/`,
-						type: 'PUT',
-						data: {
-							Department : $('#depart_name_input').val(),
-							management : $("#edit_depart option:selected").data('id')
-						},
-						
-					});
-					$('.row-' + $deprat_id + ' .depart_data').text($('#depart_name_input').val());
-					$('.row-' + $deprat_id + ' .mangement_data').text($("#edit_depart option:selected").val());
-				})
+			
 
 				// delete department 
 				function deleteDepartment() {
@@ -1426,7 +1403,7 @@
 				
 				);
 			
-				
+
 			
 					// add new depatrments  				
 					$('#AddSubmit').click(function () 
@@ -1445,7 +1422,34 @@
 					});
 
 
+				// edit department
+				function editDepartment()
+				{
+					$(".edit_department").click( function () {
+						$('#depart_name_input').attr('data-id' ,$(this).data("id")).val($(this).parentsUntil('tr').siblings('.depart_data').text());
+						$("#edit_depart option[value='"+ $(this).parentsUntil('tr').siblings('.mangement_data').text() +"']").attr("selected", true);
+					})
 					
+				}
+				$('.depart_submit').click(function () {
+
+					$deprat_id = $('#depart_name_input').data('id');
+					$.ajax({
+						url: `http://seifeldeen.pythonanywhere.com/hr/edit-department/${$deprat_id}/`,
+						type: 'PUT',
+						data: {
+							Department : $('#depart_name_input').val(),
+							management : $("#edit_depart option:selected").data('id')
+						},
+						success : function () {
+							location.reload();
+						}
+						
+					});
+					$('.row-' + $deprat_id + ' .depart_data').text($('#depart_name_input').val());
+					$('.row-' + $deprat_id + ' .mangement_data').text($("#edit_depart option:selected").val());
+					
+				})	
 				
 			
 

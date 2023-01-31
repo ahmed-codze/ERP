@@ -97,9 +97,11 @@ $('#add_other_holiday_btn').click(function () {
             leave_ar:$holiday_name_AR,
             num:$holiday_number
         },
-    
+        success : function () {
+            location.reload();
+        }
     });
-    location.reload();
+
     
 })
 
@@ -131,34 +133,7 @@ function delete_holiday(){
 }
 
 delete_holiday();
-delete_holiday();
 
-
-   
-    // edit hpliday
-function editHoliday () {
-
-    $(".edit_holiday").click( function () {
-        $('.edit_holiday_ar_input').attr('data-id' ,$(this).data("id")).val($(this).parentsUntil('tr').siblings('.holiday_ar_td').text());
-        $('.edit_holiday_number_input').attr('data-id' ,$(this).data("id")).val($(this).parentsUntil('tr').siblings('.holiday_num_td').text());
-    })
-    
-}
-$('.send-edit-btn').click(function () {
-    $id = $('.edit_holiday_ar_input').data('id');
-
-    $.ajax({
-        url: `http://seifeldeen.pythonanywhere.com/hr/edit-leave/${$id}/`,
-        type: 'PUT',
-        data: {
-            leave_ar : $('.edit_holiday_ar_input').val(),
-            num      : $('.edit_holiday_number_input').val(),
-        },
-        
-    });
-    $('.row-' + $('.edit_holiday_ar_input').data('id') + ' .holiday_ar_td ').text($('.edit_holiday_ar_input').val());
-    $('.row-' + $('.edit_holiday_number_input').data('id') + ' .holiday_num_td ').text($(".edit_holiday_number_input").val());
-})
 
 
 
@@ -190,3 +165,35 @@ $.getJSON("http://seifeldeen.pythonanywhere.com/hr/available-leaves/", function 
     delete_holiday();
     editHoliday ();
 })
+
+
+   
+    // edit holiday
+    function editHoliday () {
+
+        $(".edit_holiday").click( function () {
+            $('.edit_holiday_ar_input').attr('data-id' ,$(this).data("id")).val($(this).parentsUntil('tr').siblings('.holiday_ar_td').text());
+            $('.edit_holiday_number_input').attr('data-id' ,$(this).data("id")).val($(this).parentsUntil('tr').siblings('.holiday_num_td').text());
+        })
+
+
+        
+    }
+
+    $('.send-edit-btn').click(function () {
+        console.log($('.edit_holiday_ar_input').data('id'));
+        $.ajax({
+            url: `http://seifeldeen.pythonanywhere.com/hr/edit-leave/${$('.edit_holiday_ar_input').data('id')}/`,
+            type: 'PUT',
+            data: {
+                leave_ar : $('.edit_holiday_ar_input').val(),
+                num      : $('.edit_holiday_number_input').val(),
+            },
+            cache : false
+            
+        });
+        $('.row-' + $('.edit_holiday_ar_input').data('id') + ' .holiday_ar_td ').text($('.edit_holiday_ar_input').val());
+        $('.row-' + $('.edit_holiday_number_input').data('id') + ' .holiday_num_td ').text($(".edit_holiday_number_input").val());
+        location.reload();
+    })
+    
