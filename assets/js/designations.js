@@ -130,7 +130,7 @@ $.getJSON("http://seifeldeen.pythonanywhere.com/hr/departments/", function (data
             <option value="${data[i].Department}" data-id=${data[i].id} data-department="${data[i].id}" data-management=""  >${data[i].Department}</option>
         `);
         $('.edit-department-select-list').append(`
-            <option value="${data[i].Department}" data-id=${data[i].id} >${data[i].id}</option>
+        <option value="${data[i].Department}" data-id=${data[i].id} data-department="${data[i].id}" data-management=""  >${data[i].Department}</option>
         `);
     }
 });
