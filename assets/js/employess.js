@@ -126,99 +126,113 @@ function delete_employee(){
 
 		$('#AddSubmit').click(function () {
 
-			$theempfirstname 	= $('#empfirstname').val();
-			$theemplastname	 	= $('#emplastname').val();
-			$theempusername 	= $('#empusername').val();
-			$theempmail 		= $('#empmail').val();
-			$thepass1			= $('#pass1').val();
-			$theempgender		= $('#empgender option:selected').val();
-			$theempcontracttype	= $('#empcontracttype option:selected').val();
-			$theempaddress 		= $('#empaddress').val();
-			$theempphone 		= $('#empphone').val();
-			$theempdatebirth 	= $('#flatpickr1').val();
-			$theempfamname 		= $('#empfamname').val();
-			$theempfamrelation	= $('#empfamrelation').val();
-			$theempfamphone 	= $('#empfamphone').val();
-			$thecontacttime 	= $('#flatpickr2').val();
-			$theempsallary  	= $('#empsallary').val();
-			//payment method
-			$ibanNumber			= $('#iban-input').val();
-			$paypalNumber		= $('#pay-pal-input').val();
-			$bankName			= $('#bank-name-input').val();
-			$theempbankacc		= $('#bank-account-input').val();
-
-			$theAvjobs			= $('#Avjobs option:selected').data('id');
-			$theAvDirectEmp	 	= $('#AvDirectEmp option:selected').data('id');
-
-			$thecvformFile 		= $('#cvformFile').prop('files')[0];
-			$theidformFile 		= $('#idformFile').prop('files')[0];
-			$theselfpicformFile = $('#selfpicformFile').prop('files')[0];
-			$theconractformFile = $('#conractformFile').prop('files')[0];
-			$theinsformFile 	= $('#insformFile').prop('files')[0];
-
-			thedata={
-				"family_relation": $theempfamrelation,
-				"address": $theempaddress,
-				"username": $theempusername,
-				"password" : $thepass1 ,
-				"first_name": $theempfirstname,
-				"last_name": $theemplastname,
-				"email": $theempmail,
-				"birthday": $theempdatebirth,
-				"gender": $theempgender,
-				"caontact_number": $theempphone,
-				"family_name": $theempfamname,
-				"emergancy_contact": $theempfamphone,
-				
-				
-				"JobTitle": $theAvjobs,
-				"emp_type": $theempcontracttype,
-				"salary": $theempsallary,
-				"the_contract_time": $thecontacttime,
-				"direct_manager": $theAvDirectEmp ,
-
-				"ProfileImg": $theselfpicformFile,
-				"CV": $thecvformFile,
-				"national_id": $theidformFile,
-				"insurance": $theinsformFile,
-				"contract_copy": $theconractformFile,
-				
-				"bank_account_iban": $ibanNumber,
-				"bank_name": $bankName,
-				"paypal_email": $paypalNumber,
-				"bank_account_name": $theempbankacc,
-			
+			if ($('#pass1').val() !== $('#confirm_pass').val()) {
+				alert('كلمات المرور غير متطابقة');
 			}
-			var fd = new FormData();
-			for ( var key in thedata ) {
-				fd.append(key, thedata[key]);
+			else{
+
+				$theempfirstname 	= $('#empfirstname').val();
+				$theemplastname	 	= $('#emplastname').val();
+				$theempusername 	= $('#empusername').val();
+				$theempmail 		= $('#empmail').val();
+				$thepass1			= $('#pass1').val();
+				$theempgender		= $('#empgender option:selected').val();
+				$theempcontracttype	= $('#empcontracttype option:selected').val();
+				$theempaddress 		= $('#empaddress').val();
+				$theempphone 		= $('#empphone').val();
+				$theempdatebirth 	= $('#flatpickr1').val();
+				$theempfamname 		= $('#empfamname').val();
+				$theempfamrelation	= $('#empfamrelation').val();
+				$theempfamphone 	= $('#empfamphone').val();
+				$thecontacttime 	= $('#flatpickr2').val();
+				$theempsallary  	= $('#empsallary').val();
+				//payment method
+				$ibanNumber			= $('#iban-input').val();
+				$paypalNumber		= $('#pay-pal-input').val();
+				$bankName			= $('#bank-name-input').val();
+				$theempbankacc		= $('#bank-account-input').val();
+
+				$theAvjobs			= $('#Avjobs option:selected').data('id');
+				$theAvDirectEmp	 	= $('#AvDirectEmp option:selected').data('id');
+
+				$thecvformFile 		= $('#cvformFile').prop('files')[0];
+				$theidformFile 		= $('#idformFile').prop('files')[0];
+				$theselfpicformFile = $('#selfpicformFile').prop('files')[0];
+				$theconractformFile = $('#conractformFile').prop('files')[0];
+				$theinsformFile 	= $('#insformFile').prop('files')[0];
+
+				thedata={
+					"family_relation": $theempfamrelation,
+					"address": $theempaddress,
+					"username": $theempusername,
+					"password" : $thepass1 ,
+					"first_name": $theempfirstname,
+					"last_name": $theemplastname,
+					"email": $theempmail,
+					"birthday": $theempdatebirth,
+					"gender": $theempgender,
+					"caontact_number": $theempphone,
+					"family_name": $theempfamname,
+					"emergancy_contact": $theempfamphone,
+					
+					
+					"JobTitle": $theAvjobs,
+					"emp_type": $theempcontracttype,
+					"salary": $theempsallary,
+					"the_contract_time": $thecontacttime,
+					"direct_manager": $theAvDirectEmp ,
+
+					"ProfileImg": $theselfpicformFile,
+					"CV": $thecvformFile,
+					"national_id": $theidformFile,
+					"insurance": $theinsformFile,
+					"contract_copy": $theconractformFile,
+					
+					"bank_account_iban": $ibanNumber,
+					"bank_name": $bankName,
+					"paypal_email": $paypalNumber,
+					"bank_account_name": $theempbankacc,
+				
+				}
+				var fd = new FormData();
+				for ( var key in thedata ) {
+					if (thedata[key] ) {
+						fd.append(key, thedata[key]);
+
+					}else {
+						console.log( key +  "قفشتك")
+					}
+				}
+
+				$.ajax({
+					// Your server script to process the upload
+					url: 'http://seifeldeen.pythonanywhere.com/hr/add-emp/',
+					type: 'POST',
+					dataType : "json",
+					// Form data
+					data: fd,
+
+					// Tell jQuery not to process data or worry about content-type
+					// You *must* include these options!
+					cache: false,
+					contentType: false,
+					processData: false,
+
+
+					success: function(){  
+						location.reload()
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) { 
+						$('.loading-overlay').fadeOut('fast');
+						obj = XMLHttpRequest.responseJSON;
+						$('.add-form-alert').text(Object.keys(obj)[0] + ' ' + JSON.stringify(Object.values(obj)[0]) ).fadeIn();
+
+					}  
+
+				});
+
+					
 			}
-
-			$.ajax({
-				// Your server script to process the upload
-				url: 'http://seifeldeen.pythonanywhere.com/hr/add-emp/',
-				type: 'POST',
-				dataType : "json",
-				// Form data
-				data: fd,
-
-				// Tell jQuery not to process data or worry about content-type
-				// You *must* include these options!
-				cache: false,
-				contentType: false,
-				processData: false,
-
-
-				success: function(){  
-					location.reload()
-				},
-				error: function(XMLHttpRequest, textStatus, errorThrown) { 
-					console.log(XMLHttpRequest.responseJSON)
-				} 
-
-			});
-
-											
 		});
 
 
