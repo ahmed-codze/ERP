@@ -1,3 +1,7 @@
+// add active class to nav link 
+$('a:contains("لوحة التحكم للموظفين")').addClass('active');
+
+
 // get holidays options
 $.getJSON("http://seifeldeen.pythonanywhere.com/hr/available-leaves/",function(data)
 			//get mangement to add department
