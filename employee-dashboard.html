@@ -475,7 +475,7 @@
 												</div>
 											</div>
 											<div class="request-btn">
-												<a class="btn btn-primary" href="#">طلب اجازة</a>
+												<a class="btn btn-primary"   href="#"  data-bs-toggle="modal" data-bs-target="#add_holiday_request">طلب اجازة</a>
 											</div>
 										</div>
 									</div>
@@ -545,6 +545,42 @@
         </div>
 		<!-- /Main Wrapper -->
 		
+		<!--  Holiday requset  Modal -->
+		<div class="modal custom-modal fade" id="add_holiday_request" role="dialog">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">طلب الأجازة</h5>
+						<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body" >
+					
+
+							
+								<div class="form-group">
+									<label class="col-form-label">نوع الاجازة <span class="text-danger">*</span></label>
+									<select class="select" id="hodidays_option" name="empcontracttype" >
+										<option>اختر النوع</option>
+									</select>
+								</div>
+						
+							<div class="form-group">
+								<label  class="col-form-label">عدد الايام<span class="text-danger">*</span></label>
+								<div><input id="num_of_holiday" class="form-control  " type="number"></div>
+							</div>
+
+							<div class="submit-section">
+								<button class="btn btn-primary submit-btn  "id="add_holiday">تأكيد</button>
+							</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- / Holiday requset  Modal -->
+
 		<div class="settings-icon"> 
 			<span data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas"><i class="las la-cog"></i></span> 
 		</div> 
@@ -885,26 +921,30 @@
 				</div> 
 			</div> 
 		</div> 
-
 		<!-- jQuery -->
-        <script src="assets/js/jquery-3.6.0.min.js"></script>
-		
+		<script src="assets/js/jquery-3.6.0.min.js"></script>
+				
 		<!-- Bootstrap Core JS -->
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-		
+		<script src="assets/js/bootstrap.bundle.min.js"></script>
+
 		<!-- Slimscroll JS -->
 		<script src="assets/js/jquery.slimscroll.min.js"></script>
 
-		 <!-- Theme Settings JS -->
+		<!-- Select2 JS -->
+		<script src="assets/js/select2.min.js"></script>
+
+		<!-- Date Input -->
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+		<!-- Theme Settings JS -->
 		<script src="assets/js/layout.js"></script>
 		<script src="assets/js/theme-settings.js"></script>
 		<script src="assets/js/greedynav.js"></script>
-		
 		<!-- Custom JS -->
 		<script src="assets/js/app.js"></script>
-		
-		<!-- employee-list JS -->
+
+		<!-- employees-dashboard JS -->
 		<script src="assets/js/employee-dashboard.js"></script>
-		
+				
     </body>
 </html>

@@ -254,12 +254,12 @@ $.getJSON("http://seifeldeen.pythonanywhere.com/hr/somedata/", function (data) {
 				edit_employee();
 					delete_employee();
 			});
-			$iban_Value=document.getElementById('iban').value;
-			$paypal_Value=document.getElementById('paypal').value;
-			console.log($iban_Value);
-			$('input[type="checkbox"]').on('change', function() {
-				$('input[type="checkbox"]').not(this).prop('checked', false);
-			 });
+			// $iban_Value=document.getElementById('iban').value;
+			// $paypal_Value=document.getElementById('paypal').value;
+			// console.log($iban_Value);
+			// $('input[type="checkbox"]').on('change', function() {
+			// 	$('input[type="checkbox"]').not(this).prop('checked', false);
+			//  });
 		function paymentMethod()
 		{
 			
