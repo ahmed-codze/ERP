@@ -186,8 +186,8 @@ function edit_employeeList()
 					"family_name": $theempfamname,
 					"emergancy_contact": $theempfamphone,
 
-					// "bank_account": $theempbankacc,
-
+					
+					// bank data
 
 					"bank_account_iban": $ibanNumber,
 					"bank_name": $bankName,
