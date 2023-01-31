@@ -29,6 +29,13 @@
 		<!-- Chart CSS -->
 		<link rel="stylesheet" href="assets/plugins/morris/morris.css">
 		
+		<!-- Select2 CSS -->
+		<link rel="stylesheet" href="assets/css/select2.min.css">
+		
+
+		<!-- Date input  -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
 		<!-- Main CSS -->
         <link rel="stylesheet" href="assets/css/style.css">
 
@@ -553,9 +560,9 @@
 							</div>
 							<div class="modal-body">
 								<form>
-									<div class="form-group  ">
+									<div class="form-group">
 										<label  >يوم الأجازة <span class="text-danger">*</span></label>
-										<select id="week-holiday-name" required>
+										<select class="form-select " id="week-holiday-name" required>
 											<option value="سبت">سبت</option>
 											<option value="أحد">أحد</option>
 											<option value="اثنين">اثنين</option>
@@ -563,7 +570,7 @@
 											<option value="اربعاء">اربعاء</option>
 											<option value="خميس">خميس</option>
 											<option value="جمعه">جمعه</option>
-										  </select>
+										</select>
 									</div>
 									<div class="submit-section">
 										<button class="btn btn-primary submit-btn" id="add-week-holiday-btn">Submit</button>
@@ -592,7 +599,7 @@
 									</div>
 									<div class="form-group">
 										<label>تاريخ الأجازة <span class="text-danger">*</span></label>
-										<div class="cal-icon"><input id="holiday_Date" class="form-control datetimepicker" type="date"></div>
+										<div class="cal-icon"><input id="holiday_Date" class="form-control  flatpickr1" type="date"></div>
 									</div>
 									<div class="submit-section">
 										<button class="btn btn-primary submit-btn  "id="add_holiday">Submit</button>
@@ -1019,6 +1026,10 @@
 		<!-- Select2 JS -->
 		<script src="assets/js/select2.min.js"></script>
 		
+		<!-- Date Input -->
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
 		<!-- Datetimepicker JS -->
 		<script src="assets/js/moment.min.js"></script>
 		<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
@@ -1038,3 +1049,6 @@
 
 	</body>
 </html>
+<script>
+	var example1 = flatpickr('.flatpickr1');
+</script>

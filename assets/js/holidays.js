@@ -44,9 +44,8 @@ $('#add-week-holiday-btn').click(function () {
             day:$('#week-holiday-name option:selected').val(),
             
         },
-    
     });
-    // console.log($holiday_name);
+   
     location.reload();
     
 })
