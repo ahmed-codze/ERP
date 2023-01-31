@@ -4,6 +4,12 @@ Template Name: SmartHR - Bootstrap Admin Template
 Version      : 3.6
 */
 
+$.ajaxSetup({
+	headers: {
+	  'Authorization': "Basic YWRtaW46YWRtaW4=" 
+	}
+});
+
 $(document).ready(function() {
 	
 	// Variables declarations

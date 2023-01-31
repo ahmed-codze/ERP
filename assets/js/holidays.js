@@ -20,7 +20,6 @@ $.getJSON("http://seifeldeen.pythonanywhere.com/hr/list-weakly-leave/", function
                                 <div class="dropdown dropdown-action">
                                     <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item edit_week_holiday" data-id=${data[i].id} href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
                                     <a class="dropdown-item delete_week_holiday " data-id=${data[i].id} href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
                                 </div>
                                 </div>
@@ -36,18 +35,18 @@ $.getJSON("http://seifeldeen.pythonanywhere.com/hr/list-weakly-leave/", function
 $('#add-week-holiday-btn').click(function () {
     
     //  $week-holiday=$('#week-holiday-name').val();
-    $holiday_name=$('#week-holiday-name').val();
+    // $holiday_name=$('#week-holiday-name').val();
     
     $.ajax({
         url: `http://seifeldeen.pythonanywhere.com/hr/add-weakly-leave/`,
         type: 'post',
         data:{
-            day:$('#week-holiday-name').val(),
+            day:$('#week-holiday-name option:selected').val(),
             
         },
     
     });
-    console.log($holiday_name);
+    // console.log($holiday_name);
     location.reload();
     
 })
