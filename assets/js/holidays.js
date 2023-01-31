@@ -146,6 +146,7 @@ function editHoliday () {
 }
 $('.send-edit-btn').click(function () {
     $id = $('.edit_holiday_ar_input').data('id');
+
     $.ajax({
         url: `http://seifeldeen.pythonanywhere.com/hr/edit-leave/${$id}/`,
         type: 'PUT',
