@@ -52,7 +52,7 @@
 			.loading-overlay {
 				width: 100%;
 				height: 100% !important;
-				background-color: rgba(0, 0, 0, 0.6);
+				background-color: rgba(0, 0, 0, 0.3);
 				position: absolute;
 				top: 0;
 				height: 0;
@@ -480,48 +480,48 @@
 								</button>
 							</div>
 							<div class="modal-body">
-							<form action="javascript:void(0)" class="add-employee-form">	
+							<form class="add-employee-form">	
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label">الاسم الأول <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="empfirstname" required>
+											<input class="form-control" type="text" name="empfirstname" id="empfirstname" >
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label">الاسم الاخير<span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="emplastname" required>
+											<input class="form-control" type="text" name="emplastname" id="emplastname" >
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label">اسم المستخدم <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="empusername" required>
+											<input class="form-control" type="text" name="empusername" id="empusername" >
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label">البريد الالكتروني <span class="text-danger">*</span></label>
-											<input class="form-control" type="email" id="empmail" required>
+											<input class="form-control" type="email" name="empmail" id="empmail" >
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label">كلمة المرور<span class="text-danger">*</span></label>
-											<input class="form-control" type="password" id="pass1" required>
+											<input class="form-control" type="password" name="pass1" id="pass1" >
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label">تأكيد كلمة المرور <span class="text-danger">*</span></label>
-											<input class="form-control" id="confirm_pass" type="password" required>
+											<input class="form-control" id="confirm_pass" name="confirm_pass" type="password" >
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label> الجنس<span class="text-danger">*</span></label>
-											<select class="select" id="empgender" required>
+											<select class="select" id="empgender" name="empgender" >
 												<option>اختر النوع</option>
 												<option>مذكر</option>
 												<option>مؤنث</option>
@@ -531,7 +531,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label> نوع العقد <span class="text-danger">*</span></label>
-											<select class="select" id="empcontracttype" required>
+											<select class="select" id="empcontracttype" name="empcontracttype" >
 												<option>اختر النوع</option>
 												<option>يتم التجربة</option>
 												<option>تم التثبيت</option>
@@ -541,49 +541,49 @@
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label">العنوان  <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="empaddress" required>
+											<input class="form-control" type="text" name="empaddress" id="empaddress" >
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label">جوال <span class="text-danger">*</span></label>
-											<input class="form-control" type="number" id="empphone" required>
+											<input class="form-control" type="number" name="empphone" id="empphone" >
 										</div>
 									</div>
 									<div class="col-sm-6">  
 										<div class="form-group">
 											<label class="col-form-label"> تاريخ الميلاد  <span class="text-danger">*</span></label>
-											<div class="cal-icon"><input class="form-control" id="flatpickr1" type="date" required ></div>
+											<div class="cal-icon"><input class="form-control" name="birth" id="flatpickr1" type="date"  ></div>
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label">اسم أحد أفراد العائلة <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="empfamname" required>
+											<input class="form-control" type="text" name="empfamname" id="empfamname" >
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label">صلة القرابه  <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="empfamrelation" required>
+											<input class="form-control" type="text" name="empfamrelation" id="empfamrelation" >
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label">جوال أحد الأقارب <span class="text-danger">*</span></label>
-											<input class="form-control" type="number" id="empfamphone" required>
+											<input class="form-control" type="number" name="empfamphone" id="empfamphone" >
 										</div>
 									</div>
 									<div class="col-sm-6">  
 										<div class="form-group">
 											<label class="col-form-label"> ID <span class="text-danger">*</span></label>
-											<input type="text" class="form-control" disabled value="**2023" required>
+											<input type="text" class="form-control" name="ID" disabled value="**2023" >
 										</div>
 									</div>
 									<div class="col-sm-6">  
 										<div class="form-group">
 											<label class="col-form-label">مده العقد  <span class="text-danger">*</span></label>
-											<div class="cal-icon"><input class="form-control " id="flatpickr2" required type="date" id="contacttime"></div>
+											<div class="cal-icon"><input class="form-control " name="contacttime" id="flatpickr2"  type="date" id="contacttime"></div>
 										</div>
 									</div>
 
@@ -594,7 +594,7 @@
 											
 											<div class="form-group">
 												<label  class="col-form-label"> طرية الدفع <span class="text-danger">*</span></label>
-												<select class="select select_payment"  required>
+												<select class="select select_payment"  name="select_payment" >
 													<option>اختر طريقة الدفع</option>
 													<option id="iban" value="bank">حساب بنكي</option>
 													<option id="patpal" value="paypal">باي بال</option>
@@ -603,7 +603,7 @@
 
 											<div class="col-12 payment_option" id="paypal"  style="display: none;" >
 												<label class="col-form-label"> ايميل باي بال <span class="text-danger">*</span></label>
-												<input class="form-control" type="text" id="pay-pal-input" required>
+												<input class="form-control optional" name="paypal" type="text" id="pay-pal-input" >
 											</div>
 											<div class="col-12 payment_option " id="bank" style="display: none;" >
 												<div class="row">
@@ -611,18 +611,18 @@
 													<div class="col-4">
 														
 													<label class="col-form-label"> I-ban number <span class="text-danger">*</span></label>
-													<input class="form-control" type="text" id="iban-input" required>
+													<input class="form-control optional" name="iban" type="text" id="iban-input" >
 													
 												</div>
 												<div class="col-4">
 													
 													<label class="col-form-label"> اسم البنك <span class="text-danger">*</span></label>
-													<input class="form-control" type="text" id="bank-name-input" required>
+													<input class="form-control optional" name="bank-name-input"  type="text" id="bank-name-input" >
 													
 												</div>
 												<div class="col-4">
 													<label class="col-form-label"> الحساب البنكي<span class="text-danger">*</span></label>
-													<input class="form-control" type="text" id="bank-account-input" required>
+													<input class="form-control optional" name="bank-account-input" type="text" id="bank-account-input" >
 													
 												</div>
 											</div>
@@ -632,13 +632,13 @@
 										<div class="col-sm-6">
 											<div class="form-group">
 												<label class="col-form-label"> المرتب <span class="text-danger">*</span></label>
-												<input class="form-control" type="number" id="empsallary" required>
+												<input class="form-control" type="number" name="empsallary" id="empsallary" >
 											</div>
 										</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="col-form-label"> مسمي وظيفي <span class="text-danger">*</span></label>
-											<select class="select" id="Avjobs" required>
+											<select class="select" id="Avjobs" name="Avjobs" >
 												<option>اختر الوظيفه</option>
 											</select>
 										</div>
@@ -647,7 +647,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label> المدير المباشر<span class="text-danger">*</span></label>
-											<select class="select" id="AvDirectEmp" required>
+											<select class="select" id="AvDirectEmp" name="AvDirectEmp" >
 												<option>اختر المدير</option>
 											</select>
 										</div>
@@ -657,34 +657,37 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label> صوره الهويه <span class="text-danger">*</span></label>
-											<input class="form-control" type="file" id="idformFile" required>
+											<input class="form-control" name="idformFile" type="file" id="idformFile" >
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label> صوره شخصيه <span class="text-danger">*</span></label>
-											<input class="form-control" type="file" id="selfpicformFile" required>
+											<input class="form-control" name="selfpicformFile" type="file" id="selfpicformFile" >
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label> سيره ذاتيه  <span class="text-danger">*</span></label>
-											<input class="form-control" type="file" id="cvformFile" required>
+											<input class="form-control" name="cvformFile" type="file" id="cvformFile" >
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label> العقد  <span class="text-danger">*</span></label>
-											<input class="form-control" type="file" id="conractformFile" required>
+											<input class="form-control" type="file" name="conractformFile" id="conractformFile" >
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label> التامين  <span class="text-danger">*</span></label>
-											<input class="form-control" type="file" id="insformFile" required>
+											<input class="form-control" name="insformFile" type="file" id="insformFile" >
 										</div>
 									</div>
 
+									<div class="col-12">
+										<div class="alert-danger text-center add-form-alert" style="padding: 10px; display: none;">ffg</div>
+									</div>
 
 								</div>
 								<div class="submit-section">
@@ -1404,10 +1407,11 @@
 
 			$('#AddSubmit').click(function () {
 			
-			if ($('#pass1').val() == $('#confirm_pass').val()) {
 
-				$('.loading-overlay').show();
+				if ($('#pass1').val() == $('#confirm_pass').val()) {
 
+					$('.loading-overlay').fadeIn();
+					
 				$theempfirstname 		= $('#empfirstname').val();
 				$theemplastname	 	= $('#emplastname').val();
 				$theempusername 		= $('#empusername').val();
@@ -1426,7 +1430,6 @@
 				$theempbankacc			= $('#empbankacc').val();
 				$theAvjobs			 	= $('#Avjobs option:selected').data('id');
 				$theAvDirectEmp	 	= $('#AvDirectEmp option:selected').data('id');
-
 				$thecvformFile = $('#cvformFile').prop('files')[0];
 				$theidformFile = $('#idformFile').prop('files')[0];
 				$theselfpicformFile = $('#selfpicformFile').prop('files')[0];
@@ -1484,8 +1487,10 @@
 						location.reload()
 					},
 					error: function(XMLHttpRequest, textStatus, errorThrown) { 
-						console.log( errorThrown); 
-						console.log(XMLHttpRequest)
+						$('.loading-overlay').fadeOut('fast');
+						obj = XMLHttpRequest.responseJSON;
+						$('.add-form-alert').text(Object.keys(obj)[0] + ' ' + JSON.stringify(Object.values(obj)[0]) ).fadeIn();
+
 					}    
 
 				});
@@ -1493,6 +1498,8 @@
 				} else {
 				alert('كلمات المرور غير متطابقة');
 				}
+
+
 												
 			});
 
