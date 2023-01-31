@@ -59,9 +59,11 @@ $('#add-week-holiday-btn').click(function () {
             day:$('#week-holiday-name option:selected').val(),
             
         },
+        success : function () {
+            location.reload();
+        }
     });
    
-    location.reload();
     
 })
 

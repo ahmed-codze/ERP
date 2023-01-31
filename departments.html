@@ -10,8 +10,7 @@
         <meta name="robots" content="noindex, nofollow">
         <title>Dashboard - HRMS admin template</title>
 		
-		<!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 		
 		<!-- Bootstrap CSS -->
         <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css">
@@ -28,14 +27,21 @@
 		
 		<!-- Chart CSS -->
 		<link rel="stylesheet" href="assets/plugins/morris/morris.css">
+
+		<!-- Select2 CSS -->
+		<link rel="stylesheet" href="assets/css/select2.min.css">
 		
 		<!-- Main CSS -->
         <link rel="stylesheet" href="assets/css/style.css">
+
+		<!-- Date input  -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
         <!-- Google font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@500&display=swap" rel="stylesheet">
+        
         <!-- flat picker -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         
@@ -880,7 +886,7 @@
 									</div>
 									<div class="form-group">
 										<label>الادارة<span class="text-danger">*</span></label>
-										<select id="selectDepart"  class="  form-select">
+										<select id="selectDepart"  class="  select">
 										</select>
 									</div>
 									<div class="submit-section">
@@ -911,7 +917,7 @@
 									</div>
 									<div class="form-group">
 										<label>الادارة<span class="text-danger">*</span></label>
-										<select id="edit_depart"  class="form-select"></select>
+										<select id="edit_depart"  class="select"></select>
 									</div>
 
 									<div class="submit-section">
@@ -1308,14 +1314,10 @@
 		<!-- Select2 JS -->
 		<script src="assets/js/select2.min.js"></script>
 		
-		<!-- Datetimepicker JS -->
-		<script src="assets/js/moment.min.js"></script>
-		<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
-		
-		<!-- Datatable JS -->
-		<script src="assets/js/jquery.dataTables.min.js"></script>
-		<script src="assets/js/dataTables.bootstrap4.min.js"></script>
-		<!-- Theme Settings JS -->
+		<!-- Date Input -->
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+		 <!-- Theme Settings JS -->
 		<script src="assets/js/layout.js"></script>
 		<script src="assets/js/theme-settings.js"></script>
 		<script src="assets/js/greedynav.js"></script>
