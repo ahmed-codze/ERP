@@ -141,7 +141,7 @@ function edit_employeeList()
 
 			if ($('#pass1').val() == $('#confirm_pass').val()) {
 
-				$('.loading-overlay').show();
+				$('.loading-overlay').fadeIn();
 
 				$theempfirstname 		= $('#empfirstname').val();
 				$theemplastname	 	= $('#emplastname').val();
@@ -219,8 +219,11 @@ function edit_employeeList()
 						location.reload()
 					},
 					error: function(XMLHttpRequest, textStatus, errorThrown) { 
-						console.log(XMLHttpRequest.responseJSON)
-					}
+						$('.loading-overlay').fadeOut('fast');
+						obj = XMLHttpRequest.responseJSON;
+						$('.add-form-alert').text(Object.keys(obj)[0] + ' ' + JSON.stringify(Object.values(obj)[0]) ).fadeIn();
+
+					}    
 
 			});
 
