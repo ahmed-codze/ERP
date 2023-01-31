@@ -607,7 +607,44 @@
 											<div class="cal-icon"><input class="form-control " id="flatpickr2"   type="date" id="contacttime"></div>
 										</div>
 									</div>
+									<div class="col-md-12">
+											
+										<div class="form-group">
+											<label  class="col-form-label"> طرية الدفع <span class="text-danger">*</span></label>
+											<select class="select select_payment"  name="select_payment" >
+												<option>اختر طريقة الدفع</option>
+												<option id="iban" value="bank">حساب بنكي</option>
+												<option id="patpal" value="paypal">باي بال</option>
+											</select>
+										</div>
 
+										<div class="col-12 payment_option paypal"   style="display: none;" >
+											<label class="col-form-label"> ايميل باي بال <span class="text-danger">*</span></label>
+											<input class="form-control optional pay-pal-input" name="paypal" type="text"  >
+										</div>
+										<div class="col-12 payment_option bank"  style="display: none;" >
+											<div class="row">
+
+												<div class="col-4">
+													
+												<label class="col-form-label"> I-ban number <span class="text-danger">*</span></label>
+												<input class="form-control optional iban-input" name="iban" type="text"  >
+												
+											</div>
+											<div class="col-4">
+												
+												<label class="col-form-label"> اسم البنك <span class="text-danger">*</span></label>
+												<input class="form-control optional bank-name-input" name="bank-name-input"  type="text"  >
+												
+											</div>
+											<div class="col-4">
+												<label class="col-form-label"> الحساب البنكي<span class="text-danger">*</span></label>
+												<input class="form-control optional bank-account-input" name="bank-account-input" type="text"  >
+												
+											</div>
+										</div>
+										</div>
+									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="col-form-label"> المرتب <span class="text-danger">*</span></label>
@@ -615,15 +652,10 @@
 										</div>
 									</div>
 
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label class="col-form-label"> حساب بنكي <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="empbankacc"  >
-										</div>
-									</div>
+									
 									<div class="col-md-6">
 										<div class="form-group">
-											<label> مسمي وظيفي <span class="text-danger">*</span></label>
+											<label class="col-form-label"> مسمي وظيفي <span class="text-danger">*</span></label>
 											<select class="select" id="Avjobs"  >
 												<option>اختر الوظيفه</option>
 											</select>
@@ -754,6 +786,7 @@
 												<input class="form-control" id="phone_editList_input" value="9876543210" type="text">
 											</div>
 										</div>
+										
 										<div class="col-sm-6">
 											<div class="form-group">
 												<label class="col-form-label">شركة</label>
@@ -786,6 +819,44 @@
 													<option value="الادارة المالية">الادارة المالية</option>
 													<option value="ادارة التسويق">ادارة التسويق</option>
 												</select>
+											</div>
+										</div>
+										<div class="col-md-12 mb-5">
+											
+											<div class="form-group ">
+												<label  class="col-form-label"> طرية الدفع <span class="text-danger">*</span></label>
+												<select class="select select_payment"  name="select_payment" >
+													<option>اختر طريقة الدفع</option>
+													<option id="iban" value="bank">حساب بنكي</option>
+													<option id="patpal" value="paypal">باي بال</option>
+												</select>
+											</div>
+	
+											<div class="col-12 payment_option paypal"   style="display: none;" >
+												<label class="col-form-label"> ايميل باي بال <span class="text-danger">*</span></label>
+												<input class="form-control optional pay-pal-input" name="paypal" type="text"  >
+											</div>
+											<div class="col-12 payment_option bank"  style="display: none;" >
+												<div class="row">
+	
+													<div class="col-4">
+														
+													<label class="col-form-label"> I-ban number <span class="text-danger">*</span></label>
+													<input class="form-control optional iban-input" name="iban" type="text"  >
+													
+												</div>
+												<div class="col-4">
+													
+													<label class="col-form-label"> اسم البنك <span class="text-danger">*</span></label>
+													<input class="form-control optional bank-name-input" name="bank-name-input"  type="text"  >
+													
+												</div>
+												<div class="col-4">
+													<label class="col-form-label"> الحساب البنكي<span class="text-danger">*</span></label>
+													<input class="form-control optional bank-account-input" name="bank-account-input" type="text"  >
+													
+												</div>
+											</div>
 											</div>
 										</div>
 									</div>
