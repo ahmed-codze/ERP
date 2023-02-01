@@ -35,13 +35,7 @@ function delete_employee(){
 	{
 		$(".edit_employee").click(function(){
 			let $id=$(this).attr('data-id');
-			// $.ajax({
-			// 	url:`http://seifeldeen.pythonanywhere.com/hr/emp-data/${$id}/`,
-			// 	type:'get',
-			// 	data: first_name=$('#frist_name_edit_input').val(),
-
-				
-			// });
+			
 			$.getJSON(`http://seifeldeen.pythonanywhere.com/hr/emp-data/${$id}/`,function(data){
 
 				$('#frist_name_edit_input').val(data.first_name);
@@ -54,7 +48,7 @@ function delete_employee(){
 				
 				
 			});
-			console.log($id)
+			
 			$('.send-edit-btn').click(function () {
 			
 				$.ajax({
@@ -70,12 +64,12 @@ function delete_employee(){
 						date_joined : $(".date_edit_input").val(),
 						caontact_number : $("#phone_edit_input").val(),
 						
+						
 					},
 					
 				});
 				// $('.row-' + $('.edit-designation-input').data('id') + ' .job-td ').text($('.edit-designation-input').val());
 				// $('.row-' + $('.edit-designation-input').data('id') + ' .department-td ').text($(".edit-department-select-list option:selected").val())
-				console.log( 'hi',$id);
 			})
 			
 		}
