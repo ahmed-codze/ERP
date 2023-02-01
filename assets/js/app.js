@@ -4,9 +4,12 @@ Template Name: SmartHR - Bootstrap Admin Template
 Version      : 3.6
 */
 
+$username = "admin"
+$password = "admin"
+
 $.ajaxSetup({
 	headers: {
-	  'Authorization': "Basic YWRtaW46YWRtaW4=" 
+	  'Authorization': "Basic " +btoa($username + ":" + $password)
 	}
 });
 
