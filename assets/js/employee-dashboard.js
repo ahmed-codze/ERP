@@ -55,8 +55,8 @@ $.getJSON(`http://seifeldeen.pythonanywhere.com/hr/emp-data/2/`, function (data)
 				available_for_this_user:data.id,		
 				success : function () 
 				{
-					// location.reload();
-					console.log('done');
+					location.reload();
+					
 				}
 				
 				
