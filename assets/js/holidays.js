@@ -4,11 +4,26 @@ $("form").submit(function(e){
 // add active class to nav link 
 $('a:contains("الأجازات")').addClass('active');
 
+// fix bug of table rows
+// var rowCount = document.getElementsByClassName('custom-table').rows.length;
+$className=document.querySelector('.row-length');
+let tableCount=$('.custom-table').length;
 
+var rowCount=[];
+for(var i=1;i<=tableCount;i++)
+{
+     rowCount[i]  = $('.custom-table').find('tr').length;
+    if(rowCount[i]>2)
+    {
+        $className.classList.remove('.row-length');
+        
+    }
+    console.log('hi',rowCount[1]); 
+}
 // show weekly holiday
 
 $.getJSON("http://seifeldeen.pythonanywhere.com/hr/list-weakly-leave/", function (data) {
-
+    
     for (var i = 0; i < data.length; i++) 
     {
         
@@ -44,9 +59,11 @@ $('#add-week-holiday-btn').click(function () {
             day:$('#week-holiday-name option:selected').val(),
             
         },
+        success : function () {
+            location.reload();
+        }
     });
    
-    location.reload();
     
 })
 

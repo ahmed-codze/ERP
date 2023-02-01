@@ -2,6 +2,7 @@
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark"  data-sidebar-size="lg" data-sidebar-image="none">
     <head>
         <meta charset="utf-8">
+		<meta charset="utf-8">
 		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
         <meta name="description" content="Smarthr - Bootstrap Admin Template">
@@ -28,16 +29,15 @@
 		
 		<!-- Chart CSS -->
 		<link rel="stylesheet" href="assets/plugins/morris/morris.css">
-		
+
 		<!-- Select2 CSS -->
 		<link rel="stylesheet" href="assets/css/select2.min.css">
 		
+		<!-- Main CSS -->
+        <link rel="stylesheet" href="assets/css/style.css">
 
 		<!-- Date input  -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
-		<!-- Main CSS -->
-        <link rel="stylesheet" href="assets/css/style.css">
 
         <!-- Google font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,9 +48,9 @@
             * {
                 font-family: 'IBM Plex Sans Arabic', sans-serif;
             }
-			.week_holiday td ,.other_holdiday td
+			.row-length td 
 			{
-				padding: 17px;
+				padding: 22px;
 			}
         </style>
         
@@ -365,7 +365,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="table-responsive">
-									<table class="table table-striped custom-table mb-0">
+									<table class="table table-striped custom-table row-length mb-0">
 										<thead>
 											<tr>
 												<th>#</th>
@@ -374,7 +374,7 @@
 												<th class="">Action</th>
 											</tr>
 										</thead>
-										<tbody class="weekly-holiday-table week_holiday">
+										<tbody class="weekly-holiday-table week_holiday ">
 										
 											
 										</tbody>
@@ -405,7 +405,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="table-responsive">
-									<table class="table table-striped custom-table mb-0">
+									<table class="table table-striped custom-table mb-0 row-length">
 										<thead>
 											<tr>
 												<th>#</th>
@@ -524,7 +524,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="table-responsive">
-									<table class="table table-striped custom-table mb-0">
+									<table class="table table-striped custom-table row-length mb-0">
 										<thead>
 											<tr>
 												<th>#</th>
@@ -533,7 +533,7 @@
 												<th class="">عمليات</th>
 											</tr>
 										</thead>
-										<tbody class="other-holiday-table">
+										<tbody class="other-holiday-table ">
 										
 										</tbody>
 									</table>
@@ -562,7 +562,7 @@
 								<form>
 									<div class="form-group">
 										<label  >يوم الأجازة <span class="text-danger">*</span></label>
-										<select class="form-select " id="week-holiday-name" required>
+										<select class="select " id="week-holiday-name" required>
 											<option value="سبت">سبت</option>
 											<option value="أحد">أحد</option>
 											<option value="اثنين">اثنين</option>
@@ -1014,6 +1014,7 @@
 			</div> 
 		</div>
 
+		
 		<!-- jQuery -->
         <script src="assets/js/jquery-3.6.0.min.js"></script>
 		
@@ -1029,11 +1030,6 @@
 		<!-- Date Input -->
 		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-
-		<!-- Datetimepicker JS -->
-		<script src="assets/js/moment.min.js"></script>
-		<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
-		
 		 <!-- Theme Settings JS -->
 		<script src="assets/js/layout.js"></script>
 		<script src="assets/js/theme-settings.js"></script>

@@ -51,9 +51,10 @@ function delete_employee(){
 				$('#id_edit_input').val(data.emp_id);
 				$('.date_edit_input').val(data.date_joined);
 				$('#phone_edit_input').val(data.caontact_number);
-				// $('#company_edit_input').val(data.emp_id.Department);
+				
 				
 			});
+			console.log($id)
 			$('.send-edit-btn').click(function () {
 			
 				$.ajax({
@@ -267,24 +268,15 @@ $.getJSON("http://seifeldeen.pythonanywhere.com/hr/somedata/", function (data) {
 				edit_employee();
 					delete_employee();
 			});
-			$iban_Value=document.getElementById('iban').value;
-			$paypal_Value=document.getElementById('paypal').value;
-			console.log($iban_Value);
-			$('input[type="checkbox"]').on('change', function() {
-				$('input[type="checkbox"]').not(this).prop('checked', false);
-			 });
+			// $iban_Value=document.getElementById('iban').value;
+			// $paypal_Value=document.getElementById('paypal').value;
+			// console.log($iban_Value);
+			// $('input[type="checkbox"]').on('change', function() {
+			// 	$('input[type="checkbox"]').not(this).prop('checked', false);
+			//  });
 		function paymentMethod()
 		{
-			// if(cheaked==true && $iban_Value=='bank' )
-			// {
-			// 	$('.iban-input').fadeIn();
-			// }
-			// if(cheaked==true && $paypal_Value=='paypal')
-			// {
-			// 	$('.paypal-input').fadeIn();
-
-			// }
-			// 
+			
 			$(document).ready(function(){
 				$('.select_payment').on('change',function(){
 					$('.payment_option').hide();
