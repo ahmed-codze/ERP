@@ -48,18 +48,18 @@ $.getJSON('https://seifeldeen.pythonanywhere.com/hr/list-leave-request-managment
                                 `)
                                 if(data[i].accepted== true)
                                 {
-                                    document.getElementById("currant_state-"+ data[i].id).innerHTML = " موافقه"; 
+                                    document.getElementById("currant_state-"+ data[i].id).innerHTML = " موافقه " ; 
                                     document.getElementById("currant_state-"+ data[i].id).classList.add("text-success");
                                 }
                                 else if(data[i].accepted==false)
                                 {
-                                    document.getElementById("currant_state-"+ data[i].id).innerHTML = "رفض"; 
+                                    document.getElementById("currant_state-"+ data[i].id).innerHTML = " رفض"; 
                                     document.getElementById("currant_state-"+ data[i].id).classList.add("text-danger");
                                     
                                 }
                                 else
                                 {
-                                    document.getElementById("currant_state-"+ data[i].id).innerHTML = "معلقة"; 
+                                    document.getElementById("currant_state-"+ data[i].id).innerHTML = " معلقة "; 
                                     document.getElementById("currant_state-"+ data[i].id).classList.add("text-purple");
                                 }
 
@@ -100,8 +100,7 @@ $.getJSON('https://seifeldeen.pythonanywhere.com/hr/list-leave-request-managment
     
                         }    
                     });
-                    // $('.row-' + $('.edit-designation-input').data('id') + ' .job-td ').text($('.edit-designation-input').val());
-                    // $('.row-' + $('.edit-designation-input').data('id') + ' .department-td ').text($(".edit-department-select-list option:selected").val())
+                    
                 }); 
             })
         }
