@@ -31,7 +31,7 @@ $.getJSON('https://seifeldeen.pythonanywhere.com/hr/list-leave-request-managment
                             
                             <i class="fa fa-dot-circle-o "id="currant_state-${data[i].id}"></i> 
                             </a>
-                             <div class="dropdown-menu dropdown-menu-right ">
+                             <div class="dropdown-menu dropdown-menu-right " id="cahnge-state-${data[i].id}">
                             
                                 <li>
                                 <a  value="1" class="dropdown-item holiday_status" href="#"    data-id="${data[i].id}" data-bs-toggle="modal"data-bs-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i> موافقة</a>
@@ -48,13 +48,15 @@ $.getJSON('https://seifeldeen.pythonanywhere.com/hr/list-leave-request-managment
                                 `)
                                 if(data[i].accepted== true)
                                 {
-                                    document.getElementById("currant_state-"+ data[i].id).innerHTML = " موافقه"; 
+                                    document.getElementById("currant_state-"+ data[i].id).innerHTML = "تم الموافقه "; 
                                     document.getElementById("currant_state-"+ data[i].id).classList.add("text-success");
+                                    document.getElementById("cahnge-state-"+ data[i].id).remove();
                                 }
                                 else if(data[i].accepted==false)
                                 {
-                                    document.getElementById("currant_state-"+ data[i].id).innerHTML = "رفض"; 
+                                    document.getElementById("currant_state-"+ data[i].id).innerHTML = "تم الرفض "; 
                                     document.getElementById("currant_state-"+ data[i].id).classList.add("text-danger");
+                                    document.getElementById("cahnge-state-"+ data[i].id).remove();
                                     
                                 }
                                 else
