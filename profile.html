@@ -420,7 +420,7 @@
 											</div>
 										</div>
                                       <!--//Bank information//--> 
-									</div>location
+									</div>
 								</div>
 							</div>
 
@@ -2096,7 +2096,7 @@
 	}
 	$.ajax({
 			
-			url: 'http://seifeldeen.pythonanywhere.com/hr/update-emp/23/'+user_id+'/',
+			url: 'http://seifeldeen.pythonanywhere.com/hr/update-emp/'+user_id+'/',
 			type: 'PUT',
 			dataType : "json",
 			// Form data
@@ -2106,13 +2106,13 @@
 			processData: false,
 
 			success: function(){  
-				location.reload()
+				// location.reload()
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) { 
 				
 				obj = XMLHttpRequest.responseJSON;
-				$('.add-form-alert').text(Object.keys(obj)[0] + ' ' + JSON.stringify(Object.values(obj)[0]) ).fadeIn();
-                alert(errorThrown)
+                console.log(errorThrown)
+				console.log(obj)
 			}    
 
 			});
