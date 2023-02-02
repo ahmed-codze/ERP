@@ -420,7 +420,7 @@
 											</div>
 										</div>
                                       <!--//Bank information//--> 
-									</div>location
+									</div>
 								</div>
 							</div>
 
@@ -911,7 +911,7 @@
 								</button>
 							</div>
 							<div class="modal-body">
-								<form>
+								<form action="JavaScript:void(0)">
 									<div class="row">
 										<div class="col-md-12">
 											<div class="profile-img-wrap edit-img">
@@ -927,18 +927,25 @@
 										</div>
 									</div>
 									<div class="row important-info">
-										
+										<div class="col-md-6">
+											<div class="form-group">
+												<label> المدير المباشر<span class="text-danger">*</span></label>
+												<select class="select" id="AvDirectEmp"  >
+													<option>اختر المدير</option>
+												</select>
+											</div>
+										</div>
 										<div class="col-md-6">
 											<div class="form-group">
 												<label>المسمي الوظيفي <span class="text-danger">*</span></label>
-												<select class="select options-info jopTitle">
+												<select class="select options-info " id="jopTitle">
 													
 												</select>
 											</div>
 										</div>
 									</div>
 									<div class="submit-section">
-										<button class="btn btn-primary submit-btn">Submit</button>
+										<button class="btn btn-primary submit-btn personal_info_sup">Submit</button>
 									</div>
 								</form>
 							</div>
@@ -963,7 +970,7 @@
 										
 									</div>
 									<div class="submit-section">
-										<button class="btn btn-primary submit-btn personal_info_sup" >Submit</button>
+										<button class="btn btn-primary submit-btn " >Submit</button>
 									</div>
 								</form>
 							</div>
@@ -1822,7 +1829,7 @@
 								<div class="form-group">
 									<label>الجنس</label>
 									<select class="select form-control gender">
-										<option value="${data.gender} selected">مذكر</option>
+										<option value="${data.gender}" selected>مذكر</option>
 										<option value="female">مؤنث</option>
 									</select>
 								</div>
@@ -1838,12 +1845,7 @@
 								<input type="text" class="form-control email" value="${data.email}">
 							</div>
 						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<label>المدير المباشر</label>
-								<input type="text" class="form-control directManager" value="${data.direct_manager}">
-							</div>
-						</div>
+						
 					
 						<div class="col-md-6">
 							<div class="form-group">
@@ -1860,12 +1862,12 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>رقم الهاتف</label>
-								<input type="text" class="form-control phoneNumber" value="tel+${data.caontact_number}">
+								<input type="text" class="form-control phoneNumber" value="${data.caontact_number}">
 							</div>
 						</div>
 
 				 `)
-				 $(".important-info .select2-selection__rendered").text(data.JobTitle);
+				 //$(".important-info .select2-selection__rendered").text(data.JobTitle);
 				 $('.jop-info').prepend(`
 				     <div class="col-md-6">
 							<div class="form-group">
@@ -2052,10 +2054,10 @@
 			})
              
 			$.getJSON('http://seifeldeen.pythonanywhere.com/hr/available-jobs/', function (data){
-
+             //  console.log(data)
 				for(var x in data){
-					$(".options-info").prepend(`
-					  <option>${data[x].JobTitle}</option>
+					$("#jopTitle").prepend(`
+					  <option  value="${data[x].$JopTitle}"  data-id=${data[x].id}>${data[x].JobTitle}</option>
 					`)
 				 }
 			     
@@ -2068,15 +2070,15 @@
 	$('.loading-overlay').fadeIn();
 
 	$theempfirstname = $('.firstName').val();
-	$theemplastname =  $('.lastName').val();
+    $theemplastname =  $('.lastName').val();
 	$theempdatebirth =  $('.birthday').val();
 	$theempaddress =  $('.address').val();
 	$theempgender =  $('.gender').val();
 	$theempmail =  $('.email').val();
 	$theempphone =  $('.phoneNumber').val();
 	$jopNumber = $('.jopNumber').val();
-	$jopTitle = $('.jopTitle').val();
-	$directManager = $('.directManager').val();
+	$jopTitle = $('#jopTitle option:selected').data('id');
+	$directManager = $('#AvDirectEmp option:selected').data('id');
 
 	thedata = {
 		"first_name": $theempfirstname,
@@ -2096,7 +2098,7 @@
 	}
 	$.ajax({
 			
-			url: 'http://seifeldeen.pythonanywhere.com/hr/update-emp/23/'+user_id+'/',
+			url: 'http://seifeldeen.pythonanywhere.com/hr/update-emp/'+user_id+'/',
 			type: 'PUT',
 			dataType : "json",
 			// Form data
@@ -2106,7 +2108,7 @@
 			processData: false,
 
 			success: function(){  
-				location.reload()
+				//location.reload()
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) { 
 				
@@ -2118,6 +2120,20 @@
 			});
 
 })
+$.getJSON("http://seifeldeen.pythonanywhere.com/hr/somedata/",function(data)
+					//get mangement to add department
+					{
+
+						for(var i=0;i<data.length;i++)
+						{
+
+							$('#AvDirectEmp').append(`<option value="${data[i].username}"  data-id=${data[i].id} >${data[i].username}</option>`);
+						}	
+					
+					
+					}
+				
+				);
 			
 	
 
