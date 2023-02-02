@@ -1821,9 +1821,9 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>الجنس</label>
-									<select class="select form-control gender">
-										<option value="${data.gender} selected">مذكر</option>
-										<option value="female">مؤنث</option>
+									<select class="select form-control gender" id="gender">
+										<option>مذكر</option>
+										<option>مؤنث</option>
 									</select>
 								</div>
 							</div>
@@ -1953,7 +1953,6 @@
 				  </div>
 				 `);
 
-				 
 
 				  if(data.paypal_email == null){
 					
@@ -2048,6 +2047,15 @@
 			});
              // END BANK INFORMATION MODAL 
 				  
+			 if (data.gender == "مذكر"){
+				$('#gender').prop("selectedIndex", 0).attr("selected","selected");
+				alert("ولد")
+
+			 }else{
+				$('#gender').prop("selectedIndex", 1).attr("selected","selected");
+				alert("بنت")
+
+			 }
 				  
 			})
              
@@ -2071,7 +2079,7 @@
 	$theemplastname =  $('.lastName').val();
 	$theempdatebirth =  $('.birthday').val();
 	$theempaddress =  $('.address').val();
-	$theempgender =  $('.gender').val();
+	$theempgender =  $('.gender option:selected').val();
 	$theempmail =  $('.email').val();
 	$theempphone =  $('.phoneNumber').val();
 	$jopNumber = $('.jopNumber').val();
