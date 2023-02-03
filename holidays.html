@@ -2,6 +2,7 @@
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark"  data-sidebar-size="lg" data-sidebar-image="none">
     <head>
         <meta charset="utf-8">
+		<meta charset="utf-8">
 		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
         <meta name="description" content="Smarthr - Bootstrap Admin Template">
@@ -28,16 +29,15 @@
 		
 		<!-- Chart CSS -->
 		<link rel="stylesheet" href="assets/plugins/morris/morris.css">
-		
+
 		<!-- Select2 CSS -->
 		<link rel="stylesheet" href="assets/css/select2.min.css">
 		
+		<!-- Main CSS -->
+        <link rel="stylesheet" href="assets/css/style.css">
 
 		<!-- Date input  -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
-		<!-- Main CSS -->
-        <link rel="stylesheet" href="assets/css/style.css">
 
         <!-- Google font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,7 +50,7 @@
             }
 			.row-length td 
 			{
-				padding: 25px;
+				padding: 22px;
 			}
         </style>
         
@@ -203,7 +203,7 @@
 						<div class="dropdown-menu">
 							<a class="dropdown-item" href="profile.html">My Profile</a>
 							<a class="dropdown-item" href="settings.html">Settings</a>
-							<a class="dropdown-item" href="index.html">Logout</a>
+							<a class="dropdown-item" href="logout.html">Logout</a>
 						</div>
 					</li>
 				</ul>
@@ -215,7 +215,7 @@
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item" href="profile.html">My Profile</a>
 						<a class="dropdown-item" href="settings.html">Settings</a>
-						<a class="dropdown-item" href="index.html">Logout</a>
+						<a class="dropdown-item" href="logout.html">Logout</a>
 					</div>
 				</div>
 				<!-- /Mobile Menu -->
@@ -411,93 +411,13 @@
 												<th>#</th>
 												<th>الاسم </th>
 												<th>التاريخ</th>
-												<th>اليوم</th>
+			
 												<th class="">عمليات</th>
 											</tr>
 										</thead>
-										<tbody>
-											<tr class="holiday-completed">
-												<td>1</td>
-												<td>New Year</td>
-												<td>1 Jan 2019</td>
-												<td>Sunday</td>
-												<td></td>
-											</tr>
-											<tr class="holiday-completed">
-												<td>2</td>
-												<td>Good Friday</td>
-												<td>14 Apr 2019</td>
-												<td>Friday</td>
-												<td></td>
-											</tr>
-											<tr class="holiday-completed">
-												<td>3</td>
-												<td>May Day</td>
-												<td>1 May 2019</td>
-												<td>Monday</td>
-												<td class="text-center">
-												</td>
-											</tr>
-											<tr class="holiday-completed">
-												<td>4</td>
-												<td>Memorial Day</td>
-												<td>28 May 2019</td>
-												<td>Monday</td>
-												<td class="text-center">
-												</td>
-											</tr>
-											<tr class="holiday-completed">
-												<td>5</td>
-												<td>Ramzon</td>
-												<td>26 Jun 2019</td>
-												<td>Monday</td>
-												<td></td>
-											</tr>
-											<tr class="holiday-upcoming">
-												<td>6</td>
-												<td>Bakrid</td>
-												<td>2 Sep 2019</td>
-												<td>Saturday</td>
-												<td class="">
-													<div class="dropdown dropdown-action">
-														<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-														<div class="dropdown-menu dropdown-menu-right">
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
-														</div>
-													</div>
-												</td>
-											</tr>
-											<tr class="holiday-upcoming">
-												<td>7</td>
-												<td>Deepavali</td>
-												<td>18 Oct 2019</td>
-												<td>Wednesday</td>
-												<td class="">
-													<div class="dropdown dropdown-action">
-														<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-														<div class="dropdown-menu dropdown-menu-right">
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
-														</div>
-													</div>
-												</td>
-											</tr>
-											<tr class="holiday-upcoming">
-												<td>8</td>
-												<td>Christmas</td>
-												<td>25 Dec 2019</td>
-												<td>Monday</td>
-												<td class="">
-													<div class="dropdown dropdown-action">
-														<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-														<div class="dropdown-menu dropdown-menu-right">
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#edit_holiday"><i class="fa fa-pencil m-r-5"></i> تعديل</a>
-															<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
-														</div>
-													</div>
-												</td>
-											</tr>
+										<tbody class="yearly-holiday">
+
+
 										</tbody>
 									</table>
 								</div>
@@ -562,7 +482,7 @@
 								<form>
 									<div class="form-group">
 										<label  >يوم الأجازة <span class="text-danger">*</span></label>
-										<select class="form-select " id="week-holiday-name" required>
+										<select class="select " id="week-holiday-name" required>
 											<option value="سبت">سبت</option>
 											<option value="أحد">أحد</option>
 											<option value="اثنين">اثنين</option>
@@ -595,14 +515,14 @@
 								<form>
 									<div class="form-group">
 										<label>اسم الأجازة <span class="text-danger">*</span></label>
-										<input id="holiday_name" class="form-control" type="text">
+										<input id="yearly_holiday_name" class="form-control" type="text">
 									</div>
 									<div class="form-group">
 										<label>تاريخ الأجازة <span class="text-danger">*</span></label>
-										<div class="cal-icon"><input id="holiday_Date" class="form-control  flatpickr1" type="date"></div>
+										<div class="cal-icon"><input id="yearly_holiday_Date" class="form-control  flatpickr1" type="date"></div>
 									</div>
 									<div class="submit-section">
-										<button class="btn btn-primary submit-btn  "id="add_holiday">Submit</button>
+										<button class="btn btn-primary submit-btn "id="add_yearly_holiday">اضافة</button>
 									</div>
 								</form>
 							</div>
@@ -1014,6 +934,7 @@
 			</div> 
 		</div>
 
+		
 		<!-- jQuery -->
         <script src="assets/js/jquery-3.6.0.min.js"></script>
 		
@@ -1029,11 +950,6 @@
 		<!-- Date Input -->
 		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-
-		<!-- Datetimepicker JS -->
-		<script src="assets/js/moment.min.js"></script>
-		<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
-		
 		 <!-- Theme Settings JS -->
 		<script src="assets/js/layout.js"></script>
 		<script src="assets/js/theme-settings.js"></script>

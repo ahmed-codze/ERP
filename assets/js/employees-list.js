@@ -143,29 +143,39 @@ function edit_employeeList()
 
 				$('.loading-overlay').fadeIn();
 
-				$theempfirstname 		= $('#empfirstname').val();
+				$theempfirstname 	= $('#empfirstname').val();
 				$theemplastname	 	= $('#emplastname').val();
-				$theempusername 		= $('#empusername').val();
-				$theempmail 			= $('#empmail').val();
-				$thepass1				= $('#pass1').val();
-				$theempgender			= $('#empgender option:selected').val();
+				$theempusername 	= $('#empusername').val();
+				$theempmail 		= $('#empmail').val();
+				$thepass1			= $('#pass1').val();
+				$theempgender		= $('#empgender option:selected').val();
 				$theempcontracttype	= $('#empcontracttype option:selected').val();
 				$theempaddress 		= $('#empaddress').val();
-				$theempphone 			= $('#empphone').val();
-				$theempdatebirth 		= $('#flatpickr1').val();
+				$theempphone 		= $('#empphone').val();
+				$theempdatebirth 	= $('#flatpickr1').val();
 				$theempfamname 		= $('#empfamname').val();
-				$theempfamrelation		= $('#empfamrelation').val();
-				$theempfamphone 		= $('#empfamphone').val();
-				$thecontacttime 		= $('#flatpickr2').val();
-				$theempsallary  		= $('#empsallary').val();
-				$theempbankacc			= $('#empbankacc').val();
-				$theAvjobs			 	= $('#Avjobs option:selected').data('id');
+				$theempfamrelation	= $('#empfamrelation').val();
+				$theempfamphone		= $('#empfamphone').val();
+				$thecontacttime		= $('#flatpickr2').val();
+				$theempsallary  	= $('#empsallary').val();
+				
+				$ibanNumber			= $('.iban-input').val();
+				$paypalNumber		= $('.pay-pal-input').val();
+				$bankName			= $('.bank-name-input').val();
+				$theempbankacc		= $('.bank-account-input').val();
+				
+				$theAvjobs			= $('#Avjobs option:selected').data('id');
 				$theAvDirectEmp	 	= $('#AvDirectEmp option:selected').data('id');
+<<<<<<< HEAD
 				$thecvformFile = $('#cvformFile').prop('files')[0];
 				$theidformFile = $('#idformFile').prop('files')[0];
+=======
+				$thecvformFile      = $('#cvformFile').prop('files')[0];
+				$theidformFile      = $('#idformFile').prop('files')[0];
+>>>>>>> 73be29d712a2b323ff51ae09114f85ee297fce63
 				$theselfpicformFile = $('#selfpicformFile').prop('files')[0];
 				$theconractformFile = $('#conractformFile').prop('files')[0];
-				$theinsformFile = $('#insformFile').prop('files')[0];
+				$theinsformFile 	= $('#insformFile').prop('files')[0];
 
 				thedata={
 					"family_relation": $theempfamrelation,
@@ -180,7 +190,15 @@ function edit_employeeList()
 					"caontact_number": $theempphone,
 					"family_name": $theempfamname,
 					"emergancy_contact": $theempfamphone,
+
+					
+					// bank data
+
+					"bank_account_iban": $ibanNumber,
+					"bank_name": $bankName,
+					"paypal_email": $paypalNumber,
 					"bank_account": $theempbankacc,
+
 					"JobTitle": $theAvjobs,
 					"emp_type": $theempcontracttype,
 					"salary": $theempsallary,
@@ -231,6 +249,22 @@ function edit_employeeList()
 
 												
 			});
+			function paymentMethod()
+		{
+			
+			$(document).ready(function(){
+				$('.select_payment').on('change',function(){
+					$('.payment_option').hide();
+					$("."+$(this).val()).fadeIn('fast');
+
+				}).change();
+
+
+
+			});
+
+		}
+		paymentMethod();
 
 			
 

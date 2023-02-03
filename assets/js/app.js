@@ -4,11 +4,19 @@ Template Name: SmartHR - Bootstrap Admin Template
 Version      : 3.6
 */
 
+if ( !localStorage.getItem('auth')){
+	if (window.location.href != window.location.origin + '/' ){
+		window.location.href = window.location.origin;
+	}
+}
+
+
 $.ajaxSetup({
 	headers: {
-	  'Authorization': "Basic YWRtaW46YWRtaW4=" 
+	  'Authorization': "Basic " + localStorage.getItem('auth')
 	}
 });
+
 
 $(document).ready(function() {
 	

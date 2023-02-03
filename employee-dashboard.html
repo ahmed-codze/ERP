@@ -49,10 +49,7 @@
 		* {
 			font-family: 'IBM Plex Sans Arabic', sans-serif;
 		}
-		.week_holiday td ,.other_holdiday td
-		{
-			padding: 17px;
-		}
+
 	</style>
 	
 </head>
@@ -204,7 +201,7 @@
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="profile.html">My Profile</a>
 						<a class="dropdown-item" href="settings.html">Settings</a>
-						<a class="dropdown-item" href="index.html">Logout</a>
+						<a class="dropdown-item" href="logout.html">Logout</a>
 					</div>
 				</li>
 			</ul>
@@ -216,7 +213,7 @@
 				<div class="dropdown-menu dropdown-menu-right">
 					<a class="dropdown-item" href="profile.html">My Profile</a>
 					<a class="dropdown-item" href="settings.html">Settings</a>
-					<a class="dropdown-item" href="index.html">Logout</a>
+					<a class="dropdown-item" href="logout.html">Logout</a>
 				</div>
 			</div>
 			<!-- /Mobile Menu -->
@@ -328,13 +325,87 @@
 							<div class="welcome-box">
 								
 									
-								</div>
 							</div>
+							
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="col-lg-8 col-md-8">
+							<section class="dash-section"id="holiday_request_result">
+								<h1 class="dash-sec-title">Today</h1>
+								<div class="dash-sec-content">
+									<div class="dash-info-list">
+										<a href="#" class="dash-card text-danger">
+											<div class="dash-card-container">
+												<div class="dash-card-icon">
+													<i class="fa fa-hourglass-o"></i>
+												</div>
+												<div class="dash-card-content">
+													<p>Richard Miles is off sick today</p>
+												</div>
+												<div class="dash-card-avatars">
+													<div class="e-avatar"><img src="assets/img/profiles/avatar-09.jpg" alt=""></div>
+												</div>
+											</div>
+										</a>
+									</div>
+									
+									<div class="dash-info-list">
+										<a href="#" class="dash-card">
+											<div class="dash-card-container">
+												<div class="dash-card-icon">
+													<i class="fa fa-suitcase"></i>
+												</div>
+												<div class="dash-card-content">
+													<p>You are away today</p>
+												</div>
+												<div class="dash-card-avatars">
+													<div class="e-avatar"><img src="assets/img/profiles/avatar-02.jpg" alt=""></div>
+												</div>
+											</div>
+										</a>
+									</div>
+
+									<div class="dash-info-list">
+										<a href="#" class="dash-card">
+											<div class="dash-card-container">
+												<div class="dash-card-icon">
+													<i class="fa fa-building-o"></i>
+												</div>
+												<div class="dash-card-content">
+													<p>You are working from home today</p>
+												</div>
+												<div class="dash-card-avatars">
+													<div class="e-avatar"><img src="assets/img/profiles/avatar-02.jpg" alt=""></div>
+												</div>
+											</div>
+										</a>
+									</div>
+
+								</div>
+								<section class="dash-section ">
+									<h1 class="dash-sec-title">طلب الاجازة</h1>
+									<div class="table-responsive">
+										<table class="table table-striped custom-table mb-0 holiday-list-table ">
+											<thead>
+												<tr>
+													<th>نوع الاجازة</th>
+													<th>عدد الايام</th>
+													
+													<th class="text-center">الحالة</th>
+												</tr>
+											</thead>
+											<tbody class="holiday_request_result">
+											
+												
+												
+											</tbody>
+										</table>
+									</div>
+									
+								</section>
+							</section>
 							<section class="dash-section">
 								<h1 class="dash-sec-title">Today</h1>
 								<div class="dash-sec-content">
@@ -353,7 +424,7 @@
 											</div>
 										</a>
 									</div>
-
+									
 									<div class="dash-info-list">
 										<a href="#" class="dash-card">
 											<div class="dash-card-container">
@@ -478,7 +549,7 @@
 												</div>
 											</div>
 											<div class="request-btn">
-												<a class="btn btn-primary" href="#">طلب اجازة</a>
+												<a class="btn btn-primary"   href="#"  data-bs-toggle="modal" data-bs-target="#add_holiday_request">طلب اجازة</a>
 											</div>
 										</div>
 									</div>
@@ -548,6 +619,46 @@
         </div>
 		<!-- /Main Wrapper -->
 		
+		<!--  Holiday requset  Modal -->
+		<div class="modal custom-modal fade" id="add_holiday_request" role="dialog">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">طلب الأجازة</h5>
+						<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body" >
+					
+
+							
+								<div class="form-group">
+									<label class="col-form-label">نوع الاجازة <span class="text-danger">*</span></label>
+									<select class="select" id="hodidays_option" name="empcontracttype" >
+										<option>اختر النوع</option>
+									</select>
+								</div>
+						
+							<div class="form-group">
+								<label  class="col-form-label">عدد الايام<span class="text-danger">*</span></label>
+								<div><input id="num_of_holiday" class="form-control  " type="number"></div>
+							</div>
+							<div class="form-group">
+								<label  class="col-form-label">تاريخ البداية<span class="text-danger">*</span></label>
+								<div class="cal-icon"><input id="start_date_of_holiday" class="form-control holiday-date " type="date"></div>
+							</div>
+
+							<div class="submit-section">
+								<button class="btn btn-primary submit-btn  "id="add_request_holiday">تأكيد</button>
+							</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- / Holiday requset  Modal -->
+
 		<div class="settings-icon"> 
 			<span data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas"><i class="las la-cog"></i></span> 
 		</div> 
@@ -888,26 +999,30 @@
 				</div> 
 			</div> 
 		</div> 
-
 		<!-- jQuery -->
-        <script src="assets/js/jquery-3.6.0.min.js"></script>
-		
+		<script src="assets/js/jquery-3.6.0.min.js"></script>
+				
 		<!-- Bootstrap Core JS -->
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-		
+		<script src="assets/js/bootstrap.bundle.min.js"></script>
+
 		<!-- Slimscroll JS -->
 		<script src="assets/js/jquery.slimscroll.min.js"></script>
 
-		 <!-- Theme Settings JS -->
+		<!-- Select2 JS -->
+		<script src="assets/js/select2.min.js"></script>
+
+		<!-- Date Input -->
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+		<!-- Theme Settings JS -->
 		<script src="assets/js/layout.js"></script>
 		<script src="assets/js/theme-settings.js"></script>
 		<script src="assets/js/greedynav.js"></script>
-		
 		<!-- Custom JS -->
 		<script src="assets/js/app.js"></script>
-		
-		<!-- employee-list JS -->
+
+		<!-- employees-dashboard JS -->
 		<script src="assets/js/employee-dashboard.js"></script>
-		
+				
     </body>
 </html>

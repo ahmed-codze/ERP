@@ -2,13 +2,12 @@
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none">
     <head>
         <meta charset="utf-8">
-		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
         <meta name="description" content="Smarthr - Bootstrap Admin Template">
 		<meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
         <meta name="author" content="Dreamguys - Bootstrap Admin Template">
         <meta name="robots" content="noindex, nofollow">
-        <title>Employees - HRMS admin template</title>
+        <title>Leaves - HRMS admin template</title>
 		
 		<!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
@@ -33,113 +32,35 @@
 		<!-- Select2 CSS -->
 		<link rel="stylesheet" href="assets/css/select2.min.css">
 		
-		<!-- Date input  -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+		<!-- Datetimepicker CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
 		
 		<!-- Main CSS -->
         <link rel="stylesheet" href="assets/css/style.css">
-		
-		 
-    </head>
-
-	
-    <body>
-		<!-- Google font -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@500&display=swap" rel="stylesheet">
 		
 		<style>
 			* {
 				font-family: 'IBM Plex Sans Arabic', sans-serif;
 			}
-
-						/* loader*/
-						.loading-overlay {
-				width: 100%;
-				height: 100% !important;
-				background-color: rgba(0, 0, 0, 0.6);
-				position: absolute;
-				top: 0;
-				height: 0;
-				z-index: 999999;
-				display: none;
-			}
-
-			.sk-chase {
-				width: 40px;
-				height: 40px;
-				position: absolute;
-				animation: sk-chase 2.5s infinite linear both;
-				z-index: 99;
-				top: 50vh;
-				right: 50%;
-			}
-
-.sk-chase-dot {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0; 
-  animation: sk-chase-dot 2.0s infinite ease-in-out both; 
-}
-
-.sk-chase-dot:before {
-  content: '';
-  display: block;
-  width: 25%;
-  height: 25%;
-  background-color: #fff;
-  border-radius: 100%;
-  animation: sk-chase-dot-before 2.0s infinite ease-in-out both; 
-}
-
-.sk-chase-dot:nth-child(1) { animation-delay: -1.1s; }
-.sk-chase-dot:nth-child(2) { animation-delay: -1.0s; }
-.sk-chase-dot:nth-child(3) { animation-delay: -0.9s; }
-.sk-chase-dot:nth-child(4) { animation-delay: -0.8s; }
-.sk-chase-dot:nth-child(5) { animation-delay: -0.7s; }
-.sk-chase-dot:nth-child(6) { animation-delay: -0.6s; }
-.sk-chase-dot:nth-child(1):before { animation-delay: -1.1s; }
-.sk-chase-dot:nth-child(2):before { animation-delay: -1.0s; }
-.sk-chase-dot:nth-child(3):before { animation-delay: -0.9s; }
-.sk-chase-dot:nth-child(4):before { animation-delay: -0.8s; }
-.sk-chase-dot:nth-child(5):before { animation-delay: -0.7s; }
-.sk-chase-dot:nth-child(6):before { animation-delay: -0.6s; }
-
-@keyframes sk-chase {
-  100% { transform: rotate(360deg); } 
-}
-
-@keyframes sk-chase-dot {
-  80%, 100% { transform: rotate(360deg); } 
-}
-
-@keyframes sk-chase-dot-before {
-  50% {
-    transform: scale(0.4); 
-  } 100%, 0% {
-    transform: scale(1.0); 
-  } 
-}
+	
 		</style>
+    </head>
+    <body>
+		<!-- loader -->
+		<div class="loading-overlay">
+			<div class="sk-chase">
+				<div class="sk-chase-dot"></div>
+				<div class="sk-chase-dot"></div>
+				<div class="sk-chase-dot"></div>
+				<div class="sk-chase-dot"></div>
+				<div class="sk-chase-dot"></div>
+				<div class="sk-chase-dot"></div>
+			</div>
+		</div>
+			<!-- loader -->
+
 <!-- Main Wrapper -->
 <div class="main-wrapper">
-
-	
-				<!-- loader -->
-				<div class="loading-overlay">
-					<div class="sk-chase">
-						<div class="sk-chase-dot"></div>
-						<div class="sk-chase-dot"></div>
-						<div class="sk-chase-dot"></div>
-						<div class="sk-chase-dot"></div>
-						<div class="sk-chase-dot"></div>
-						<div class="sk-chase-dot"></div>
-					</div>
-				</div>
-					<!-- loader -->
 
 	<!-- Header -->
 	<div class="header">
@@ -399,9 +320,6 @@
 	</div>
 	
 	<!-- /Sidebar -->
-
-			
-			
 			
 			<!-- Page Wrapper -->
             <div class="page-wrapper">
@@ -413,74 +331,116 @@
 					<div class="page-header">
 						<div class="row align-items-center">
 							<div class="col">
-								<h3 class="page-title"> الموظفين</h3>
+								<h3 class="page-title">Leaves</h3>
 								<ul class="breadcrumb">
-									<li class="breadcrumb-item"><a href="admin-dashboard.html">لوحة التحكم </a></li>
-									<li class="breadcrumb-item active">الموظفين</li>
+									<li class="breadcrumb-item"><a href="admin-dashboard.html">Dashboard</a></li>
+									<li class="breadcrumb-item active">Leaves</li>
 								</ul>
 							</div>
 							<div class="col-auto float-end ms-auto">
-								<a href="#" class="btn add-btn" data-bs-toggle="modal" data-bs-target="#add_employee"><i class="fa fa-plus"></i> اضافة موظف</a>
-								<div class="view-icons">
-									<a href="employees.html" class="grid-view btn btn-link"><i class="fa fa-th"></i></a>
-									<a href="employees-list.html" class="list-view btn btn-link active"><i class="fa fa-bars"></i></a>
-								</div>
+								<a href="#" class="btn add-btn" data-bs-toggle="modal" data-bs-target="#add_leave"><i class="fa fa-plus"></i> Add Leave</a>
 							</div>
 						</div>
 					</div>
 					<!-- /Page Header -->
 					
+					<!-- Leave Statistics -->
+					<div class="row">
+						<div class="col-md-3">
+							<div class="stats-info">
+								<h6>Today Presents</h6>
+								<h4>12 / 60</h4>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="stats-info">
+								<h6>Planned Leaves</h6>
+								<h4>8 <span>Today</span></h4>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="stats-info">
+								<h6>Unplanned Leaves</h6>
+								<h4>0 <span>Today</span></h4>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="stats-info">
+								<h6>Pending Requests</h6>
+								<h4>12</h4>
+							</div>
+						</div>
+					</div>
+					<!-- /Leave Statistics -->
+					
 					<!-- Search Filter -->
 					<div class="row filter-row">
-						<div class="col-sm-6 col-md-3">  
+					   <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">  
 							<div class="form-group form-focus">
 								<input type="text" class="form-control floating">
-								<label class="focus-label"> ID</label>
+								<label class="focus-label">Employee Name</label>
 							</div>
-						</div>
-						<div class="col-sm-6 col-md-3">  
-							<div class="form-group form-focus">
-								<input type="text" class="form-control floating">
-								<label class="focus-label">اسم الموظف</label>
-							</div>
-						</div>
-						<div class="col-sm-6 col-md-3"> 
+					   </div>
+					   <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">  
 							<div class="form-group form-focus select-focus">
 								<select class="select floating"> 
-									<option>اختر الادارة</option>
-									<option >موارد بشرية </option>
-									<option value="مبيعات">مبيعات</option>
-									<option value="انتاج وتطوير">انتاج وتطوير</option>
-									<option value="الادارة المالية">الادارة المالية</option>
-									<option value="ادارة التسويق">ادارة التسويق</option>
+									<option> -- Select -- </option>
+									<option>Casual Leave</option>
+									<option>Medical Leave</option>
+									<option>Loss of Pay</option>
 								</select>
-								<label class="focus-label">الادارة </label>
+								<label class="focus-label">Leave Type</label>
+							</div>
+					   </div>
+					   <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12"> 
+							<div class="form-group form-focus select-focus">
+								<select class="select floating"> 
+									<option> -- Select -- </option>
+									<option> Pending </option>
+									<option> Approved </option>
+									<option> Rejected </option>
+								</select>
+								<label class="focus-label">Leave Status</label>
+							</div>
+					   </div>
+					   <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">  
+							<div class="form-group form-focus">
+								<div class="cal-icon">
+									<input class="form-control floating datetimepicker" type="text">
+								</div>
+								<label class="focus-label">From</label>
 							</div>
 						</div>
-						<div class="col-sm-6 col-md-3">  
-							<a href="#" class="btn btn-success w-100"> بحث </a>  
-						</div>     
+					   <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">  
+							<div class="form-group form-focus">
+								<div class="cal-icon">
+									<input class="form-control floating datetimepicker" type="text">
+								</div>
+								<label class="focus-label">To</label>
+							</div>
+						</div>
+					   <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">  
+							<a href="#" class="btn btn-success w-100"> Search </a>  
+					   </div>     
                     </div>
 					<!-- /Search Filter -->
 					
 					<div class="row">
 						<div class="col-md-12">
 							<div class="table-responsive">
-								<table class="table table-striped custom-table datatable">
+								<table class="table table-striped custom-table mb-0 holiday-list-table">
 									<thead>
 										<tr>
-											<th>الاسم</th>
-											<th> ID</th>
-											<th>ايميل</th>
-											<th>جوال</th>
-											<th class="text-nowrap">تاريخ الانضمام</th>
-											<th>الوظيقة</th>
-											<th class="text-end no-sort">عمليات</th>
+											<th>الموظف</th>
+											<th>نوع الاجازة</th>
+											<th>عدد الايام</th>
+											
+											<th class="text-center">الحالة</th>
 										</tr>
 									</thead>
-									<tbody class="employees-table">
-
-										<!-- display employees data -->
+									<tbody>
+									
+										
 										
 									</tbody>
 								</table>
@@ -490,584 +450,127 @@
                 </div>
 				<!-- /Page Content -->
 				
-				<!-- Add Employee Modal -->
-				<div id="add_employee" class="modal custom-modal fade" role="dialog">
-					<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+				<!-- Add Leave Modal -->
+				<div id="add_leave" class="modal custom-modal fade" role="dialog">
+					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title">اضافة موظف</h5>
-								<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-							<form action="javascript:void(0)" class="add-employee-form">	
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label class="col-form-label">الاسم الأول <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="empfirstname"  >
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label class="col-form-label">الاسم الاخير<span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="emplastname"  >
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label class="col-form-label">اسم المستخدم <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="empusername"  >
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label class="col-form-label">البريد الالكتروني <span class="text-danger">*</span></label>
-											<input class="form-control" type="email" id="empmail"  >
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label class="col-form-label">كلمة المرور<span class="text-danger">*</span></label>
-											<input class="form-control" type="password" id="pass1"  >
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label class="col-form-label">تأكيد كلمة المرور <span class="text-danger">*</span></label>
-											<input class="form-control" id="confirm_pass" type="password"  >
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label> الجنس<span class="text-danger">*</span></label>
-											<select class="select" id="empgender"  >
-												<option>اختر النوع</option>
-												<option>مذكر</option>
-												<option>مؤنث</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label> نوع العقد <span class="text-danger">*</span></label>
-											<select class="select" id="empcontracttype"  >
-												<option>اختر النوع</option>
-												<option>يتم التجربة</option>
-												<option>تم التثبيت</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label class="col-form-label">العنوان  <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="empaddress"  >
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label class="col-form-label">جوال <span class="text-danger">*</span></label>
-											<input class="form-control" type="number" id="empphone"  >
-										</div>
-									</div>
-									<div class="col-sm-6">  
-										<div class="form-group">
-											<label class="col-form-label"> تاريخ الميلاد  <span class="text-danger">*</span></label>
-											<div class="cal-icon"><input class="form-control" id="flatpickr1" type="date"   ></div>
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label class="col-form-label">اسم أحد أفراد العائلة <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="empfamname"  >
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label class="col-form-label">صلة القرابه  <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="empfamrelation"  >
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label class="col-form-label">جوال أحد الأقارب <span class="text-danger">*</span></label>
-											<input class="form-control" type="number" id="empfamphone"  >
-										</div>
-									</div>
-									<div class="col-sm-6">  
-										<div class="form-group">
-											<label class="col-form-label"> ID <span class="text-danger">*</span></label>
-											<input type="text" class="form-control" disabled value="**2023"  >
-										</div>
-									</div>
-									<div class="col-sm-6">  
-										<div class="form-group">
-											<label class="col-form-label">مده العقد  <span class="text-danger">*</span></label>
-											<div class="cal-icon"><input class="form-control " id="flatpickr2"   type="date" id="contacttime"></div>
-										</div>
-									</div>
-									<div class="col-md-12">
-											
-										<div class="form-group">
-											<label  class="col-form-label"> طرية الدفع <span class="text-danger">*</span></label>
-											<select class="select select_payment"  name="select_payment" >
-												<option>اختر طريقة الدفع</option>
-												<option id="iban" value="bank">حساب بنكي</option>
-												<option id="patpal" value="paypal">باي بال</option>
-											</select>
-										</div>
-
-										<div class="col-12 payment_option paypal"   style="display: none;" >
-											<label class="col-form-label"> ايميل باي بال <span class="text-danger">*</span></label>
-											<input class="form-control optional pay-pal-input" name="paypal" type="text"  >
-										</div>
-										<div class="col-12 payment_option bank"  style="display: none;" >
-											<div class="row">
-
-												<div class="col-4">
-													
-												<label class="col-form-label"> I-ban number <span class="text-danger">*</span></label>
-												<input class="form-control optional iban-input" name="iban" type="text"  >
-												
-											</div>
-											<div class="col-4">
-												
-												<label class="col-form-label"> اسم البنك <span class="text-danger">*</span></label>
-												<input class="form-control optional bank-name-input" name="bank-name-input"  type="text"  >
-												
-											</div>
-											<div class="col-4">
-												<label class="col-form-label"> الحساب البنكي<span class="text-danger">*</span></label>
-												<input class="form-control optional bank-account-input" name="bank-account-input" type="text"  >
-												
-											</div>
-										</div>
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label class="col-form-label"> المرتب <span class="text-danger">*</span></label>
-											<input class="form-control" type="number" id="empsallary"  >
-										</div>
-									</div>
-
-									
-									<div class="col-md-6">
-										<div class="form-group">
-											<label class="col-form-label"> مسمي وظيفي <span class="text-danger">*</span></label>
-											<select class="select" id="Avjobs"  >
-												<option>اختر الوظيفه</option>
-											</select>
-										</div>
-									</div>
-
-									<div class="col-md-6">
-										<div class="form-group">
-											<label> المدير المباشر<span class="text-danger">*</span></label>
-											<select class="select" id="AvDirectEmp"  >
-												<option>اختر المدير</option>
-											</select>
-										</div>
-									</div>
-
-									<!-- files -->
-									<div class="col-md-6">
-										<div class="form-group">
-											<label> صوره الهويه <span class="text-danger">*</span></label>
-											<input class="form-control" type="file" id="idformFile"  >
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label> صوره شخصيه <span class="text-danger">*</span></label>
-											<input class="form-control" type="file" id="selfpicformFile"  >
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label> سيره ذاتيه  <span class="text-danger">*</span></label>
-											<input class="form-control" type="file" id="cvformFile"  >
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label> العقد  <span class="text-danger">*</span></label>
-											<input class="form-control" type="file" id="conractformFile"  >
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label> التامين  <span class="text-danger">*</span></label>
-											<input class="form-control" type="file" id="insformFile"  >
-										</div>
-									</div>
-
-									<div class="col-12">
-										<div class="alert-danger text-center add-form-alert" style="padding: 10px; display: none;"></div>
-									</div>
-
-								</div>
-								<div class="submit-section">
-									<button class="btn btn-primary submit-btn" id="AddSubmit">تأكيد</button>
-								</div>
-							</form>
-							</div>
-							
-						</div>
-					</div>
-				</div>
-				<!-- /Add Employee Modal -->
-				
-				<!-- Edit Employee Modal -->
-				<div id="edit_employee" class="modal custom-modal fade" role="dialog">
-					<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title">تعديل الموظف </h5>
+								<h5 class="modal-title">Add Leave</h5>
 								<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
 							<div class="modal-body">
 								<form>
-									<div class="row">
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label class="col-form-label">الاسم الاول <span class="text-danger">*</span></label>
-												<input class="form-control" id="frist_name_editList_input" value="John" type="text">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label class="col-form-label">الاسم الاخير</label>
-												<input class="form-control" id="last_name_editList_input" value="Doe" type="text">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label class="col-form-label">اسم المستخدم <span class="text-danger">*</span></label>
-												<input class="form-control" id="username_editList_input" value="johndoe" type="text">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label class="col-form-label">البريد الالكتروني<span class="text-danger">*</span></label>
-												<input class="form-control" id="email_editList_input" value="johndoe@example.com" type="email">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label class="col-form-label">كلمة المرور</label>
-												<input class="form-control"  id=""value="johndoe" type="password">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label class="col-form-label">تأكيد كلمة المرور </label>
-												<input class="form-control" id="" value="johndoe" type="password">
-											</div>
-										</div>
-										<div class="col-sm-6">  
-											<div class="form-group">
-												<label class="col-form-label"> ID <span class="text-danger">*</span></label>
-												<input type="text" value="FT-0001" id="id_editList_input" readonly class="form-control floating">
-											</div>
-										</div>
-										<div class="col-sm-6">  
-											<div class="form-group">
-												<label class="col-form-label">تاريخ الانضمام <span class="text-danger">*</span></label>
-												<div class="cal-icon"><input class="form-control date_editList_input  " id="flatpickr1"  type="date"></div>
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label class="col-form-label">جوال </label>
-												<input class="form-control" id="phone_editList_input" value="9876543210" type="text">
-											</div>
-										</div>
-										
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label class="col-form-label">شركة</label>
-												<select class="select">
-													<option>Global Technologies</option>
-													<option>Delta Infotech</option>
-													<option selected>International Software Inc</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>قسم <span class="text-danger">*</span></label>
-												<select class="select">
-													<option>اختر قسم</option>
-													<option>Web Development</option>
-													<option>IT Management</option>
-													<option>Marketing</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>الادارة<span class="text-danger">*</span></label>
-												<select class="select">
-													<option   >اختر الادارة </option>
-													<option >موارد بشرية </option>
-													<option value="مبيعات">مبيعات</option>
-													<option value="انتاج وتطوير">انتاج وتطوير</option>
-													<option value="الادارة المالية">الادارة المالية</option>
-													<option value="ادارة التسويق">ادارة التسويق</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-md-12 mb-5">
-											
-											<div class="form-group ">
-												<label  class="col-form-label"> طرية الدفع <span class="text-danger">*</span></label>
-												<select class="select select_payment"  name="select_payment" >
-													<option>اختر طريقة الدفع</option>
-													<option id="iban" value="bank">حساب بنكي</option>
-													<option id="patpal" value="paypal">باي بال</option>
-												</select>
-											</div>
-	
-											<div class="col-12 payment_option paypal"   style="display: none;" >
-												<label class="col-form-label"> ايميل باي بال <span class="text-danger">*</span></label>
-												<input class="form-control optional pay-pal-input" name="paypal" type="text"  >
-											</div>
-											<div class="col-12 payment_option bank"  style="display: none;" >
-												<div class="row">
-	
-													<div class="col-4">
-														
-													<label class="col-form-label"> I-ban number <span class="text-danger">*</span></label>
-													<input class="form-control optional iban-input" name="iban" type="text"  >
-													
-												</div>
-												<div class="col-4">
-													
-													<label class="col-form-label"> اسم البنك <span class="text-danger">*</span></label>
-													<input class="form-control optional bank-name-input" name="bank-name-input"  type="text"  >
-													
-												</div>
-												<div class="col-4">
-													<label class="col-form-label"> الحساب البنكي<span class="text-danger">*</span></label>
-													<input class="form-control optional bank-account-input" name="bank-account-input" type="text"  >
-													
-												</div>
-											</div>
-											</div>
+									<div class="form-group">
+										<label>Leave Type <span class="text-danger">*</span></label>
+										<select class="select">
+											<option>Select Leave Type</option>
+											<option>Casual Leave 12 Days</option>
+											<option>Medical Leave</option>
+											<option>Loss of Pay</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label>From <span class="text-danger">*</span></label>
+										<div class="cal-icon">
+											<input class="form-control datetimepicker" type="text">
 										</div>
 									</div>
-									<div class="table-responsive m-t-15">
-										<table class="table table-striped custom-table">
-											<thead>
-												<tr>
-													<th>الاذونات</th>
-													<th class="text-center">قراءة</th>
-													<th class="text-center">كتابة</th>
-													<th class="text-center">اضافة</th>
-													<th class="text-center">تعديل</th>
-													<th class="text-center">تصدير</th>
-													<th class="text-center">استيراد</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>الاجازات</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-												</tr>
-												<tr>
-													<td>اوراق</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-												</tr>
-												<tr>
-													<td>عملاء</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-												</tr>
-												<tr>
-													<td>مشاريع</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-												</tr>
-												<tr>
-													<td>مهام</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-												</tr>
-												<tr>
-													<td>دردشات</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-												</tr>
-												<tr>
-													<td>Assets</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-												</tr>
-												<tr>
-													<td>Timing Sheets</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input checked="" type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-													<td class="text-center">
-														<input type="checkbox">
-													</td>
-												</tr>
-											</tbody>
-										</table>
+									<div class="form-group">
+										<label>To <span class="text-danger">*</span></label>
+										<div class="cal-icon">
+											<input class="form-control datetimepicker" type="text">
+										</div>
+									</div>
+									<div class="form-group">
+										<label>Number of days <span class="text-danger">*</span></label>
+										<input class="form-control" readonly type="text">
+									</div>
+									<div class="form-group">
+										<label>Remaining Leaves <span class="text-danger">*</span></label>
+										<input class="form-control" readonly value="12" type="text">
+									</div>
+									<div class="form-group">
+										<label>Leave Reason <span class="text-danger">*</span></label>
+										<textarea rows="4" class="form-control"></textarea>
 									</div>
 									<div class="submit-section">
-										<button class="btn btn-primary submit-btn send-edit-btn">تأكيد</button>
+										<button class="btn btn-primary submit-btn">Submit</button>
 									</div>
 								</form>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!-- /Edit Employee Modal -->
+				<!-- /Add Leave Modal -->
 				
-				<!-- Delete Employee Modal -->
-				<div class="modal custom-modal fade" id="delete_employee" role="dialog">
+				<!-- Edit Leave Modal -->
+				<div id="edit_leave" class="modal custom-modal fade" role="dialog">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Edit Leave</h5>
+								<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form>
+									<div class="form-group">
+										<label>Leave Type <span class="text-danger">*</span></label>
+										<select class="select">
+											<option>Select Leave Type</option>
+											<option>Casual Leave 12 Days</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label>From <span class="text-danger">*</span></label>
+										<div class="cal-icon">
+											<input class="form-control datetimepicker" value="01-01-2019" type="text">
+										</div>
+									</div>
+									<div class="form-group">
+										<label>To <span class="text-danger">*</span></label>
+										<div class="cal-icon">
+											<input class="form-control datetimepicker" value="01-01-2019" type="text">
+										</div>
+									</div>
+									<div class="form-group">
+										<label>Number of days <span class="text-danger">*</span></label>
+										<input class="form-control" readonly type="text" value="2">
+									</div>
+									<div class="form-group">
+										<label>Remaining Leaves <span class="text-danger">*</span></label>
+										<input class="form-control" readonly value="12" type="text">
+									</div>
+									<div class="form-group">
+										<label>Leave Reason <span class="text-danger">*</span></label>
+										<textarea rows="4" class="form-control">Going to hospital</textarea>
+									</div>
+									<div class="submit-section">
+										<button class="btn btn-primary submit-btn">Save</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Edit Leave Modal -->
+
+				<!-- Approve Leave Modal -->
+				<div class="modal custom-modal fade" id="approve_leave" role="dialog">
 					<div class="modal-dialog modal-dialog-centered">
 						<div class="modal-content">
 							<div class="modal-body">
 								<div class="form-header">
-									<h3>حذف الموظف</h3>
-									<p>هل انت متأكد من الحذف ؟</p>
+									<h3>قبول الاجازة</h3>
+									<p>هل انت متأكد كم قبول الاجازة</p>
 								</div>
 								<div class="modal-btn delete-action">
 									<div class="row">
 										<div class="col-6">
-											<a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary continue-btn delete_employee_list_btn ">حذف</a>
+											<a href="javascript:void(0);"  data-bs-dismiss="modal" class="btn btn-primary continue-btn ">قبول</a>
 										</div>
 										<div class="col-6">
 											<a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary cancel-btn">الغاء</a>
@@ -1078,14 +581,39 @@
 						</div>
 					</div>
 				</div>
-				<!-- /Delete Employee Modal -->
+				<!-- /Approve Leave Modal -->
+				
+				<!-- Delete Leave Modal -->
+				<div class="modal custom-modal fade" id="delete_approve" role="dialog">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-body">
+								<div class="form-header">
+									<h3>رفض الاجازه </h3>
+									<p>هل انت متأكد من رفض الاجازه</p>
+								</div>
+								<div class="modal-btn delete-action">
+									<div class="row">
+										<div class="col-6">
+											<a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary continue-btn">رفض</a>
+										</div>
+										<div class="col-6">
+											<a href="javascript:void(0);" data-bs-dismiss="modal" class="btn btn-primary cancel-btn">الغاء</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Delete Leave Modal -->
 				
             </div>
 			<!-- /Page Wrapper -->
-			
+
         </div>
 		<!-- /Main Wrapper -->
-		
+
 		<div class="settings-icon"> 
 			<span data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas"><i class="las la-cog"></i></span> 
 		</div> 
@@ -1425,33 +953,38 @@
 					</div> 
 				</div> 
 			</div> 
-		</div>  
+		</div> 
 
 		<!-- jQuery -->
         <script src="assets/js/jquery-3.6.0.min.js"></script>
-		
+
 		<!-- Bootstrap Core JS -->
         <script src="assets/js/bootstrap.bundle.min.js"></script>
-		
+
 		<!-- Slimscroll JS -->
 		<script src="assets/js/jquery.slimscroll.min.js"></script>
 		
 		<!-- Select2 JS -->
 		<script src="assets/js/select2.min.js"></script>
 		
-		<!-- Date Input -->
-		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
+		<!-- Datatable JS -->
+		<script src="assets/js/jquery.dataTables.min.js"></script>
+		<script src="assets/js/dataTables.bootstrap4.min.js"></script>
 		
+		<!-- Datetimepicker JS -->
+		<script src="assets/js/moment.min.js"></script>
+		<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+			<!-- Date Input -->
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 		 <!-- Theme Settings JS -->
 		<script src="assets/js/layout.js"></script>
 		<script src="assets/js/theme-settings.js"></script>
 		<script src="assets/js/greedynav.js"></script>
 		<!-- Custom JS -->
 		<script src="assets/js/app.js"></script>
-		<!-- employees-list js -->
-		<script src="assets/js/employees-list.js"></script>
 		
+		<!-- leaves JS -->
+		<script src="assets/js/leaves.js"></script>
 		
     </body>
 </html>
