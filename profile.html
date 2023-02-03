@@ -927,19 +927,19 @@
 										</div>
 									</div>
 									<div class="row important-info">
-										<div class="col-md-6">
-											<div class="form-group">
+										<div class="col-md-6 directManager">
+											<div class="form-group ">
 												<label> المدير المباشر<span class="text-danger">*</span></label>
-												<select class="select" id="AvDirectEmp"  >
+												<select class="select" id="AvDirectEmp" >
 													<option>اختر المدير</option>
 												</select>
 											</div>
 										</div>
 										<div class="col-md-6">
-											<div class="form-group">
+											<div class="form-group jopselect">
 												<label>المسمي الوظيفي <span class="text-danger">*</span></label>
-												<select class="select options-info " id="jopTitle">
-													
+												<select class="select options-info jopselect " id="jopTitle">
+													<option>اختر المدير</option>
 												</select>
 											</div>
 										</div>
@@ -1802,6 +1802,8 @@
 					<td>${data.emergancy_contact}</td>
 				`);
 
+				
+
 				$('.profile-img-wrap img').attr('src', data.ProfileImg)
 				$('.name-info').prepend(`
 				   
@@ -1829,8 +1831,8 @@
 								<div class="form-group">
 									<label>الجنس</label>
 									<select class="select form-control gender">
-										<option value="${data.gender} selected">مذكر</option>
-										<option value="female">مؤنث</option>
+										<option value="${data.gender}" selected>مذكر</option>
+										<option value="مؤنث">مؤنث</option>
 									</select>
 								</div>
 							</div>
@@ -1867,7 +1869,10 @@
 						</div>
 
 				 `)
-				 //$(".important-info .select2-selection__rendered").text(data.JobTitle);
+				 $(".jopselect .select2-selection__rendered").text(data.JobTitle);
+				 $(".directManager .select2-selection__rendered").text(data.direct_manager);
+				 
+
 				 $('.jop-info').prepend(`
 				     <div class="col-md-6">
 							<div class="form-group">
@@ -2085,9 +2090,9 @@
 	$jopNumber = $('.jopNumber').val();
 	$jopTitle = $('#jopTitle option:selected').data('id');
 	$directManager = $('#AvDirectEmp option:selected').data('id');
-
+	
 	thedata = {
-		"data.ProfileImg":  $thepicfile,
+		"ProfileImg":  $thepicfile,
 		"first_name": $theempfirstname,
 		"last_name": $theemplastname,
 		"email": $theempmail,
@@ -2137,7 +2142,7 @@ $.getJSON("http://seifeldeen.pythonanywhere.com/hr/somedata/",function(data)
 
 							$('#AvDirectEmp').append(`<option value="${data[i].username}"  data-id=${data[i].id} >${data[i].username}</option>`);
 						}	
-					
+						//$("#AvDirectEmp").text(data.$username)
 					
 					}
 				
