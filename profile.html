@@ -1732,8 +1732,9 @@
 
 
 			// get user data 
-
+               $profilImage = 0
 			$.getJSON('http://seifeldeen.pythonanywhere.com/hr/emp-data/'+user_id+'/', function (data) {
+				$profilImage  = data.ProfileImg
 				$('.profile-img img').attr('src', data.ProfileImg)
 				$('.primary-info').prepend(`
 						<h3 class="user-name m-t-0 mb-0">${data.first_name} ${data.last_name}</h3>
@@ -2099,6 +2100,13 @@
 	$jopNumber = $('.jopNumber').val();
 	$jopTitle = $('#jopTitle option:selected').data('id');
 	$directManager = $('#AvDirectEmp option:selected').data('id');
+	if( $('.bic_file') == ""){
+		$thepicfile = $profilImage;
+		alert("done")
+	}else{
+		$thepicfile = $('.bic_file').prop("files")[0];
+		alert("error")
+	}
 	
 		// youssef	
 
