@@ -21,7 +21,7 @@ $.getJSON("https://seifeldeen.pythonanywhere.com/hr/list-avuser-leave/",function
 
 
 // get welocme card
-$.getJSON(`http://seifeldeen.pythonanywhere.com/hr/emp-data/25/`, function (data) 
+$.getJSON(`http://seifeldeen.pythonanywhere.com/hr/emp-data/${localStorage.getItem('id')}`, function (data) 
 	{
 
 			
@@ -40,35 +40,36 @@ $.getJSON(`http://seifeldeen.pythonanywhere.com/hr/emp-data/25/`, function (data
 				
 	// console.log(d)
 	// add holiday_request
-	$('#add_request_holiday').click(function () 
-	{
-		
-			
-		$.ajax
-		({
-			url: `https://seifeldeen.pythonanywhere.com/hr/add-leave-request/`,
-			type: 'POST',
-			data: 
-			{
-				the_leave: $('#hodidays_option  option:selected').val(),
-				number_of_days_requested: $("#num_of_holiday").val(),
-				available_for_this_user:data.id,		
-				success : function () 
-				{
-					// location.reload();
-					console.log('done')
-				}
-				
-				
-			},
-			
-		});
-
-
-	});
-	
 	
 });
+
+$('#add_request_holiday').click(function () 
+{
+	
+		
+	$.ajax
+	({
+		url: `https://seifeldeen.pythonanywhere.com/hr/add-leave-request/`,
+		type: 'POST',
+		data: 
+		{
+			the_leave: $('#hodidays_option  option:selected').val(),
+			number_of_days_requested: $("#num_of_holiday").val(),
+			available_for_this_user:data.id,		
+			success : function () 
+			{
+				// location.reload();
+				console.log('done')
+			}
+			
+			
+		},
+		
+	});
+
+
+});
+
 
 
 
