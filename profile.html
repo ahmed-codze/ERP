@@ -916,9 +916,9 @@
 										<div class="col-md-12">
 											<div class="profile-img-wrap edit-img">
 												<img class="inline-block" src="assets/img/profiles/avatar-02.jpg" alt="user">
-												<div class="fileupload btn">
+												<div class="fileupload btn ">
 													<span class="btn-text">edit</span>
-													<input class="upload" type="file">
+													<input class="upload bic_file" type="file">
 												</div>
 											</div>
 											<div class="row  name-info">
@@ -1829,7 +1829,7 @@
 								<div class="form-group">
 									<label>الجنس</label>
 									<select class="select form-control gender">
-										<option value="${data.gender}" selected>مذكر</option>
+										<option value="${data.gender} selected">مذكر</option>
 										<option value="female">مؤنث</option>
 									</select>
 								</div>
@@ -1955,7 +1955,6 @@
 				  </div>
 				 `);
 
-				 
 
 				  if(data.paypal_email == null){
 					
@@ -2050,6 +2049,15 @@
 			});
              // END BANK INFORMATION MODAL 
 				  
+			 if (data.gender == "مذكر"){
+				$('#gender').prop("selectedIndex", 0).attr("selected","selected");
+				alert("ولد")
+
+			 }else{
+				$('#gender').prop("selectedIndex", 1).attr("selected","selected");
+				alert("بنت")
+
+			 }
 				  
 			})
              
@@ -2068,12 +2076,12 @@
 	
 
 	$('.loading-overlay').fadeIn();
-
+    $thepicfile = $('.bic_file').prop("files")[0];
 	$theempfirstname = $('.firstName').val();
     $theemplastname =  $('.lastName').val();
 	$theempdatebirth =  $('.birthday').val();
 	$theempaddress =  $('.address').val();
-	$theempgender =  $('.gender').val();
+	$theempgender =  $('.gender option:selected').val();
 	$theempmail =  $('.email').val();
 	$theempphone =  $('.phoneNumber').val();
 	$jopNumber = $('.jopNumber').val();
@@ -2081,6 +2089,7 @@
 	$directManager = $('#AvDirectEmp option:selected').data('id');
 
 	thedata = {
+		"data.ProfileImg":  $thepicfile,
 		"first_name": $theempfirstname,
 		"last_name": $theemplastname,
 		"email": $theempmail,
@@ -2108,13 +2117,14 @@
 			processData: false,
 
 			success: function(){  
-				//location.reload()
+				location.reload()
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) { 
 				
 				obj = XMLHttpRequest.responseJSON;
-				$('.add-form-alert').text(Object.keys(obj)[0] + ' ' + JSON.stringify(Object.values(obj)[0]) ).fadeIn();
-                alert(errorThrown)
+                console.log(errorThrown)
+				console.log(obj)
+				console.log(XMLHttpRequest)
 			}    
 
 			});
