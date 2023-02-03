@@ -4,14 +4,19 @@ Template Name: SmartHR - Bootstrap Admin Template
 Version      : 3.6
 */
 
-$username = "admin"
-$password = "admin"
+if ( !localStorage.getItem('auth')){
+	if (window.location.href != window.location.origin + '/' ){
+		window.location.href = window.location.origin;
+	}
+}
+
 
 $.ajaxSetup({
 	headers: {
-	  'Authorization': "Basic " +btoa($username + ":" + $password)
+	  'Authorization': "Basic " + localStorage.getItem('auth')
 	}
 });
+
 
 $(document).ready(function() {
 	

@@ -166,8 +166,13 @@ function edit_employeeList()
 				
 				$theAvjobs			= $('#Avjobs option:selected').data('id');
 				$theAvDirectEmp	 	= $('#AvDirectEmp option:selected').data('id');
+<<<<<<< HEAD
+				$thecvformFile = $('#cvformFile').prop('files')[0];
+				$theidformFile = $('#idformFile').prop('files')[0];
+=======
 				$thecvformFile      = $('#cvformFile').prop('files')[0];
 				$theidformFile      = $('#idformFile').prop('files')[0];
+>>>>>>> 73be29d712a2b323ff51ae09114f85ee297fce63
 				$theselfpicformFile = $('#selfpicformFile').prop('files')[0];
 				$theconractformFile = $('#conractformFile').prop('files')[0];
 				$theinsformFile 	= $('#insformFile').prop('files')[0];
@@ -199,7 +204,6 @@ function edit_employeeList()
 					"salary": $theempsallary,
 					"the_contract_time": $thecontacttime,
 					"direct_manager": $theAvDirectEmp ,
-
 					"ProfileImg": $theselfpicformFile,
 					"CV": $thecvformFile,
 					"national_id": $theidformFile,

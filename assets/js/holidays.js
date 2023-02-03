@@ -99,6 +99,91 @@ function delete_week_holiday(){
 
 
 
+
+// get yaerly hoiday 
+
+$.getJSON("http://seifeldeen.pythonanywhere.com/hr/list-yearly-leave/", function (data) {
+    
+    for (var i = 0; i < data.length; i++) 
+    {
+        
+        $('.yearly-holiday').append(`
+        <tr class="yearly-holiday-row-${data[i].id} holiday-upcoming">
+        <td>${i + 1}</td>
+        <td>${data[i].name}</td>
+        <td>${data[i].date}</td>
+        <td class="">
+            <div class="dropdown dropdown-action">
+                <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item delete-yearly-holiday" href="#" data-id=${data[i].id} data-bs-toggle="modal" data-bs-target="#delete_holiday"><i class="fa fa-trash-o m-r-5"></i> حذف</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+        `);
+    }	
+
+    delete_yaerly_holiday();
+    
+})
+
+// add yearly hoiday 
+
+
+$('#add_yearly_holiday').click(function () {
+    
+    $holiday_name   = $('#yearly_holiday_name').val();
+    $holiday_date   = $('#yearly_holiday_Date').val();
+    
+    $.ajax({
+        url: `http://seifeldeen.pythonanywhere.com/hr/add-yearly-leave/`,
+        type: 'post',
+        data:{
+            name  : $holiday_name,
+            date  : $holiday_date
+        },
+        success : function () {
+            location.reload();
+        },
+
+    });
+
+    
+})
+
+// delete yaerly holiday 
+
+function delete_yaerly_holiday(){
+    
+    $('.delete-yearly-holiday').click(function(){
+        $id= $(this).attr('data-id');
+    
+
+        $('.delete_holiday_btn').click(function(){
+                    
+            $.ajax({
+                url: `http://seifeldeen.pythonanywhere.com/hr/delete-yearly-leave/${$id}/`,
+                type: 'DELETE'
+            });
+            
+            $('.yearly-holiday-row-' + $id).hide('slow');
+            
+        })
+        
+    })
+    
+    
+}
+
+
+
+
+
+
+
+
+
 // Add other holidays
 
 $('#add_other_holiday_btn').click(function () {
