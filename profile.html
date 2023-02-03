@@ -2003,16 +2003,6 @@
 		   `)
 
 
-           var thepicfile = $('.bic_file');
-		   if($('.bic_file').files.length>0){
-               thepicfile = data.ProfileImg;
-			   
-			   console.log(thepicfile)
-	        }else{
-				console.log(thepicfile)
-			}
-
-
 			$("#select_bank").change(function() {
 			if($(this).val() == 'Paypal'){
 				if(data.paypal_email == null){
@@ -2062,7 +2052,7 @@
 								<input class="form-control" type="text bankIban" value="${data.bank_account_iban}">
 							</div>
 						</div>
-					`	)
+					`)
 				 $(".paybalContent").hide()
 				}
 			});
@@ -2090,10 +2080,15 @@
    
 
  $('.profile_info_sup').on('click', function () {
+
+
+	
+
 	
 
 	$('.loading-overlay').fadeIn();
-    $thepicfile = $('.bic_file').prop("files")[0];
+
+
 	$theempfirstname = $('.firstName').val();
     $theemplastname =  $('.lastName').val();
 	$theempdatebirth =  $('.birthday').val();
@@ -2105,20 +2100,42 @@
 	$jopTitle = $('#jopTitle option:selected').data('id');
 	$directManager = $('#AvDirectEmp option:selected').data('id');
 	
-	
-	thedata = {
-		"ProfileImg":  $thepicfile,
-		"first_name": $theempfirstname,
-		"last_name": $theemplastname,
-		"email": $theempmail,
-		"birthday": $theempdatebirth,
-		"gender": $theempgender,
-		"caontact_number": $theempphone,
-		"JobTitle": $jopTitle,
-		"direct_manager": $directManager,
-		"email": $theempmail,
-		"address": $theempmail,
-	}
+		// youssef	
+
+			if($('.bic_file')[0].files.length > 0){
+
+				thedata = {
+				"ProfileImg":  $('.bic_file').prop("files")[0],
+				"first_name": $theempfirstname,
+				"last_name": $theemplastname,
+				"email": $theempmail,
+				"birthday": $theempdatebirth,
+				"gender": $theempgender,
+				"caontact_number": $theempphone,
+				"JobTitle": $jopTitle,
+				"direct_manager": $directManager,
+				"email": $theempmail,
+				"address": $theempmail,
+			}
+
+
+			} else {
+
+				thedata = {
+				"first_name": $theempfirstname,
+				"last_name": $theemplastname,
+				"email": $theempmail,
+				"birthday": $theempdatebirth,
+				"gender": $theempgender,
+				"caontact_number": $theempphone,
+				"JobTitle": $jopTitle,
+				"direct_manager": $directManager,
+				"email": $theempmail,
+				"address": $theempmail,
+			}
+
+			}
+
 	var fd = new FormData();
 	for ( var key in thedata ) {
 		fd.append(key, thedata[key]);
