@@ -2073,7 +2073,7 @@
              //  console.log(data)
 				for(var x in data){
 					$("#jopTitle").prepend(`
-					  <option  value="${data[x].$JopTitle}"  data-id=${data[x].id}>${data[x].JobTitle}</option>
+					  <option  value="${data[x].$JopTitle}"  data-id=${data[x].id} selected>${data[x].JobTitle}</option>
 					`)
 				 }
 			     
@@ -2100,13 +2100,7 @@
 	$jopNumber = $('.jopNumber').val();
 	$jopTitle = $('#jopTitle option:selected').data('id');
 	$directManager = $('#AvDirectEmp option:selected').data('id');
-	if( $('.bic_file') == ""){
-		$thepicfile = $profilImage;
-		alert("done")
-	}else{
-		$thepicfile = $('.bic_file').prop("files")[0];
-		alert("error")
-	}
+	
 	
 		// youssef	
 
@@ -2182,7 +2176,7 @@
 
 							$('#AvDirectEmp').append(`<option value="${data[i].username}"  data-id=${data[i].id} >${data[i].username}</option>`);
 						}	
-						//$("#AvDirectEmp").text(data.$username)
+						
 					
 					}
 				
@@ -2287,17 +2281,28 @@
 		  })
 
 		  $('.Bank_submit_btn').on('click', function () {
-             $thepaypalemail = $(".paypalEmail").val;
+
+			 $thepaypalemail = $(".paypalEmail").val;
              $thebankname = $(".bankName").val;
              $thebankacc = $(".bankAcc").val;
              $thebankipan = $(".bankIban").val;
 
-			 thedata = {
+			if($("#select_bank").val() == 'Paypal'){
+				thedata = {
 				"paypal_email": $thepaypalemail,
+			    }
+			}else{
+                thedata = {
 				"bank_name": $thebankname,
 				"bank_account": $thebankacc,
 				"bank_account_iban": $thebankipan,
-			 }
+				}
+			}
+			
+			
+           
+              
+			
 			 var fd = new FormData();
 				 for ( var key in thedata ) {
 						fd.append(key, thedata[key]);
@@ -2323,8 +2328,8 @@
 						console.log(XMLHttpRequest)
 					}   
 				 })
-
-		  })
+				})
+		  
 
 
 
