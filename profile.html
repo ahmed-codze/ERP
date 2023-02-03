@@ -2097,7 +2097,7 @@
 	$jopNumber = $('.jopNumber').val();
 	$jopTitle = $('#jopTitle option:selected').data('id');
 	$directManager = $('#AvDirectEmp option:selected').data('id');
-	if($('.firstName') == null){
+	if( $('.bic_file') == ""){
 		$thepicfile = $profilImage;
 		alert("done")
 	}else{
@@ -2105,7 +2105,7 @@
 		alert("error")
 	}
 	
-	console.log($('.firstName'))
+	
 	thedata = {
 		"ProfileImg":  $thepicfile,
 		"first_name": $theempfirstname,
