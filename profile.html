@@ -945,7 +945,7 @@
 										</div>
 									</div>
 									<div class="submit-section">
-										<button class="btn btn-primary submit-btn personal_info_sup">Submit</button>
+										<button class="btn btn-primary submit-btn profile_info_sup">Submit</button>
 									</div>
 								</form>
 							</div>
@@ -970,7 +970,7 @@
 										
 									</div>
 									<div class="submit-section">
-										<button class="btn btn-primary submit-btn " >Submit</button>
+										<button class="btn btn-primary personal_submit_btn " >Submit</button>
 									</div>
 								</form>
 							</div>
@@ -990,7 +990,7 @@
 								</button>
 							</div>
 							<div class="modal-body">
-								<form>
+								<form action="JavaScript:void(0)">
 									<div class="row bank_acc_info">
 										<div class="col-md-6">
 											<div class="form-group">
@@ -1005,7 +1005,7 @@
 										
 									</div>
 									<div class="submit-section">
-										<button class="btn btn-primary submit-btn">Submit</button>
+										<button class="btn btn-primary submit-btn Bank_submit_btn">Submit</button>
 									</div>
 								</form>
 							</div>
@@ -1019,17 +1019,20 @@
 					<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title">Personal Information</h5>
+								<h5 class="modal-title">Family Information</h5>
 								<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
 							<div class="modal-body">
-								<form>
+								<form action="JavaScript:void(0)">
 									<div class="row family-row">
-										
+										<div class="submit-section">
+											<button class="btn btn-primary submit-btn family_submit_btn">Submit</button>
+									  </div>
 								</form>
 							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -1729,8 +1732,9 @@
 
 
 			// get user data 
-
+               $profilImage = 0
 			$.getJSON('http://seifeldeen.pythonanywhere.com/hr/emp-data/'+user_id+'/', function (data) {
+				$profilImage  = data.ProfileImg
 				$('.profile-img img').attr('src', data.ProfileImg)
 				$('.primary-info').prepend(`
 						<h3 class="user-name m-t-0 mb-0">${data.first_name} ${data.last_name}</h3>
@@ -1877,20 +1881,20 @@
 				     <div class="col-md-6">
 							<div class="form-group">
 								<label>الفرع</label>
-								<input type="text" class="form-control" value="${data.branch}">
+								<input type="text" class="form-control Branch" value="${data.branch}">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>الحاله</label>
-								<input class="form-control" type="text" value="${data.emp_type}">
+								<input class="form-control Emp_Type" type="text" value="${data.emp_type}">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>تاريخ الانضمام</label>
 								<div class="cal-icon">
-									<input class="form-control datetimepicker" type="text" value="${data.date_joined}">
+									<input class="form-control datetimepicker dataJoined" type="text" value="${data.date_joined}">
 								</div>
 							</div>
 						</div>
@@ -1898,66 +1902,65 @@
 							<div class="form-group">
 								<label>تاريخ انتهاء العقد </label>
 								<div class="cal-icon">
-									<input class="form-control datetimepicker" type="text" value="${data.the_contract_time}">
+									<input class="form-control datetimepicker end_date" type="text" value="${data.the_contract_time}">
 								</div>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<label>المرتب</label>
-								<input class="form-control salary" type="text" value="${data.salary} ر.س">
+								<input class="form-control salary salaryData" type="text" value="${data.salary} ">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>السيره الذاتية </label>
-								<input class="form-control" type="file">
+								<input class="form-control cvData" type="file">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>التأمين </label>
-								<input class="form-control" type="file">
+								<input class="form-control insurance" type="file">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>بطاقة الهوية</label>
-								<input class="form-control" type="file">
+								<input class="form-control idCard" type="file">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>صوره العقد</label>
-								<input class="form-control" type="file">
+								<input class="form-control contractData" type="file">
 							</div>
 				   </div>
 				 `);
+				 console.log(data)
 				 $('.family-row').prepend(`
-				   <div class="col-md-6">
+				    <div class="col-md-6">
 							<div class="form-group">
 								<label>الاسم <span class="text-danger">*</span></label>
-								<input class="form-control" type="text" value="${data.family_name}">
+								<input class="form-control familyName" type="text" value="${data.family_name}">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>صلة القرابة<span class="text-danger">*</span></label>
-								<input class="form-control" type="text" value="${data.family_relation}">
+								<input class="form-control familyRelation" type="text" value="${data.family_relation}">
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<label>الهاتف <span class="text-danger">*</span></label>
-								<input class="form-control" type="text" value="${data.emergancy_contact}">
+								<input class="form-control emergancyContact" type="text" value="${data.emergancy_contact}">
 							</div>
 						</div>
 						
 						
 					</div>
-					<div class="submit-section">
-						<button class="btn btn-primary submit-btn">Submit</button>
-				  </div>
+					
 				 `);
 
 
@@ -1999,8 +2002,6 @@
            $(".bank_modal_select").prepend(`
 		       
 		   `)
-           
-
 
 
 			$("#select_bank").change(function() {
@@ -2012,11 +2013,15 @@
 					<div class="col-md-6 paybalContent">
 						<div class="form-group">
 							<label>Paypal Email <span class="text-danger">*</span></label>
-							<input class="form-control" type="text" value="${data.paypal_email}">
+							<input class="form-control paypalEmail" type="text" value="${data.paypal_email}">
 						</div>
 					</div>
 				`)
 				$(".bankContent").hide()
+			}
+			else if($(this).val() == '-'){
+				$(".bankContent").hide()
+				$(".paybalContent").hide()
 			}
 			else{
 				if(data.bank_name == null){
@@ -2033,22 +2038,22 @@
 						<div class="col-md-6 bankContent">
 							<div class="form-group">
 								<label>اسم البنك</label>
-								<input type="text" class="form-control" value="${data.bank_name}">
+								<input type="text" class="form-control bankName" value="${data.bank_name}">
 							</div>
 						</div>
 						<div class="col-md-6 bankContent">
 							<div class="form-group">
 								<label>Bank Account</label>
-								<input class="form-control" type="text" value="${data.bank_account}">
+								<input class="form-control" type="text bankAcc" value="${data.bank_account}">
 							</div>
 						</div>
 						<div class="col-md-6 bankContent">
 							<div class="form-group">
 								<label>Bank Account Ipan</label>
-								<input class="form-control" type="text" value="${data.bank_account_iban}">
+								<input class="form-control" type="text bankIban" value="${data.bank_account_iban}">
 							</div>
 						</div>
-					`	)
+					`)
 				 $(".paybalContent").hide()
 				}
 			});
@@ -2068,18 +2073,23 @@
              //  console.log(data)
 				for(var x in data){
 					$("#jopTitle").prepend(`
-					  <option  value="${data[x].$JopTitle}"  data-id=${data[x].id}>${data[x].JobTitle}</option>
+					  <option  value="${data[x].$JopTitle}"  data-id=${data[x].id} selected>${data[x].JobTitle}</option>
 					`)
 				 }
 			     
 			})
    
 
- $('.personal_info_sup').on('click', function () {
+ $('.profile_info_sup').on('click', function () {
+
+
+	
+
 	
 
 	$('.loading-overlay').fadeIn();
-    $thepicfile = $('.bic_file').prop("files")[0];
+
+
 	$theempfirstname = $('.firstName').val();
     $theemplastname =  $('.lastName').val();
 	$theempdatebirth =  $('.birthday').val();
@@ -2091,19 +2101,43 @@
 	$jopTitle = $('#jopTitle option:selected').data('id');
 	$directManager = $('#AvDirectEmp option:selected').data('id');
 	
-	thedata = {
-		"ProfileImg":  $thepicfile,
-		"first_name": $theempfirstname,
-		"last_name": $theemplastname,
-		"email": $theempmail,
-		"birthday": $theempdatebirth,
-		"gender": $theempgender,
-		"caontact_number": $theempphone,
-		"JobTitle": $jopTitle,
-		"direct_manager": $directManager,
-		"email": $theempmail,
-		"address": $theempmail,
-	}
+	
+		// youssef	
+
+			if($('.bic_file')[0].files.length > 0){
+
+				thedata = {
+				"ProfileImg":  $('.bic_file').prop("files")[0],
+				"first_name": $theempfirstname,
+				"last_name": $theemplastname,
+				"email": $theempmail,
+				"birthday": $theempdatebirth,
+				"gender": $theempgender,
+				"caontact_number": $theempphone,
+				"JobTitle": $jopTitle,
+				"direct_manager": $directManager,
+				"email": $theempmail,
+				"address": $theempmail,
+			}
+
+
+			} else {
+
+				thedata = {
+				"first_name": $theempfirstname,
+				"last_name": $theemplastname,
+				"email": $theempmail,
+				"birthday": $theempdatebirth,
+				"gender": $theempgender,
+				"caontact_number": $theempphone,
+				"JobTitle": $jopTitle,
+				"direct_manager": $directManager,
+				"email": $theempmail,
+				"address": $theempmail,
+			}
+
+			}
+
 	var fd = new FormData();
 	for ( var key in thedata ) {
 		fd.append(key, thedata[key]);
@@ -2132,8 +2166,8 @@
 
 			});
 
-})
-$.getJSON("http://seifeldeen.pythonanywhere.com/hr/somedata/",function(data)
+    })
+            $.getJSON("http://seifeldeen.pythonanywhere.com/hr/somedata/",function(data)
 					//get mangement to add department
 					{
 
@@ -2142,13 +2176,163 @@ $.getJSON("http://seifeldeen.pythonanywhere.com/hr/somedata/",function(data)
 
 							$('#AvDirectEmp').append(`<option value="${data[i].username}"  data-id=${data[i].id} >${data[i].username}</option>`);
 						}	
-						//$("#AvDirectEmp").text(data.$username)
+						
 					
 					}
 				
 				);
-			
+
+                //jop data
+				$('.personal_submit_btn').on('click', function () {
 	
+
+	             //$('.loading-overlay').fadeIn();
+
+			     $theBranch = $(".Branch").val();
+                 $thestatu = $(".Emp_Type").val();
+				 $thejoindate = $(".dataJoined").val();
+				 $theenddate = $(".end_date").val();
+				 $thesalary = $(".salaryData").val();
+				 $thecvdata = $(".cvData").prop("files")[0];
+				 $theinsurance = $(".insurance").prop("files")[0];
+				 $theidcard = $(".idCard").prop("files")[0];
+				 $thecontract = $(".contractData").prop("files")[0];
+
+				 thedata = {
+					//"branch" : $theBranch,
+					"emp_type": $thestatu,
+					"date_joined": $thejoindate,
+					"the_contract_time": $theenddate,
+					"salary":$thesalary,
+					"insurance":$theinsurance,
+					"CV":$thecvdata,
+					"national_id":$theidcard,
+					"contract_copy":$thecontract,
+
+				 }
+				 var fd = new FormData();
+				 for ( var key in thedata ) {
+						fd.append(key, thedata[key]);
+				 }
+				 $.ajax({
+			
+					url: 'http://seifeldeen.pythonanywhere.com/hr/update-emp/'+user_id+'/',
+					type: 'PUT',
+					dataType : "json",
+					// Form data
+					data: fd,
+					cache: false,
+					contentType: false,
+					processData: false,
+
+					success: function(){  
+						location.reload()
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) { 
+						
+						obj = XMLHttpRequest.responseJSON;
+						console.log(errorThrown)
+						console.log(obj)
+						console.log(XMLHttpRequest)
+					}    
+
+			});
+
+          })
+    
+		  $('.family_submit_btn').on('click', function () {
+             $thefamilyname = $(".familyName").val();
+			 $thefamilyrelation = $(".familyRelation").val();
+			 $thefamilycontact = $(".emergancyContact").val();
+
+			 thedata ={
+				"family_name": $thefamilyname,
+				"family_relation": $thefamilyrelation,
+				"emergancy_contact": $thefamilycontact,
+			 }
+			 var fd = new FormData();
+				 for ( var key in thedata ) {
+						fd.append(key, thedata[key]);
+				 }
+				 $.ajax({
+					url: 'http://seifeldeen.pythonanywhere.com/hr/update-emp/'+user_id+'/',
+					type: 'PUT',
+					dataType : "json",
+					// Form data
+					data: fd,
+					cache: false,
+					contentType: false,
+					processData: false,
+
+					success: function(){  
+						location.reload()
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) { 
+						
+						obj = XMLHttpRequest.responseJSON;
+						console.log(errorThrown)
+						console.log(obj)
+						console.log(XMLHttpRequest)
+					}   
+				 })
+
+
+
+		  })
+
+		  $('.Bank_submit_btn').on('click', function () {
+
+			 $thepaypalemail = $(".paypalEmail").val;
+             $thebankname = $(".bankName").val;
+             $thebankacc = $(".bankAcc").val;
+             $thebankipan = $(".bankIban").val;
+
+			if($("#select_bank").val() == 'Paypal'){
+				thedata = {
+				"paypal_email": $thepaypalemail,
+			    }
+			}else{
+                thedata = {
+				"bank_name": $thebankname,
+				"bank_account": $thebankacc,
+				"bank_account_iban": $thebankipan,
+				}
+			}
+			
+			
+           
+              
+			
+			 var fd = new FormData();
+				 for ( var key in thedata ) {
+						fd.append(key, thedata[key]);
+				 }
+				 $.ajax({
+					url: 'http://seifeldeen.pythonanywhere.com/hr/update-emp/'+user_id+'/',
+					type: 'PUT',
+					dataType : "json",
+					// Form data
+					data: fd,
+					cache: false,
+					contentType: false,
+					processData: false,
+
+					success: function(){  
+						location.reload()
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) { 
+						
+						obj = XMLHttpRequest.responseJSON;
+						console.log(errorThrown)
+						console.log(obj)
+						console.log(XMLHttpRequest)
+					}   
+				 })
+				})
+		  
+
+
+
 
 		</script>
 				 <!-- Theme Settings JS -->
