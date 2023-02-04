@@ -112,13 +112,13 @@ $.getJSON(`http://seifeldeen.pythonanywhere.com/hr/emp-data/${localStorage.getIt
 			console.log(data2[i].the_leave.id);
 			for(i in data2)
 			{
-				if(data2[i].accepted== true)
+				if(data2[i].accepted_by_hr_manager== true)
 					{
 						document.getElementById("currant_state-"+ data2[i].id).innerHTML = " موافقه"; 
 						document.getElementById("currant_state-"+ data2[i].id).classList.add("text-success");
 						
 					}
-					else if(data2[i].accepted==false)
+					else if(data2[i].accepted_by_hr_manager==false || data2[i].accepted_by_direct_manager==false)
 					{
 						document.getElementById("currant_state-"+ data2[i].id).innerHTML = " رفض "; 
 						document.getElementById("currant_state-"+ data2[i].id).classList.add("text-danger");
@@ -130,7 +130,7 @@ $.getJSON(`http://seifeldeen.pythonanywhere.com/hr/emp-data/${localStorage.getIt
 						document.getElementById("currant_state-"+ data2[i].id).innerHTML = " معلقة "; 
 						document.getElementById("currant_state-"+ data2[i].id).classList.add("text-purple");
 					}
-					console.log(data2[i].accepted);
+					console.log(data2[i].accepted_by_hr_manager);
 			}
 					
 	

@@ -46,13 +46,13 @@ $.getJSON('https://seifeldeen.pythonanywhere.com/hr/list-leave-request-managment
                                 </td>
                                 </tr>
                                 `)
-                                if(data[i].accepted_by_direct_manager== true)
+                                if(data[i].accepted_by_hr_manager== true)
                                 {
                                     document.getElementById("currant_state-"+ data[i].id).innerHTML = " موافقه"; 
                                     document.getElementById("currant_state-"+ data[i].id).classList.add("text-success");
                                     document.getElementById("cahnge-state-"+ data[i].id).remove();
                                 }
-                                else if(data[i].accepted_by_direct_manager==false)
+                                else if(data[i].accepted_by_hr_manager==false)
                                 {
                                     document.getElementById("currant_state-"+ data[i].id).innerHTML = "رفض"; 
                                     document.getElementById("currant_state-"+ data[i].id).classList.add("text-danger");
@@ -87,11 +87,11 @@ $.getJSON('https://seifeldeen.pythonanywhere.com/hr/list-leave-request-managment
                  {
 			
                     $.ajax({
-                        url: `https://seifeldeen.pythonanywhere.com/hr/response-to-leave-request-managment/${$id}/`,
+                        url: `https://seifeldeen.pythonanywhere.com/hr/response-to-leave-request-hr-managment/${$id}/`,
                         type: 'PUT',
                         data: 
                         {
-                            accepted_by_direct_manager:$status_value,
+                            accepted_by_hr_manager:$status_value,
                         },
                         success: function(){  
                             location.reload()

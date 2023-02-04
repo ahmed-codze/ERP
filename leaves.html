@@ -985,7 +985,15 @@
 		<script src="assets/js/app.js"></script>
 		
 		<!-- leaves JS -->
-		<script src="assets/js/leaves.js"></script>
+
+		<script>
+			if(localStorage.getItem("id") == 31) {
+				document.write('<script src="assets/js/leaveshradmin.js"><\/script>');
+			} else {
+				document.write('<script src="assets/js/leaves.js"><\/script>');
+			}
+		</script>
+
 		
     </body>
 </html>
