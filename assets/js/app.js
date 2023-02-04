@@ -8,8 +8,12 @@ if ( !localStorage.getItem('auth')){
 	if (window.location.href != window.location.origin + '/' ){
 		window.location.href = window.location.origin;
 	}
-}
+};
 
+
+if (localStorage.getItem('is_direct_manager') == 0 ){
+	$('#leave-link').remove()
+};
 
 $.ajaxSetup({
 	headers: {
