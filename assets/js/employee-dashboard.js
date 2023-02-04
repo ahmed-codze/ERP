@@ -22,7 +22,7 @@ $.getJSON("https://seifeldeen.pythonanywhere.com/hr/list-avuser-leave/",function
 
 
 // get welocme card
-$.getJSON(`http://seifeldeen.pythonanywhere.com/hr/emp-data/30/`, function (data) 
+$.getJSON(`http://seifeldeen.pythonanywhere.com/hr/emp-data/${localStorage.getItem("id")}/`, function (data) 
 	{
 
 			
@@ -51,16 +51,23 @@ $.getJSON(`http://seifeldeen.pythonanywhere.com/hr/emp-data/30/`, function (data
 			type: 'POST',
 			data: 
 			{
-				leave_name: $('#hodidays_option  option:selected').val(),
+				the_leave: $('#hodidays_option  option:selected').val(),
 				number_of_days_requested: $("#num_of_holiday").val(),
 				started_at: $("#start_date_of_holiday").val(),
 				available_for_this_user:data.id,		
 				success : function () 
 				{
-					location.reload();
-					// console.log('done')
+					// location.reload();
+					 console.log($('#hodidays_option  option:selected').val())
+					 console.log($("#num_of_holiday").val());
+					 console.log($("#start_date_of_holiday").val());
+					 console.log(data.id);
+					 location.reload();
+				},
+				error :function(xhr,state,err){
+					console.log(xhr);
+					console.log(err);
 				}
-				
 				
 			},
 			
@@ -87,7 +94,7 @@ $.getJSON(`http://seifeldeen.pythonanywhere.com/hr/emp-data/30/`, function (data
 						<div class="dropdown action-label">
 							<a class="btn btn-white btn-sm btn-rounded " href="#" data-bs-toggle="dropdown" aria-expanded="false">
 							
-							<i class="fa fa-dot-circle-o "id="currant_state-${data2.id}"></i> 
+							<i class="fa fa-dot-circle-o "id="currant_state-${data2[i].id}"></i> 
 							</a>
 							
 							
@@ -103,24 +110,29 @@ $.getJSON(`http://seifeldeen.pythonanywhere.com/hr/emp-data/30/`, function (data
 		
 		
 			console.log(data2[i].the_leave.id);
-					if(data2.accepted== true)
+			for(i in data2)
+			{
+				if(data2[i].accepted== true)
 					{
-						document.getElementById("currant_state-"+ data2.id).innerHTML = " موافقه"; 
-						document.getElementById("currant_state-"+ data2.id).classList.add("text-success");
-						document.getElementById("cahnge-state-"+ data2.id).remove();
+						document.getElementById("currant_state-"+ data2[i].id).innerHTML = " موافقه"; 
+						document.getElementById("currant_state-"+ data2[i].id).classList.add("text-success");
+						
 					}
-					else if(data.accepted==false)
+					else if(data2[i].accepted==false)
 					{
-						document.getElementById("currant_state-"+ data2.id).innerHTML = "رفض"; 
-						document.getElementById("currant_state-"+ data2.id).classList.add("text-danger");
-						document.getElementById("cahnge-state-"+ data2.id).remove();
+						document.getElementById("currant_state-"+ data2[i].id).innerHTML = " رفض "; 
+						document.getElementById("currant_state-"+ data2[i].id).classList.add("text-danger");
+						
 						
 					}
 					else
 					{
-						document.getElementById("currant_state-"+ data2.id).innerHTML = " معلقة "; 
-						document.getElementById("currant_state-"+ data2.id).classList.add("text-purple");
+						document.getElementById("currant_state-"+ data2[i].id).innerHTML = " معلقة "; 
+						document.getElementById("currant_state-"+ data2[i].id).classList.add("text-purple");
 					}
+					console.log(data2[i].accepted);
+			}
+					
 	
 				
 	})

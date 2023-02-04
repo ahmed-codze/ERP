@@ -1,4 +1,4 @@
-
+$('a:contains("عرض الاجازات")').addClass('active');
 
 //  console.log($('.dropdown-menu  .dropdown-item:selected').val());
 
